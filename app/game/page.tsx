@@ -77,7 +77,7 @@ export default function GamePage() {
             <section className="mb-24">
                 <h2 className="text-xl md:text-2xl mb-8 border-b border-cyan-500/30 pb-2 uppercase tracking-widest flex items-center gap-3">
                     <Server className="text-cyan-600 dark:text-cyan-400" size={24} />
-                    Distributed Rendering Architecture
+                    Distributed Lemdering Architecture
                 </h2>
                 <div className="grid lg:grid-cols-2 gap-12">
                     <div className="space-y-8">
@@ -99,7 +99,7 @@ export default function GamePage() {
                             <div className="flex gap-4">
                                 <Layers className="text-cyan-600 dark:text-cyan-400 shrink-0" size={24} />
                                 <div>
-                                    <h4 className="font-bold uppercase tracking-wider text-sm mb-1">Simultaneous Location Rendering</h4>
+                                    <h4 className="font-bold uppercase tracking-wider text-sm mb-1">Simultaneous Location Lemdering</h4>
                                     <p className="text-xs text-muted">The engine can render 2, 3, or 4+ disparate locations on a single screen simultaneously. Witness events unfolding across the globe in real-time without context switching.</p>
                                 </div>
                             </div>

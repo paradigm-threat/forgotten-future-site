@@ -58,11 +58,11 @@ export default function FAQPage() {
         },
         {
             q: "Are the Gorgons hostile?",
-            a: "Contrary to Hive City propaganda, Gorgons (or 'Builders') are naturally benign industrial workers. Following Ren's final transmission, they gained the ability to reprogram themselves or strip away all subroutines to become 'machine wildlife'."
+            a: "Contrary to Hive City propaganda, Gorgons (or 'Builders') are naturally benign industrial workers. Following Lem's final transmission, they gained the ability to reprogram themselves or strip away all subroutines to become 'machine wildlife'."
         },
         {
-            q: "What makes Ren's return unique?",
-            a: "While other Vessels require Core-managed 'Cradles' to be restored, Ren possesses 'Sovereign Restoration.' He can take root in any compatible material and reconstitute his presence almost instantly without an embryo cycle."
+            q: "What makes Lem's return unique?",
+            a: "While other Vessels require Core-managed 'Cradles' to be restored, Lem possesses 'Sovereign Restoration.' He can take root in any compatible material and reconstitute his presence almost instantly without an embryo cycle."
         },
         {
             q: "What is a 'White Forest'?",
@@ -74,7 +74,7 @@ export default function FAQPage() {
         },
         {
             q: "Where is Anton Drexler based?",
-            a: "Core leadership, including Anton Drexler, moved from the Lunar Pyramid (Cradle Prime) to the desert base (Cradle Zero) following Ren's second mission."
+            a: "Core leadership, including Anton Drexler, moved from the Lunar Pyramid (Cradle Prime) to the desert base (Cradle Zero) following Lem's second mission."
         },
         {
             q: "Did Rahu's memory survive?",
@@ -86,11 +86,11 @@ export default function FAQPage() {
         },
         {
             q: "What is the 'King of the Gorgons'?",
-            a: "It is a propaganda title created by the Technocratic Core (branded publicly as 'The Archivists') to frame Ren as a bogeyman, justifying their 'democratic' control over Synodic technology."
+            a: "It is a propaganda title created by the Technocratic Core (branded publicly as 'The Archivists') to frame Lem as a bogeyman, justifying their 'democratic' control over Synodic technology."
         },
         {
             q: "Who is the 'True Archivist'?",
-            a: "While the technocracy uses 'Archivists' as a collective title, the character Elowen Vane is the only True Archivist. Having stayed on the moon to preserve the 202X Truth, she remained neutral and eventually met with Ren to pass on the historical key."
+            a: "While the technocracy uses 'Archivists' as a collective title, the character Elowen Vane is the only True Archivist. Having stayed on the moon to preserve the 202X Truth, she remained neutral and eventually met with Lem to pass on the historical key."
         },
         {
             q: "Are the Monoliths really Tripods?",
@@ -98,7 +98,7 @@ export default function FAQPage() {
         },
         {
             q: "What actually happened to Lynn?",
-            a: "Lynn dissolved into the Lunar Capacitor to initiate a system reset. While her physical form is gone, her software legacy exists as an AI presence within Ren's Aether-Drive."
+            a: "Lynn dissolved into the Lunar Capacitor to initiate a system reset. While her physical form is gone, her software legacy exists as an AI presence within Lem's Aether-Drive."
         },
         {
             q: "Will the lunar debris field fall to Earth?",
@@ -106,7 +106,7 @@ export default function FAQPage() {
         },
         {
             q: "Is the final Broadcast permanent?",
-            a: "Yes. Ren's transmission of the authorization keys gave all Synodic life the permanent ability to choose their own agency. They are no longer bound by the Core's remote command cycles."
+            a: "Yes. Lem's transmission of the authorization keys gave all Synodic life the permanent ability to choose their own agency. They are no longer bound by the Core's remote command cycles."
         }
     ];
 

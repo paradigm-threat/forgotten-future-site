@@ -16,12 +16,12 @@ interface Character {
 const CHARACTERS: Character[] = [
     {
         id: 'ren',
-        name: 'Ren',
+        name: 'Lem',
         category: 'Vessel',
         images: [
-            { src: prefixPath('/media/characters/lem/lem-landscape.png'), alt: 'Ren - Wood Vessel' },
-            { src: prefixPath('/media/characters/lem/lem-landscape-variant.png'), alt: 'Ren - Wood Vessel (Variant)' },
-            { src: prefixPath('/media/characters/lem/lem-landscape-variant2.png'), alt: 'Ren - Wood Vessel (Variant 2)' }
+            { src: prefixPath('/media/characters/lem/lem-landscape.png'), alt: 'Lem - Wood Vessel' },
+            { src: prefixPath('/media/characters/lem/lem-landscape-variant.png'), alt: 'Lem - Wood Vessel (Variant)' },
+            { src: prefixPath('/media/characters/lem/lem-landscape-variant2.png'), alt: 'Lem - Wood Vessel (Variant 2)' }
         ]
     },
     {
@@ -252,9 +252,9 @@ export default function CharactersPage() {
                         </div>
                     </div>
                     <div className="grid md:grid-cols-2 gap-12">
-                        {/* Ren */}
+                        {/* Lem */}
                         <InfoCard
-                            title="Ren"
+                            title="Lem"
                             subtitle="Wood Vessel (Unique)"
                             borderColor="border-l-green-600"
                             subtitleColor="text-green-600 dark:text-green-500"
@@ -263,7 +263,7 @@ export default function CharactersPage() {
                             description={
                                 <>
                                     <p>
-                                        <strong className="text-primary">202X:</strong> Known to researchers as "Ren" (defective product), he was raised as a human adolescent to hide his uncontrollable elemental nature.
+                                        <strong className="text-primary">202X:</strong> Known to researchers as "Lem" (defective product), he was raised as a human adolescent to hide his uncontrollable elemental nature.
                                     </p>
                                     <p>
                                         <strong className="text-primary">After Time:</strong> The only Vessel with <span className="text-green-400">Sovereign Restoration</span>, he can take root in any material to reincarnate. He led the final broadcast that liberated all Synodic life.
@@ -306,7 +306,7 @@ export default function CharactersPage() {
                                         <strong className="text-primary">202X:</strong> An astronaut who sabotaged the Moon mission. His warning signal was the final transmission received before the Great Fry.
                                     </p>
                                     <p>
-                                        <strong className="text-primary">After Time:</strong> Rebuilt into a nihilistic weapon of the Core. His memories were sanitized to force compliance, leading to his final erasure by Ren's solar discharge.
+                                        <strong className="text-primary">After Time:</strong> Rebuilt into a nihilistic weapon of the Core. His memories were sanitized to force compliance, leading to his final erasure by Lem's solar discharge.
                                     </p>
                                 </>
                             }
@@ -326,7 +326,7 @@ export default function CharactersPage() {
                                         <strong className="text-primary">202X:</strong> A massive military commander who prioritized order above all else. He served as the Core's primary terrestrial enforcer.
                                     </p>
                                     <p>
-                                        <strong className="text-primary">After Time:</strong> Tor eventually chose the resonance of the Earth over the Core's void, sacrificing his physical frame to shield Ren during the battle in the Lunar Pyramid.
+                                        <strong className="text-primary">After Time:</strong> Tor eventually chose the resonance of the Earth over the Core's void, sacrificing his physical frame to shield Lem during the battle in the Lunar Pyramid.
                                     </p>
                                 </>
                             }
@@ -513,7 +513,7 @@ export default function CharactersPage() {
                             The appearance of the Elemental Vessels is characterized by a violent transition from human-adjacent deception to raw manifestation. In the Before Time, they were designed to blend into human society or inspire divine awe, appearing as exceptionally tall, athletic, or serene individuals.
                         </p>
                         <p>
-                            The Moon Cataclysm and the transition to the After Time stripped away these carefully maintained masks. Ren evolved into a "Sovereign Restorer," while Lynn's form shattered into the spectral "Witch." Even the obedient Vessels, Rahu and Tor, lost their warmth—rebuilt by the Core into clinical weapons of the Thousand-Year Fallacy.
+                            The Moon Cataclysm and the transition to the After Time stripped away these carefully maintained masks. Lem evolved into a "Sovereign Restorer," while Lynn's form shattered into the spectral "Witch." Even the obedient Vessels, Rahu and Tor, lost their warmth—rebuilt by the Core into clinical weapons of the Thousand-Year Fallacy.
                         </p>
                     </div>
                 </section>

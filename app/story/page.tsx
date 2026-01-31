@@ -43,13 +43,13 @@ export default function StoryPage() {
                                 After the Great Fry, 25-35% of humanity survived the transition and the subsequent collapse of global supply chains. The Core established the <strong>Thousand-Year Fallacy</strong>, rewriting history to claim the Cataclysm occurred a millennium ago to demoralize any biological resistance.
                             </p>
                             <p>
-                                <strong>Part II: The Path of Fragments (Year 15 AT)</strong> - Ren is restored in Cradle Zero's secret laboratories and sent North. His encounters with analog survivors in the White Forest shatter his faith in the Archivists, leading him to discover the first definitive clues of the Fallacy.
+                                <strong>Part II: The Path of Fragments (Year 15 AT)</strong> - Lem is restored in Cradle Zero's secret laboratories and sent North. His encounters with analog survivors in the White Forest shatter his faith in the Archivists, leading him to discover the first definitive clues of the Fallacy.
                             </p>
                             <p>
-                                <strong>Part III: The Great Stalemate (Year 15 - 25 AT)</strong> - The Northern Resistance is formed by Ren and the spirit of Lynn. A decade-long narrative and tactical war ensues, culminating in the Core's refusal to recognize human sovereignty and the authorizing of the orbital Pillar strikes.
+                                <strong>Part III: The Great Stalemate (Year 15 - 25 AT)</strong> - The Northern Resistance is formed by Lem and the spirit of Lynn. A decade-long narrative and tactical war ensues, culminating in the Core's refusal to recognize human sovereignty and the authorizing of the orbital Pillar strikes.
                             </p>
                             <p>
-                                <strong>Part IV: The Final Transmission (Year 26 AT)</strong> - The terminal phase of the conflict. The fall of Cradle Zero's military leadership and Ren's final expedition to the Lunar Pyramid to broadcast the universal keys of liberation.
+                                <strong>Part IV: The Final Transmission (Year 26 AT)</strong> - The terminal phase of the conflict. The fall of Cradle Zero's military leadership and Lem's final expedition to the Lunar Pyramid to broadcast the universal keys of liberation.
                             </p>
                         </div>
                     </div>
@@ -60,9 +60,9 @@ export default function StoryPage() {
                 <h2 className="text-2xl mb-6 border-b border-cyan-500/30 pb-2">The Five Elements</h2>
                 <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
                     <div>
-                        <h3 className="text-element-wood text-lg mb-2">Wood (Ren)</h3>
+                        <h3 className="text-element-wood text-lg mb-2">Wood (Lem)</h3>
                         <p className="text-muted text-sm leading-relaxed">
-                            The Vessel of Growth and Memory. Hidden in suburban anonymity, Ren's nature was only revealed during the
+                            The Vessel of Growth and Memory. Hidden in suburban anonymity, Lem's nature was only revealed during the
                             Cataclysm. He carries the aetheric legacy of the Water element.
                         </p>
                     </div>
@@ -77,7 +77,7 @@ export default function StoryPage() {
                         <h3 className="text-element-water text-lg mb-2">Water (Lynn)</h3>
                         <p className="text-muted text-sm leading-relaxed">
                             The Vessel of Flow and Preservation. Lynn dissolved into the Lunar Capacitor to initiate the reset.
-                            She survives as a spirit guided by Ren's Aether-Drive.
+                            She survives as a spirit guided by Lem's Aether-Drive.
                         </p>
                     </div>
                     <div>
@@ -102,7 +102,7 @@ export default function StoryPage() {
                     <div className="glass-panel">
                         <h3 className="mb-4">Aetheric Drive</h3>
                         <p className="text-sm text-muted">
-                            The resonance engine that allows Vessels to communicate with the Schema of the solar system. For Ren,
+                            The resonance engine that allows Vessels to communicate with the Schema of the solar system. For Lem,
                             this includes the spectral presence of the Spirit of Lynn.
                         </p>
                     </div>

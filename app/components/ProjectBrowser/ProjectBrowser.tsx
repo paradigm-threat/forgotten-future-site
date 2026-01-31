@@ -104,7 +104,7 @@ export default function ProjectBrowser() {
                 {error ? (
                     <div className="container mx-auto p-12 text-center">
                         <div className="text-red-500 mb-4 font-mono text-sm">{error}</div>
-                        <Link 
+                        <Link
                             href={getBrowserLink()}
                             className="text-xs text-cyan-500 hover:underline"
                         >
