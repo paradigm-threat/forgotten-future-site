@@ -1,3 +1,4 @@
+4ecb916 Update git-history.json
 ef58b4f Update manuscript, layout, ProjectBrowser, docs and copilot instructions
 bac4e19 add 404 handling and resource loading error states to ProjectBrowser
 0a875ba fix pre-commit by disabling cypress test and sync dashboard

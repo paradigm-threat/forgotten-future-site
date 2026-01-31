@@ -51,8 +51,14 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.78",
+    "version": "v0.11.79",
     "commits": [
+      {
+        "sha": "ef58b4f",
+        "message": "Update manuscript, layout, ProjectBrowser, docs and copilot instructions",
+        "date": "2026-01-31T23:02:56.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/ef58b4f"
+      },
       {
         "sha": "bac4e19",
         "message": "add 404 handling and resource loading error states to ProjectBrowser",
@@ -64,12 +70,6 @@
         "message": "fix pre-commit by disabling cypress test and sync dashboard",
         "date": "2026-01-27T14:49:52.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/0a875ba"
-      },
-      {
-        "sha": "7d474a4",
-        "message": "implement query-string fallback for project browser to support static export",
-        "date": "2026-01-27T14:43:09.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/7d474a4"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"
