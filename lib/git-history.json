@@ -51,25 +51,25 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.79",
+    "version": "v0.11.81",
     "commits": [
+      {
+        "sha": "26eb6b3",
+        "message": "Update git history tracking",
+        "date": "2026-01-31T23:30:23.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/26eb6b3"
+      },
+      {
+        "sha": "4ecb916",
+        "message": "Update git-history.json",
+        "date": "2026-01-31T23:10:47.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/4ecb916"
+      },
       {
         "sha": "ef58b4f",
         "message": "Update manuscript, layout, ProjectBrowser, docs and copilot instructions",
         "date": "2026-01-31T23:02:56.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/ef58b4f"
-      },
-      {
-        "sha": "bac4e19",
-        "message": "add 404 handling and resource loading error states to ProjectBrowser",
-        "date": "2026-01-27T14:52:09.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/bac4e19"
-      },
-      {
-        "sha": "0a875ba",
-        "message": "fix pre-commit by disabling cypress test and sync dashboard",
-        "date": "2026-01-27T14:49:52.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/0a875ba"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

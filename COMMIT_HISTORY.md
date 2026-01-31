@@ -1,3 +1,4 @@
+26eb6b3 Update git history tracking
 4ecb916 Update git-history.json
 ef58b4f Update manuscript, layout, ProjectBrowser, docs and copilot instructions
 bac4e19 add 404 handling and resource loading error states to ProjectBrowser
