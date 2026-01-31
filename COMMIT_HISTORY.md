@@ -1,3 +1,4 @@
+ef58b4f Update manuscript, layout, ProjectBrowser, docs and copilot instructions
 bac4e19 add 404 handling and resource loading error states to ProjectBrowser
 0a875ba fix pre-commit by disabling cypress test and sync dashboard
 7d474a4 implement query-string fallback for project browser to support static export
