@@ -1,25 +1,25 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.101",
+    "version": "v0.13.104",
     "commits": [
       {
-        "sha": "25f3ae9",
-        "message": "Add relics.md with the Glass Locket and Rahu's Sword",
-        "date": "2026-02-01T19:19:39.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/25f3ae9"
+        "sha": "5b50baa",
+        "message": "Rename mission chapters and update Chapter 19 with Rahu's lead suit and Lem's explosion",
+        "date": "2026-02-03T14:39:32.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/5b50baa"
       },
       {
-        "sha": "42a274e",
-        "message": "Implement Invisible Grain plot logic: Myrr's secret copy and final locket return",
-        "date": "2026-02-01T19:17:05.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/42a274e"
+        "sha": "f45a6c1",
+        "message": "Refactor Chapters 15-18: Implement Confabulation twist, move lore to Appendix, insert Awakening arc, and renumber beats for consistency.",
+        "date": "2026-02-03T13:45:06.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/f45a6c1"
       },
       {
-        "sha": "e27b09d",
-        "message": "Refactor Chapter 25, Long Count, and add Selene/Invisible Grain lore",
-        "date": "2026-02-01T18:05:36.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/e27b09d"
+        "sha": "48e5ef6",
+        "message": "Global renumbering and manuscript sync (Ch 1-57). Split Ch 15 into new Ch 16. Updated lore: Glass Locket consolidation and Myrr's Gift path.",
+        "date": "2026-02-02T16:48:24.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/48e5ef6"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
@@ -51,8 +51,14 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.83",
+    "version": "v0.11.87",
     "commits": [
+      {
+        "sha": "4fc8410",
+        "message": "fix top left icons",
+        "date": "2026-02-03T16:57:51.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/4fc8410"
+      },
       {
         "sha": "0e98f27",
         "message": "Update manuscripts from story repo",
@@ -64,12 +70,6 @@
         "message": "Update git history tracking",
         "date": "2026-01-31T23:52:25.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/88cbe83"
-      },
-      {
-        "sha": "26eb6b3",
-        "message": "Update git history tracking",
-        "date": "2026-01-31T23:30:23.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/26eb6b3"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

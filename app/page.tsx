@@ -45,12 +45,11 @@ export default function Home() {
                     <div className="inline-block mb-4 px-3 py-1 border border-accent/30 bg-accent/10 text-accent-bright text-xs font-bold tracking-[0.3em] uppercase animate-pulse backdrop-blur-sm">
                         Signal Detected // Era: post-Fry
                     </div>
-                    <h1 className="text-6xl md:text-8xl font-black mb-6 tracking-tighter italic">
-                        STARS DIE
+                    <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter italic">
+                        Forgotten Future
                     </h1>
                     <p className="text-sm md:text-lg text-primary mb-8 tracking-wide max-w-xl mx-auto leading-relaxed backdrop-blur-sm bg-background/40 p-4 rounded-lg border border-white/5 shadow-2xl">
-                        A thousand years of human history, erased in a single Cataclysm.
-                        A new Dark Age has begun.
+                        "We are eternal relics of creation." - Dr. Elowen Vane
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
                         <Link href="/manuscript" className="btn-primary">

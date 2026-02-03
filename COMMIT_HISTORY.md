@@ -1,3 +1,4 @@
+4fc8410 fix top left icons
 0e98f27 Update manuscripts from story repo
 88cbe83 Update git history tracking
 26eb6b3 Update git history tracking
