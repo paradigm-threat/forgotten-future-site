@@ -36,7 +36,8 @@ const CHARACTERS: Character[] = [
             { src: prefixPath('/media/characters/lynn/lynn-zero.png'), alt: 'Lynn - Cradle Zero' },
             { src: prefixPath('/media/characters/lynn/lynn-nexus.png'), alt: 'Lynn - Nexus Connection' },
             { src: prefixPath('/media/characters/lynn/lynn-reset.png'), alt: 'Lynn - Reset' },
-            { src: prefixPath('/media/characters/lynn/lynn-blackout.png'), alt: 'Lynn - Blackout' }
+            { src: prefixPath('/media/characters/lynn/lynn-blackout.png'), alt: 'Lynn - Blackout' },
+            { src: prefixPath('/media/characters/lynn/lynn-glass-locket-landscape.png'), alt: 'Lynn - Glass Locket' }
         ]
     },
     {
@@ -52,7 +53,8 @@ const CHARACTERS: Character[] = [
             { src: prefixPath('/media/characters/rahu/rahu-duel.png'), alt: 'Rahu - The Duel' },
             { src: prefixPath('/media/characters/rahu/rahu-ambush.png'), alt: 'Rahu - Ambush' },
             { src: prefixPath('/media/characters/rahu/rahu-sacrifice.png'), alt: 'Rahu - Sacrifice' },
-            { src: prefixPath('/media/characters/rahu/rahu-colonization.png'), alt: 'Rahu - Colonization' }
+            { src: prefixPath('/media/characters/rahu/rahu-colonization.png'), alt: 'Rahu - Colonization' },
+            { src: prefixPath('/media/characters/rahu/rahus-blade.png'), alt: "Rahu's Blade" }
         ]
     },
     {

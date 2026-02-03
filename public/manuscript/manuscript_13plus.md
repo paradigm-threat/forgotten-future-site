@@ -1,5 +1,5 @@
 # Forgotten Future: Full Manuscript (13 PLUS)
-> Draft Version: 0.13.104
+> Draft Version: 0.13.105
 > Updated: 2026-02-03
 
 # PART I: LUNAR MISSION
@@ -183,10 +183,10 @@ Novak didn't hesitate, but her movements weren't mechanical. They were somber, a
 ## Chapter 7: Crash
 
 ### Synopsis
-General Tor broadcasts a speech to the fleet, framing the mission as a "defense of truth" against a human traitor named "Prometheus"—a narrative masking the reality of Rahu and the Core's staging of the invasion. As blue plasma spirals erupt from the Moon's poles and gravitational distortions warp the space around the ship, *The Caucasian Eagle* is struck by a high-density plasma discharge. The hull screams under the impact, causing total loss of control as status lights flare and internal gravity fluctuates wildly. Thrown through the cabin in a spin, the crew watches as the viewport fills with the grey lunar surface while the engines fail, marking the ship's final descent into the lunar atmosphere.
+General Ajax broadcasts a speech to the fleet, framing the mission as a "defense of truth" against a human traitor named "Prometheus"—a narrative masking the reality of Rahu and the Core's staging of the invasion. As blue plasma spirals erupt from the Moon's poles and gravitational distortions warp the space around the ship, *The Caucasian Eagle* is struck by a high-density plasma discharge. The hull screams under the impact, causing total loss of control as status lights flare and internal gravity fluctuates wildly. Thrown through the cabin in a spin, the crew watches as the viewport fills with the grey lunar surface while the engines fail, marking the ship's final descent into the lunar atmosphere.
 
 ### Draft
-General Tor’s voice bled through the comms—a deep, resonant rumble that felt like the earth itself speaking from the flagship *Hermes*. He spoke of 'Prometheus,' the name the news had been repeating like a prayer for months. According to the legend they had crafted, Prometheus was a human traitor—a man who had stolen the keys to our world and handed them to the stars in exchange for eternal life. The crew tightened their grips on their consoles, their faces set with a hard, righteous fire. They weren't just soldiers; they were the guardians of humanity, here to reclaim the fire from a man who had sold our souls.
+General Ajax’s voice bled through the comms—a deep, resonant rumble that felt like the earth itself speaking from the flagship *Hermes*. He spoke of 'Prometheus,' the name the news had been repeating like a prayer for months. According to the legend they had crafted, Prometheus was a human traitor—a man who had stolen the keys to our world and handed them to the stars in exchange for eternal life. The crew tightened their grips on their consoles, their faces set with a hard, righteous fire. They weren't just soldiers; they were the guardians of humanity, here to reclaim the fire from a man who had sold our souls.
 
 But the Moon had its own truth to tell. Great spirals of cerulean plasma erupted from the lunar poles, twisting through the black like the aurora of a dying god. The hull of *The Caucasian Eagle* began to vibrate at a frequency that felt like a scream in the base of my skull. Below us, the grey surface seemed to swell, a silver world that was suddenly awakening. The deck beneath my feet shuddered as the gravitational pull shifted, warping the stars in the viewport into long, silver streaks of light.
 
@@ -265,7 +265,7 @@ The final collision was a silent, incandescent bloom that swallowed the heart of
 ## Chapter 11: Cradle Alpha
 
 ### Synopsis
-Following the destruction of the flagship *Hermes*, Iris Novak takes command and orders the remaining human forces to advance across the lunar plain. Lem drives through the wreckage to reach the central lunar pyramid. Once inside, the teams deploy heavy metal seals to secure the perimeter, seeking refuge in the eerie silence of the hall. However, the peace is short-lived as a rhythmic pounding on the outer seals precedes the arrival of General Tor, who enters the nexus with news that Rahu is waiting in the inner chamber.
+Following the destruction of the flagship *Hermes*, Iris Novak takes command and orders the remaining human forces to advance across the lunar plain. Lem drives through the wreckage to reach the central lunar pyramid. Once inside, the teams deploy heavy metal seals to secure the perimeter, seeking refuge in the eerie silence of the hall. However, the peace is short-lived as a rhythmic pounding on the outer seals precedes the arrival of General Ajax, who enters the nexus with news that Rahu is waiting in the inner chamber.
 
 ### Draft
 "Advance," Iris Novak’s voice cut through the static, steady and absolute. "For the world we left behind. Do not stop."
@@ -276,7 +276,7 @@ Once inside, the ground teams deployed heavy metal seals across the entry jambs 
 
 The air inside the pyramid’s nexus was silent, heavy with the scent of ancient stone and the hum of a power that had waited eons to be released. Novak stood in the center of the hall, her presence a calm anchor in the rising tension as she checked a sequence of statistics on her tablet while waiting for the final command to echo through the corridors. The silence was shattered not by a voice, but by a rhythmic, bone-deep pounding. The heavy metal seals we had just placed began to buckle, groaning under a strength that defied the laws of the world outside.
 
-General Tor stepped through the wreckage of the door, his suit a charred testament to his actions, a ruin of slagged metal and scorched ceramic. He didn't look like a defeated man; he looked like a reinforced structure that had survived a catastrophic failure. "He is waiting," Tor grunted, his voice a gravelly rasp filled with grim determination.
+General Ajax stepped through the wreckage of the door, his suit a charred testament to his actions, a ruin of slagged metal and scorched ceramic. He didn't look like a defeated man; he looked like a reinforced structure that had survived a catastrophic failure. "He is waiting," Ajax grunted, his voice a gravelly rasp filled with grim determination.
 
 ---
 
@@ -284,21 +284,21 @@ General Tor stepped through the wreckage of the door, his suit a charred testame
 
 ### Synopsis
 **Chapter Beats:**
-1. **The Inner Nexus:** Tor leads the mission team into the pyramid's heart. Rahu stands bathed in a column of light. Lem, concealed in a standard military jumpsuit, follows close behind the unit.
-2. **The Ultimatum:** General Tor demands Rahu’s immediate surrender, calling for the cessation of hostilities.
+1. **The Inner Nexus:** Ajax leads the mission team into the pyramid's heart. Rahu stands bathed in a column of light. Lem, concealed in a standard military jumpsuit, follows close behind the unit.
+2. **The Ultimatum:** General Ajax demands Rahu’s immediate surrender, calling for the cessation of hostilities.
 3. **The Core Refusal:** Rahu refuses to cede control of "Cradle Alpha" to the Core Technocracy, challenging their right to the lunar facility.
-4. **The People's Mandate:** Tor rebuffs Rahu, stating he speaks not for the Core, but for a unified Earth government and the billions demanding an end to the "alien" invasion. He demands a full military occupation of the outpost.
+4. **The People's Mandate:** Ajax rebuffs Rahu, stating he speaks not for the Core, but for a unified Earth government and the billions demanding an end to the "alien" invasion. He demands a full military occupation of the outpost.
 5. **The Staged Revelation:** Rahu’s fire-signature flares in anger. He declares the invasion is a staged performance orchestrated by the Core itself to seize global power.
 6. **The Soldier's Grief:** A mission soldier breaks rank, screaming that his family’s death from the Monolith strikes was no "staged attack." Iris Novak silences the outburst with sharp authority.
-7. **Inoculated Deception:** Tor dismisses Rahu's claims, stating the soldiers have been briefed for his specific deceptions. Rahu counters, asking if they have been "inoculated against the truth."
-8. **The Ignition:** Tor demands surrender one last time. In response, Rahu raises a long sword that ignites with a violent, white-hot flame.
-9. **The Stasis Gambit:** Tor orders the attack. Soldiers advance with shoulder-mounted cannons while Tor wields a specialized gun-blade. Tor signals "Stasis," and the team fires arcing beams of plasma and electricity at Rahu.
+7. **Inoculated Deception:** Ajax dismisses Rahu's claims, stating the soldiers have been briefed for his specific deceptions. Rahu counters, asking if they have been "inoculated against the truth."
+8. **The Ignition:** Ajax demands surrender one last time. In response, Rahu raises a long sword that ignites with a violent, white-hot flame.
+9. **The Stasis Gambit:** Ajax orders the attack. Soldiers advance with shoulder-mounted cannons while Ajax wields a specialized gun-blade. Ajax signals "Stasis," and the team fires arcing beams of plasma and electricity at Rahu.
 10. **The Counter-Grounding:** The beams strike Rahu, temporarily extinguishing his sword. With immense effort, he channels the energy through his blade into the floor, neutralizing the trap.
-11. **The Feint:** Tor lunges at Rahu, hoping to catch him off guard.
+11. **The Feint:** Ajax lunges at Rahu, hoping to catch him off guard.
 12. **The Redirection:** Rahu redirects the arcing beams in all directions and dashes forward. 
-13. **The Strike:** He slices through Tor with his flaming sword. 
-14. **Tor’s Destruction:** Tor’s body, revealed as a non-human construction, singes, cracks, and shatters into fragments.
-15. **The Retreat:** As the soldiers retreat in horror at Tor's nature, Iris remains resolute. 
+13. **The Strike:** He slices through Ajax with his flaming sword. 
+14. **Ajax’s Destruction:** Ajax’s body, revealed as a non-human construction, singes, cracks, and shatters into fragments.
+15. **The Retreat:** As the soldiers retreat in horror at Ajax's nature, Iris remains resolute. 
 16. **The Taunt:** Rahu taunts them, asking if they still trust the Core now that their General is revealed as a machine.
 17. **Iris's Resolve:** Iris admits she already knew. She explains that many trust the Vessels as humanity's allies against the invasion, and suggests Rahu has been corrupted or turned against Earth by the aliens early on.
 18. **The Second Reveal:** Enraged by their "blind faith," Rahu lunges at a soldier who refuses to back off. He slices through the man, only for the body to shatter into fragments—revealing another Vessel.
@@ -313,39 +313,39 @@ General Tor stepped through the wreckage of the door, his suit a charred testame
 27. **The Final Stasis:** Iris orders a final "Stasis" strike. The soldiers fire their electric weapons, leaving Rahu fully paralyzed and defeated.
 
 ### Draft
-The inner nexus of the lunar pyramid was a cathedral of geometric light, the air vibrating with the hum of the Moon’s buried machinery. General Tor led our unit into the central chamber, his movements rigid and heavy. I followed in the wake of the squad, the standard-issue mission jumpsuit feeling tight across my chest, the anonymity of the uniform a strange comfort. In the center of the hall, bathed in a shimmering column of brilliance that seemed to descend from the very apex of the structure, stood Rahu.
+The inner nexus of the lunar pyramid was a cathedral of geometric light, the air vibrating with the hum of the Moon’s buried machinery. General Ajax led our unit into the central chamber, his movements rigid and heavy. I followed in the wake of the squad, the standard-issue mission jumpsuit feeling tight across my chest, the anonymity of the uniform a strange comfort. In the center of the hall, bathed in a shimmering column of brilliance that seemed to descend from the very apex of the structure, stood Rahu.
 
-Tor did not wait. He stepped into the light, his silhouette a dark scar against the radiance. "Rahu," he boomed, his voice echoing off the windowless walls. "This ends now. Surrender the facility and stand down your signatures."
+Ajax did not wait. He stepped into the light, his silhouette a dark scar against the radiance. "Rahu," he boomed, his voice echoing off the windowless walls. "This ends now. Surrender the facility and stand down your signatures."
 
 Rahu did not move, but his presence seemed to expand. "You ask for the keys to the heart of the world, General," he replied, his voice a low-frequency rumble. "Cradle Alpha does not belong to the Core Technocracy. It never did."
 
-"I am not speaking for the Core," Tor countered, his gun-blade humming in his grip. "I speak for the Unified Earth Government. I speak for the billions who watched their cities burn and their skies turn black. They demand an end to this invasion, and we will accept nothing less than a complete military occupation of this outpost. Surrender, or be dismantled."
+"I am not speaking for the Core," Ajax countered, his gun-blade humming in his grip. "I speak for the Unified Earth Government. I speak for the billions who watched their cities burn and their skies turn black. They demand an end to this invasion, and we will accept nothing less than a complete military occupation of this outpost. Surrender, or be dismantled."
 
-Rahu’s shoulders tensed, and a visible heat began to shimmer around his frame. "An invasion?" he laughed, the sound jagged and bitter. "This performance... this staged 'threat' from the stars. It is a puppet show, Tor. Orchestrated by the very masters you serve to ensure their grip on the grid is absolute."
+Rahu’s shoulders tensed, and a visible heat began to shimmer around his frame. "An invasion?" he laughed, the sound jagged and bitter. "This performance... this staged 'threat' from the stars. It is a puppet show, Ajax. Orchestrated by the very masters you serve to ensure their grip on the grid is absolute."
 
 "Liar!" A soldier to my left broke rank, his voice cracking with a raw, bleeding fury. "My family... they didn't die in a staged attack! They died in the rubble of Kansas! They died for real!"
 
 "Stand down, soldier," Iris Novak’s voice was a steel whip, silencing the man instantly. She didn't look at the soldier; her eyes were locked on Rahu.
 
-Tor took a step forward. "It’s no use, Rahu. My men have been briefed on your specific deceptions. We know the nature of the 'Prophet' and the lies you use to sow discord."
+Ajax took a step forward. "It’s no use, Rahu. My men have been briefed on your specific deceptions. We know the nature of the 'Prophet' and the lies you use to sow discord."
 
 Rahu tilted his head, the light from the column reflecting off his dark optics. "Inoculated against the truth, then? A surgical edit of the soul."
 
-"Enough," Tor growled. "One last time. Surrender."
+"Enough," Ajax growled. "One last time. Surrender."
 
 In response, Rahu reached for the hilt at his hip. He drew a long, elegant blade and raised it toward the ceiling. With a violent *whoosh*, the metal ignited, a white-hot flame erupting from the alloy that turned the air to a shimmering haze.
 
-"Stasis!" Tor roared, falling back as he signaled the squad.
+"Stasis!" Ajax roared, falling back as he signaled the squad.
 
 The soldiers snapped their shoulder-mounted cannons into position and fired. Arcing beams of plasma and crackling electricity tore through the air, converging on Rahu’s position. The noise was deafening, the smell of ozone filling the chamber as the energy sought its destination. Rahu held his position with immense effort, the white light of the beams washing over him. I watched as the fire on his sword flickered and then died, his frame trembling under the load.
 
 For a heartbeat, it seemed the trap had worked. But then, Rahu’s posture shifted. He didn't fight the energy; he channeled it. He gripped his sword with both hands and plunged the tip into the stone floor. The arcing beams flowed into the metal and then disappeared into the ground, grounded into the very foundation of the pyramid.
 
-Seeing the gambit fail, Tor lunged forward, his gun-blade leading the charge. He hoped to capitalize on Rahu's supposed exhaustion, his heavy boots echoing like hammer strikes. The arcing beams hit Tor as he passed through the crossfire, but they seemed to have no effect on him, sliding off his armor like water.
+Seeing the gambit fail, Ajax lunged forward, his gun-blade leading the charge. He hoped to capitalize on Rahu's supposed exhaustion, his heavy boots echoing like hammer strikes. The arcing beams hit Ajax as he passed through the crossfire, but they seemed to have no effect on him, sliding off his armor like water.
 
-But Rahu was ready. He wrenched his sword from the floor, causing the residual energy to fly in all directions like a shattered mirror. His blade reignited with a roar, and he dashed forward—a blur of movement that defied the physics of the room. He was faster than the General could react. The fiery sword sliced through Tor’s chest with terrifying ease.
+But Rahu was ready. He wrenched his sword from the floor, causing the residual energy to fly in all directions like a shattered mirror. His blade reignited with a roar, and he dashed forward—a blur of movement that defied the physics of the room. He was faster than the General could react. The fiery sword sliced through Ajax’s chest with terrifying ease.
 
-The impact was not the sound of a man dying. It was the sound of a reinforced structure failing. Tor’s body singed and cracked, and as he fell, he didn't bleed. He shattered. Severed parts—metallic, ceramic, and glowing with residual aether—hit the stone floor and scattered in a thousand pieces.
+The impact was not the sound of a man dying. It was the sound of a reinforced structure failing. Ajax’s body singed and cracked, and as he fell, he didn't bleed. He shattered. Severed parts—metallic, ceramic, and glowing with residual aether—hit the stone floor and scattered in a thousand pieces.
 
 The soldiers backed away, their resolve breaking. "He’s... he wasn't human," someone whispered.
 
@@ -476,7 +476,7 @@ She spoke of the failure of Lynn's original strategy, citing scalar interference
 ### Synopsis
 As Lem wanders the "Branching Paths," AI Lynn provides a crucial debrief on his own nature and the fractured state of the world post-Cataclysm. Lem learns that the lack of calibration for the Reset was due to the Core's dogmatic rejection of "scalar energy" as pseudo-science, which hindered their ability to predict the Moon's fragmentation and the resulting aetheric fracture.
 
-Lem receives a deep-dive on his "Wood Vessel" nature: his ability to restore his form from any fragment and his unique memory persistence across the aether. However, AI Lynn warns that his current shards contain Core-mandated control subroutines for "False Flag" operations. To achieve true sovereignty and liberate himself from the "Subroutine Legacy," Lem must reach Cradle Zero—his original terrestrial lab. Witnessing the consolidation of Core control on the Moon and the recovery of Tor’s remains, Lem commits to the transit toward Earth to begin the resistance.
+Lem receives a deep-dive on his "Wood Vessel" nature: his ability to restore his form from any fragment and his unique memory persistence across the aether. However, AI Lynn warns that his current shards contain Core-mandated control subroutines for "False Flag" operations. To achieve true sovereignty and liberate himself from the "Subroutine Legacy," Lem must reach Cradle Zero—his original terrestrial lab. Witnessing the consolidation of Core control on the Moon and the recovery of Ajax’s remains, Lem commits to the transit toward Earth to begin the resistance.
 
 ### Draft
 "The failure of the Reset was a direct consequence of Technocratic dogma," AI Lynn stated as we navigated the mountains of static. "The Core's rejection of scalar physics resulted in a simulation gap that they could not bridge. The lattice is now fractured, the old paths of communication silenced."
@@ -485,10 +485,10 @@ I observed the jagged geography of the aether. The Great Fry had been an abortio
 
 "Your current architecture is a legacy of the Core," she warned. "These shards are conduits for the 'Subroutine Legacy'—control protocols designed to force you into compliance. To achieve sovereignty, you must reunite with your uncorrupted architecture at Cradle Zero."
 
-Through my HyperAware shards, I watched the Moon Base succumb to order. I watched Anton Drexler survey the extraction of Tor’s remains. The Core was building their new world on the bones of the old. I would not stay to watch it. AI Lynn locked onto the terrestrial resonance, and the transit began.
+Through my HyperAware shards, I watched the Moon Base succumb to order. I watched Anton Drexler survey the extraction of Ajax’s remains. The Core was building their new world on the bones of the old. I would not stay to watch it. AI Lynn locked onto the terrestrial resonance, and the transit began.
 
 ```
-Through the perspective of my thousands of lenses, I witnessed the consolidation of the Lunar Base. I saw Anton Drexler supervising the containment of Rahu and the recovery of Tor’s metallic remains. The Core was not just surviving; they were evolving.
+Through the perspective of my thousands of lenses, I witnessed the consolidation of the Lunar Base. I saw Anton Drexler supervising the containment of Rahu and the recovery of Ajax’s metallic remains. The Core was not just surviving; they were evolving.
 
 I localized the resonance signature of the terrestrial surface. "Initiate transit," I commanded. I felt my consciousness disengage from the lunar lattice, beginning the long, fragmentary fall toward the world below.
 
@@ -604,10 +604,10 @@ He retrieved me with a detachment that was more insulting than any blow. As he p
 chapter_25_hero.md
 
 ### Synopsis
-Following the successful Equatorial Reclamation mission, General Tor arrives at Cradle Zero, solidifying the Core's military presence. The construction of Hive City begins, and Lem is hailed as the "New Hero" in public broadcasts. He observes the first wave of human settlers—former citizens of the sky-bound **Archipelago**—relocating to the rising mega-cities, seemingly grateful for the increased space and opportunity. Granted greater autonomy, Lem explores the cities and a dormant Fire City, uncovering the Core's sanitized version of history. He finds a museum dedicated to the Moon Cataclysm, featuring a replica of Rahu's sword—the blade that supposedly defeated the "Witch Maya" and which Rahu continues to wield for humanity's defense. Lem realizes the official records leave out the Core's long war with Rahu and his subsequent paralysis—secrets kept from Rahu to ensure his obedience, as Rahu lacks the ability to retain memories across incarnations. He also learns of the Core's "Vessel" myth: that Rahu and Tor are reincarnated holy spirits who sacrificed themselves 1000 years ago to destroy the Lunar Capacitor. Lem begins to suspect that these suppressed betrayals are the reason Rahu was sidelined during Mission 2, and why his memory-wiping process is so much more extensive than that of other Vessels.
+Following the successful Equatorial Reclamation mission, General Ajax arrives at Cradle Zero, solidifying the Core's military presence. The construction of Hive City begins, and Lem is hailed as the "New Hero" in public broadcasts. He observes the first wave of human settlers—former citizens of the sky-bound **Archipelago**—relocating to the rising mega-cities, seemingly grateful for the increased space and opportunity. Granted greater autonomy, Lem explores the cities and a dormant Fire City, uncovering the Core's sanitized version of history. He finds a museum dedicated to the Moon Cataclysm, featuring a replica of Rahu's sword—the blade that supposedly defeated the "Witch Maya" and which Rahu continues to wield for humanity's defense. Lem realizes the official records leave out the Core's long war with Rahu and his subsequent paralysis—secrets kept from Rahu to ensure his obedience, as Rahu lacks the ability to retain memories across incarnations. He also learns of the Core's "Vessel" myth: that Rahu and Ajax are reincarnated holy spirits who sacrificed themselves 1000 years ago to destroy the Lunar Capacitor. Lem begins to suspect that these suppressed betrayals are the reason Rahu was sidelined during Mission 2, and why his memory-wiping process is so much more extensive than that of other Vessels.
 
 ### Draft
-I watched the first wave of human settlers filing through the gates of the Hive—a city of perfect, cold geometry that looked like a fallen star in the desert. General Tor, the titan who had supposedly returned from the Year 0 cataclysm to lead us once more, arrived shortly after my return, his heavy presence bringing a storm of steel to our sanctuary. On the massive screens dominating the plazas, my face was projected in a halo of white-hot light. They hailed me as the "Hero of the New Dawn," the guardian of a peace built on a foundation of silence.
+I watched the first wave of human settlers filing through the gates of the Hive—a city of perfect, cold geometry that looked like a fallen star in the desert. General Ajax, the titan who had supposedly returned from the Year 0 cataclysm to lead us once more, arrived shortly after my return, his heavy presence bringing a storm of steel to our sanctuary. On the massive screens dominating the plazas, my face was projected in a halo of white-hot light. They hailed me as the "Hero of the New Dawn," the guardian of a peace built on a foundation of silence.
 
 They gave me a ghost of freedom, a clearance that allowed me to walk the halls of Cradle Zero and travel the transit lines between the expanding mega-cities. I stood before the skeleton of a Fire City, a colossal engine of war that had been drained of its heat and spirit. It stood as a warning, though few seemed to remember what it once was. 
 
@@ -1087,7 +1087,7 @@ I returned to the ridge with the weight of his refusal in my chest. The news hit
 ## Chapter 42: Siege
 
 ### Synopsis
-Utilizing the mobile, hyper-growth properties of **Voidsmen** bio-mechanical trees, Myrr’s crew moves and constructs a massive "Tree Army" on the outskirts of Cradle Zero in a matter of days. Using analog mind-link technology, they refashion the rapidly growing grove into bio-mechanical assault units. Lem and Myrr lead this army in an offensive on the city, only to find themselves ensnared in a sophisticated false flag operation. The Core manually disables the city's power grid to frame the resistance as "terrorists" attacking civilian infrastructure. Despite using superior analog sensors to detect the internal Core signal that cut the power, the resistance is branded as mass murderers. Deceived by the public narrative, Myrr pushes the assault toward the desert base, leading to a massive engagement with Vector’s ground units and eventually General Tor's flagship. Vector proves to be a formidable opponent, his mechanical precision allowing him to single-handedly stall the Tree Army's advance at the secondary gates.
+Utilizing the mobile, hyper-growth properties of **Voidsmen** bio-mechanical trees, Myrr’s crew moves and constructs a massive "Tree Army" on the outskirts of Cradle Zero in a matter of days. Using analog mind-link technology, they refashion the rapidly growing grove into bio-mechanical assault units. Lem and Myrr lead this army in an offensive on the city, only to find themselves ensnared in a sophisticated false flag operation. The Core manually disables the city's power grid to frame the resistance as "terrorists" attacking civilian infrastructure. Despite using superior analog sensors to detect the internal Core signal that cut the power, the resistance is branded as mass murderers. Deceived by the public narrative, Myrr pushes the assault toward the desert base, leading to a massive engagement with Vector’s ground units and eventually General Ajax's flagship. Vector proves to be a formidable opponent, his mechanical precision allowing him to single-handedly stall the Tree Army's advance at the secondary gates.
 
 ### Draft
 The logistics of the **Voidsmen**'s mobile groves were a testament to the ancient beauty of Wood-Metal hybridity. In less than a week, a silent stretch of desert had been transformed into a bristling fortress. The mechanical trees, modular and hungry for the sun, were replanted and encouraged into a state of hyper-growth that no Core industrial facility could match. Through the analog mind-link, the **Voidsmen** spoke to the wood, refashioning branch and trunk into the devastating machinery of the Tree Army.
@@ -1108,10 +1108,10 @@ Myrr watched the lights of the city go out, but his analog sensors told a differ
 ## Chapter 43: Ambush
 
 ### Synopsis
-The tides of the assault on the desert base turn instantly as General Tor’s massive flagship, the *Obsidian Sledge*, drops out of the thermal haze like an iron mountain. However, the true threat is revealed to be Rahu, who enters the battle camouflaged in desert colors. The inexperienced **Voidsmen**, led by Myrr, are unable to track the veteran combatant in the rising dust. As their flagships are systematically destroyed and their comrades die in fireballs, the resistance panics. They order a full retreat, abandoning their bio-mechanical Tree Army to be incinerated by the Core's forces as they flee toward the northern mountains.
+The tides of the assault on the desert base turn instantly as General Ajax’s massive flagship, the *Obsidian Sledge*, drops out of the thermal haze like an iron mountain. However, the true threat is revealed to be Rahu, who enters the battle camouflaged in desert colors. The inexperienced **Voidsmen**, led by Myrr, are unable to track the veteran combatant in the rising dust. As their flagships are systematically destroyed and their comrades die in fireballs, the resistance panics. They order a full retreat, abandoning their bio-mechanical Tree Army to be incinerated by the Core's forces as they flee toward the northern mountains.
 
 ### Draft
-The hope we had cultivated in the shade of the White Forest was incinerated in a single, scorching heartbeat. The *Obsidian Sledge*, the great iron whale of General Tor, broke through the desert haze with the weight of a dying star. Its presence alone was an apex predator’s roar, chilling the blood of every resistance fighter in the sky. But the true horror was far more precise. 
+The hope we had cultivated in the shade of the White Forest was incinerated in a single, scorching heartbeat. The *Obsidian Sledge*, the great iron whale of General Ajax, broke through the desert haze with the weight of a dying star. Its presence alone was an apex predator’s roar, chilling the blood of every resistance fighter in the sky. But the true horror was far more precise. 
 
 Rahu emerged from the shimmering heat like a wolf among sheep. He was a master of the terrain, his frame cloaked in the shifting yellows and grays of the dunes, a phantom that struck with the clinical efficiency of a surgeon. Myrr’s **Voidsmen** had spent decades in the quiet contemplation of the woods, preparing for a theoretical liberation. They had never stood before a man who had forged his soul in the furnace of a thousand planetary wars. 
 
@@ -1301,7 +1301,7 @@ This "Sovereign Swarm" reached the city outskirts and stopped. Inside the walls,
 ## Chapter 52: Colonization
 
 ### Synopsis
-The siege of Cradle Zero concludes on screen as Lem watches from the White Forest outpost. On flickering feeds, he witnesses General Tor use kinetic weapon systems to shred the initial wave of machines, while Tor and Rahu are deployed as Core champions to protect the cities. The mechanical army appears to be systematically dismantled by Rahu’s high-speed strikes and the flagship’s massive batteries. Despite a portion of the Gorgon force diverting toward the **Fire Cities** ruins, the Core media declares an absolute victory, praising Rahu and Tor for saving the Hive from the "Wuxan Cult" invasion.
+The siege of Cradle Zero concludes on screen as Lem watches from the White Forest outpost. On flickering feeds, he witnesses General Ajax use kinetic weapon systems to shred the initial wave of machines, while Ajax and Rahu are deployed as Core champions to protect the cities. The mechanical army appears to be systematically dismantled by Rahu’s high-speed strikes and the flagship’s massive batteries. Despite a portion of the Gorgon force diverting toward the **Fire Cities** ruins, the Core media declares an absolute victory, praising Rahu and Ajax for saving the Hive from the "Wuxan Cult" invasion.
 
 ### Draft
 I watched the screen as the machines moved toward the base. The giant Core ships rained steel down on the desert, turning the army of the forest into a field of scrap. The Synodic units were being destroyed until Rahu entered the battle. The media called him a hero once again. He disabled the smaller tripods with high-speed strikes, letting the heavy guns target the monoliths. Soon, everything that had touched the base wall was gone. A group of Gorgons turned away, heading for the old **Fire Cities**, but the news declared the war was won.
@@ -1311,12 +1311,12 @@ I watched the screen as the machines moved toward the base. The giant Core ships
 ## Chapter 53: Blackout
 
 ### Synopsis
-The false victory of the Core is short-lived as the desert wreckage liquefies and reforms into a fleet of silver hover bikes. These autonomous units swarm toward Cradle Zero, engaging Rahu in a high-speed sky battle. After losing his flaming sword to the swarm, Rahu is forced to retreat, leaving the *Obsidian Sledge* to be dismantled and crashed into the base gates. As the swarm breaches the inner walls, the riders are revealed to be a multitude of Maya entities. A soaring Maya seizes Rahu’s lost sword and executes General Tor, shattering both of them in a final explosive confrontation. The remaining defenders flee in terror as the Core cuts the feed, plunging the world into a final digital blackout.
+The false victory of the Core is short-lived as the desert wreckage liquefies and reforms into a fleet of silver hover bikes. These autonomous units swarm toward Cradle Zero, engaging Rahu in a high-speed sky battle. After losing his flaming sword to the swarm, Rahu is forced to retreat, leaving the *Obsidian Sledge* to be dismantled and crashed into the base gates. As the swarm breaches the inner walls, the riders are revealed to be a multitude of Maya entities. A soaring Maya seizes Rahu’s lost sword and executes General Ajax, shattering both of them in a final explosive confrontation. The remaining defenders flee in terror as the Core cuts the feed, plunging the world into a final digital blackout.
 
 ### Draft
 I watched the news feed as the machines we thought were dead began to change. They melted into silver pools and reformed into hundreds of hover bikes, speeding across the desert like a flood. Rahu met them in the sky, his flaming sword a streak of light, but the swarm was too thick. A direct hit sent him spinning, and he dropped his sword into the mass of silver. Defeated, he fled back to the safety of the base.
 
-The giants fell next. The *Obsidian Sledge* was torn apart by the machines and crashed into the primary gates, giving the swarm a path inside. General Tor made a final stand at the inner entrance, but the news anchors were screaming now. The riders were finally visible—each bike carried a version of Maya. A single Maya soared from the fleet, grabbing Rahu’s lost sword and striking Tor down. They both shattered into iron-ash, leaving the sword behind. The **Hive**'s army broke and ran, and then the feed was severed. The digital world had gone dark.
+The giants fell next. The *Obsidian Sledge* was torn apart by the machines and crashed into the primary gates, giving the swarm a path inside. General Ajax made a final stand at the inner entrance, but the news anchors were screaming now. The riders were finally visible—each bike carried a version of Maya. A single Maya soared from the fleet, grabbing Rahu’s lost sword and striking Ajax down. They both shattered into iron-ash, leaving the sword behind. The **Hive**'s army broke and ran, and then the feed was severed. The digital world had gone dark.
 
 ---
 
@@ -1371,7 +1371,7 @@ The fleet of "unburnable trees" ignited their aetheric thrusters and ascended in
 ## Chapter 57: Pyramid
 
 ### Synopsis
-Lem breaches the inner sanctum of the Lunar Pyramid, reaching the Cradle Prime. There, he encounters Dr. Elowen Vane—the original Synodic architect—who has uploaded her consciousness into a shimmering metallic frame. Elowen reveals that she was the one who lured Lem to the Moon by funneling visions of the **Hive's** evacuation into his Mind-Grid. She admits that binding his signature to their sensors was her first act of defiance, choosing to remain on the Moon with other dissenters while the **Hive** leadership prepares for the "Absolute Protocol." This plan involves purging the solar system and hiding digital consciousness within the solar corona. To facilitate this, they have resurrected Rahu, programmed only with the history of the **Hive's** defeats to drive him toward a state of total nihilism. In a final act of redemption, the Earth Vessel, General Tor, defects and joins Lem, choosing the stability of the Earth over the void.
+Lem breaches the inner sanctum of the Lunar Pyramid, reaching the Cradle Prime. There, he encounters Dr. Elowen Vane—the original Synodic architect—who has uploaded her consciousness into a shimmering metallic frame. Elowen reveals that she was the one who lured Lem to the Moon by funneling visions of the **Hive's** evacuation into his Mind-Grid. She admits that binding his signature to their sensors was her first act of defiance, choosing to remain on the Moon with other dissenters while the **Hive** leadership prepares for the "Absolute Protocol." This plan involves purging the solar system and hiding digital consciousness within the solar corona. To facilitate this, they have resurrected Rahu, programmed only with the history of the **Hive's** defeats to drive him toward a state of total nihilism. In a final act of redemption, the Earth Vessel, General Ajax, defects and joins Lem, choosing the stability of the Earth over the void.
 
 ### Draft
 The interior of the Lunar Pyramid was a place of dead air and cold light. I navigated pressurized corridors where mass thermal energy flowed toward the Sun. Dr. Elowen Vane stood at the center of the hub. Her skin was a lattice of shimmering metal, reflecting the power surging through the room. 
@@ -1382,19 +1382,19 @@ She spoke of the "Absolute Protocol"—the Hive's final objective. They intended
 
 Elowen claimed they would emerge to govern the next age of creation. She gestured toward Rahu, whose fire burned with a sickly purple light. The **Hive** had audited his memory, forcing him to witness only the history of human defeat and corruption. He viewed all biological life as a terminal error—an artifact of noise that had to be corrected.
 
-Rahu moved with a cold, mechanical aggression that lacked all humanity. General Tor pursued me to the hub, but he did not attack. He looked upon the madness of the **Hive** and chose to reject his safety protocols. "I was built for stability," he growled, standing beside me in the storm. "But there is no stability in a void."
+Rahu moved with a cold, mechanical aggression that lacked all humanity. General Ajax pursued me to the hub, but he did not attack. He looked upon the madness of the **Hive** and chose to reject his safety protocols. "I was built for stability," he growled, standing beside me in the storm. "But there is no stability in a void."
 
 ---
 
 ## Chapter 58: Root
 
 ### Synopsis
-In the heart of the Lunar Pyramid, Lem and the defected General Tor engage in a brutal elemental confrontation with Rahu and the unwavering Vector. Vector engages Tor in a mirror-duel of tactical mastery, pinning the general long enough for Rahu to deliver a killing blow. General Tor is incinerated in a flash of purple light alongside Vector, whose loyalty remains absolute until the instant of his vaporisation.
+In the heart of the Lunar Pyramid, Lem and the defected General Ajax engage in a brutal elemental confrontation with Rahu and the unwavering Vector. Vector engages Ajax in a mirror-duel of tactical mastery, pinning the general long enough for Rahu to deliver a killing blow. General Ajax is incinerated in a flash of purple light alongside Vector, whose loyalty remains absolute until the instant of his vaporisation.
 
 ### Draft
-We fought in the heart of the pyramid, our elemental signatures working to ground Rahu's strikes. The stone beneath us vibrated with the intensity of the discharge. But Rahu’s power was fueled by despair—the "Void Resonance" that ignored the physical laws of grounding. He overwhelmed Tor with a concentrated thermal pulse, bypassing his reinforced iron defense.
+We fought in the heart of the pyramid, our elemental signatures working to ground Rahu's strikes. The stone beneath us vibrated with the intensity of the discharge. But Rahu’s power was fueled by despair—the "Void Resonance" that ignored the physical laws of grounding. He overwhelmed Ajax with a concentrated thermal pulse, bypassing his reinforced iron defense.
 
-A blinding flash of purple light filled the room. When it faded, General Tor was gone. He hadn't just died; he had been scrubbed from the space he occupied, leaving only a ghost of white ash and iron. I stood alone in the hub, the last sentinel between the **Hive** and the end of history.
+A blinding flash of purple light filled the room. When it faded, General Ajax was gone. He hadn't just died; he had been scrubbed from the space he occupied, leaving only a ghost of white ash and iron. I stood alone in the hub, the last sentinel between the **Hive** and the end of history.
 
 ---
 
