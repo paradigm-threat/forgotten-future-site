@@ -123,8 +123,8 @@ export default function Home() {
                             { name: 'LEM', element: 'Wood', desc: 'Hidden in suburban anonymity until the Cataclysm revealed his nature.' },
                             { name: 'RAHU', element: 'Fire', desc: 'The exiled broadcast of the Moon, twisted into the Archivists\' propaganda.' },
                             { name: 'LYNN', element: 'Water', desc: 'Her software legacy remains as a spectral guide in the Aether-Drive.' },
-                            { name: 'TOR', element: 'Earth', desc: 'A general whose obedience shattered with the Moon, now a wanderer seeking purpose.' },
-                            { name: 'METAL', element: 'Order', desc: 'Shared-consciousness enforcers led by Tor and Rahu. Physically powerful, but devoid of individual spirits.' }
+                            { name: 'AJAX', element: 'Earth', desc: 'A general whose obedience shattered with the Moon, now a wanderer seeking purpose.' },
+                            { name: 'METAL', element: 'Order', desc: 'Shared-consciousness enforcers led by Ajax and Rahu. Physically powerful, but devoid of individual spirits.' }
                         ].map((vessel) => (
                             <VesselCard
                                 key={vessel.name}

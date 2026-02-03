@@ -1,3 +1,8 @@
+e650815 Merge pull request #2 from clevertree/dependabot/npm_and_yarn/lodash-4.17.23
+ec6afa5 Merge pull request #3 from clevertree/dependabot/npm_and_yarn/next-16.1.5
+9894232 chore(deps): bump next from 15.5.9 to 16.1.5
+fd52252 chore(deps): bump lodash from 4.17.21 to 4.17.23
+3d5a9ef fix corner icons
 4fc8410 fix top left icons
 0e98f27 Update manuscripts from story repo
 88cbe83 Update git history tracking

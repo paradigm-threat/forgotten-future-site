@@ -56,14 +56,15 @@ const CHARACTERS: Character[] = [
         ]
     },
     {
-        id: 'tor',
-        name: 'Tor',
+        id: 'ajax',
+        name: 'Ajax',
         category: 'Vessel',
         images: [
-            { src: prefixPath('/media/characters/tor/tor-landscape.png'), alt: 'Tor - Earth Vessel' },
-            { src: prefixPath('/media/characters/tor/tor-ambush.png'), alt: 'Tor - Ambush' },
-            { src: prefixPath('/media/characters/tor/tor-descent.png'), alt: 'Tor - Descent' },
-            { src: prefixPath('/media/characters/tor/tor-nexus.png'), alt: 'Tor - Nexus' }
+            { src: prefixPath('/media/characters/ajax/ajax-landscape.png'), alt: 'Ajax - Earth Vessel' },
+            { src: prefixPath('/media/characters/ajax/ajax-portrait.png'), alt: 'Ajax - Portrait' },
+            { src: prefixPath('/media/characters/ajax/ajax-descent.png'), alt: 'Ajax - Descent' },
+            { src: prefixPath('/media/characters/ajax/ajax-nexus.png'), alt: 'Ajax - Nexus' },
+            { src: prefixPath('/media/characters/ajax/ajax-cradle-alpha.png'), alt: 'Ajax - Cradle Alpha' }
         ]
     },
     {
@@ -312,21 +313,21 @@ export default function CharactersPage() {
                             }
                         />
 
-                        {/* Tor */}
+                        {/* Ajax */}
                         <InfoCard
-                            title="Tor"
+                            title="Ajax"
                             subtitle="Earth Vessel (Unique)"
                             borderColor="border-l-amber-700"
                             subtitleColor="text-amber-800 dark:text-amber-600"
-                            slideshowImages={CHARACTERS.find(c => c.id === 'tor')?.images}
-                            onClick={() => handleImageClick('tor')}
+                            slideshowImages={CHARACTERS.find(c => c.id === 'ajax')?.images}
+                            onClick={() => handleImageClick('ajax')}
                             description={
                                 <>
                                     <p>
                                         <strong className="text-primary">202X:</strong> A massive military commander who prioritized order above all else. He served as the Core's primary terrestrial enforcer.
                                     </p>
                                     <p>
-                                        <strong className="text-primary">After Time:</strong> Tor eventually chose the resonance of the Earth over the Core's void, sacrificing his physical frame to shield Lem during the battle in the Lunar Pyramid.
+                                        <strong className="text-primary">After Time:</strong> Ajax eventually chose the resonance of the Earth over the Core's void, sacrificing his physical frame to shield Lem during the battle in the Lunar Pyramid.
                                     </p>
                                 </>
                             }
@@ -513,7 +514,7 @@ export default function CharactersPage() {
                             The appearance of the Elemental Vessels is characterized by a violent transition from human-adjacent deception to raw manifestation. In the Before Time, they were designed to blend into human society or inspire divine awe, appearing as exceptionally tall, athletic, or serene individuals.
                         </p>
                         <p>
-                            The Moon Cataclysm and the transition to the After Time stripped away these carefully maintained masks. Lem evolved into a "Sovereign Restorer," while Lynn's form shattered into the spectral "Witch." Even the obedient Vessels, Rahu and Tor, lost their warmth—rebuilt by the Core into clinical weapons of the Thousand-Year Fallacy.
+                            The Moon Cataclysm and the transition to the After Time stripped away these carefully maintained masks. Lem evolved into a "Sovereign Restorer," while Lynn's form shattered into the spectral "Witch." Even the obedient Vessels, Rahu and Ajax, lost their warmth—rebuilt by the Core into clinical weapons of the Thousand-Year Fallacy.
                         </p>
                     </div>
                 </section>

@@ -480,7 +480,7 @@ function ManuscriptContent() {
                         <FAQItem
                             category="story"
                             question="What is the status of Kira after the battle at the Desert base?"
-                            answer="Kira is completely dead and unable to reincarnate via Synodic technology. Her signal, along with Rahu and Tor, briefly appeared on the Aether and then faded, implying natural reincarnation."
+                            answer="Kira is completely dead and unable to reincarnate via Synodic technology. Her signal, along with Rahu and Ajax, briefly appeared on the Aether and then faded, implying natural reincarnation."
                         />
                         <FAQItem
                             category="story"

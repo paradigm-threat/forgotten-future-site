@@ -81,7 +81,7 @@ export default function StoryPage() {
                         </p>
                     </div>
                     <div>
-                        <h3 className="text-element-earth text-lg mb-2">Earth (Tor)</h3>
+                        <h3 className="text-element-earth text-lg mb-2">Earth (Ajax)</h3>
                         <p className="text-muted text-sm leading-relaxed">
                             The Vessel of Stability. Once a high-ranking human general, his shattering obedience during the
                             Cataclysm led him to become a wanderer seeking the true nature of the Fallacy.
@@ -90,7 +90,7 @@ export default function StoryPage() {
                     <div className="md:col-span-2 border-t border-primary/10 pt-8">
                         <h3 className="text-element-metal text-lg mb-2">Metal (The Synanthropes)</h3>
                         <p className="text-muted text-sm leading-relaxed">
-                            The element of standardized Order. Shared-consciousness units led by the reset forms of Tor and Rahu.
+                            The element of standardized Order. Shared-consciousness units led by the reset forms of Ajax and Rahu.
                             They serve as the physical enforcers of the Archivist Thousand-Year Fallacy.
                         </p>
                     </div>
