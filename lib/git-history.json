@@ -1,33 +1,39 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.98",
+    "version": "v0.13.101",
     "commits": [
       {
-        "sha": "aada6c4",
-        "message": "Rename accidental Lem replacement",
-        "date": "2026-01-28T12:39:13.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/aada6c4"
+        "sha": "25f3ae9",
+        "message": "Add relics.md with the Glass Locket and Rahu's Sword",
+        "date": "2026-02-01T19:19:39.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/25f3ae9"
       },
       {
-        "sha": "203fe4a",
-        "message": "regenerate index.json and manuscripts (again)",
-        "date": "2026-01-27T14:52:00.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/203fe4a"
+        "sha": "42a274e",
+        "message": "Implement Invisible Grain plot logic: Myrr's secret copy and final locket return",
+        "date": "2026-02-01T19:17:05.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/42a274e"
       },
       {
-        "sha": "c8633bc",
-        "message": "regenerate index.json and manuscripts",
-        "date": "2026-01-27T14:49:38.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/c8633bc"
+        "sha": "e27b09d",
+        "message": "Refactor Chapter 25, Long Count, and add Selene/Invisible Grain lore",
+        "date": "2026-02-01T18:05:36.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/e27b09d"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
   },
   "ff-teaser": {
     "name": "Teaser",
-    "version": "v0.9.15",
+    "version": "v0.9.16",
     "commits": [
+      {
+        "sha": "851ea89",
+        "message": "Update teaser concepts and prompts with new lore",
+        "date": "2026-02-01T18:06:20.000Z",
+        "url": "https://github.com/clevertree/ff-teaser/commit/851ea89"
+      },
       {
         "sha": "bda9170",
         "message": "chore: global character rename (Lem->Ren, Maya->Kira) in teaser",
@@ -39,37 +45,31 @@
         "message": "Add Verse 1 video generation prompt based on latest story updates",
         "date": "2026-01-23T20:37:19.000Z",
         "url": "https://github.com/clevertree/ff-teaser/commit/a18c94c"
-      },
-      {
-        "sha": "41736dd",
-        "message": "Content: Update outro concepts and prompts.",
-        "date": "2026-01-21T16:54:49.000Z",
-        "url": "https://github.com/clevertree/ff-teaser/commit/41736dd"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-teaser/commits/main/"
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.81",
+    "version": "v0.11.83",
     "commits": [
+      {
+        "sha": "0e98f27",
+        "message": "Update manuscripts from story repo",
+        "date": "2026-02-01T19:55:46.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/0e98f27"
+      },
+      {
+        "sha": "88cbe83",
+        "message": "Update git history tracking",
+        "date": "2026-01-31T23:52:25.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/88cbe83"
+      },
       {
         "sha": "26eb6b3",
         "message": "Update git history tracking",
         "date": "2026-01-31T23:30:23.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/26eb6b3"
-      },
-      {
-        "sha": "4ecb916",
-        "message": "Update git-history.json",
-        "date": "2026-01-31T23:10:47.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/4ecb916"
-      },
-      {
-        "sha": "ef58b4f",
-        "message": "Update manuscript, layout, ProjectBrowser, docs and copilot instructions",
-        "date": "2026-01-31T23:02:56.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/ef58b4f"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

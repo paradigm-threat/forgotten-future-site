@@ -26,17 +26,19 @@ const Navigation = memo(function Navigation() {
             <Link href="/" className="flex items-center group z-[60]">
                 <div className="relative w-12 h-12 md:w-20 md:h-20 flex-shrink-0">
                     <Image
-                        src={prefixPath('/icon.png')}
+                        src={prefixPath('/icon.png?w=80')}
                         alt="Forgotten Future Icon"
                         fill
+                        unoptimized
                         className="object-contain group-hover:scale-110 transition-transform duration-300"
                     />
                 </div>
                 <div className="relative h-8 md:h-12 w-36 md:w-52">
                     <Image
-                        src={prefixPath('/media/logo/ff-text.png?v=1')}
+                        src={prefixPath('/media/logo/ff-text.png?w=208')}
                         alt="Forgotten Future"
                         fill
+                        unoptimized
                         className="object-contain"
                         priority
                     />

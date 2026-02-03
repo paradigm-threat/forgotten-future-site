@@ -1,3 +1,4 @@
+0e98f27 Update manuscripts from story repo
 88cbe83 Update git history tracking
 26eb6b3 Update git history tracking
 4ecb916 Update git-history.json
