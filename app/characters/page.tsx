@@ -101,7 +101,13 @@ const CHARACTERS: Character[] = [
             { src: prefixPath('/media/characters/elowen/elowen-landscape.png'), alt: 'Dr. Elowen Vane' },
             { src: prefixPath('/media/characters/elowen/elowen_storyboard.png'), alt: 'Dr. Elowen Vane - Storyboard' },
             { src: prefixPath('/media/characters/elowen/elowen_storyboard_gorgon.png'), alt: 'Dr. Elowen Vane - Gorgon Research' },
-            { src: prefixPath('/media/characters/elowen/elowen-wuxing-landscape.png'), alt: 'Dr. Elowen Vane - Wu Xing' }
+            { src: prefixPath('/media/characters/elowen/elowen-wuxing-landscape.png'), alt: 'Dr. Elowen Vane - Wu Xing' },
+            { src: prefixPath('/media/characters/elowen/elowen-diurnal-cycle.png'), alt: 'Dr. Elowen Vane - Diurnal Cycle' },
+            { src: prefixPath('/media/characters/elowen/elowen-feng-shui.png'), alt: 'Dr. Elowen Vane - Feng Shui' },
+            { src: prefixPath('/media/characters/elowen/elowen-five-animals.png'), alt: 'Dr. Elowen Vane - Five Animals' },
+            { src: prefixPath('/media/characters/elowen/elowen-ming-nayin.png'), alt: 'Dr. Elowen Vane - Ming Nayin' },
+            { src: prefixPath('/media/characters/elowen/elowen-phases-of-year.png'), alt: 'Dr. Elowen Vane - Phases of Year' },
+            { src: prefixPath('/media/characters/elowen/elowen-wuxing-music.png'), alt: 'Dr. Elowen Vane - Wu Xing Music' }
         ]
     },
     {

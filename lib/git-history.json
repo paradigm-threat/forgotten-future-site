@@ -1,8 +1,14 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.105",
+    "version": "v0.13.106",
     "commits": [
+      {
+        "sha": "e1dc71a",
+        "message": "Add new character images and update relics",
+        "date": "2026-02-03T20:12:43.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/e1dc71a"
+      },
       {
         "sha": "062305d",
         "message": "Rename Tor to Ajax and update assets",
@@ -14,12 +20,6 @@
         "message": "Rename mission chapters and update Chapter 19 with Rahu's lead suit and Lem's explosion",
         "date": "2026-02-03T14:39:32.000Z",
         "url": "https://github.com/clevertree/ff-story/commit/5b50baa"
-      },
-      {
-        "sha": "f45a6c1",
-        "message": "Refactor Chapters 15-18: Implement Confabulation twist, move lore to Appendix, insert Awakening arc, and renumber beats for consistency.",
-        "date": "2026-02-03T13:45:06.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/f45a6c1"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
@@ -51,8 +51,14 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.90",
+    "version": "v0.11.91",
     "commits": [
+      {
+        "sha": "44d0c49",
+        "message": "Add new images for Lynn and Rahu to character page",
+        "date": "2026-02-03T19:39:52.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/44d0c49"
+      },
       {
         "sha": "808c860",
         "message": "Fix Next.js 16 build error by adding empty turbopack config",
@@ -64,12 +70,6 @@
         "message": "Update Ajax character gallery and assets",
         "date": "2026-02-03T19:19:28.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/0d58f5f"
-      },
-      {
-        "sha": "e650815",
-        "message": "Merge pull request #2 from clevertree/dependabot/npm_and_yarn/lodash-4.17.23",
-        "date": "2026-02-03T17:50:44.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/e650815"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"
