@@ -1,3 +1,4 @@
+0d58f5f Update Ajax character gallery and assets
 e650815 Merge pull request #2 from clevertree/dependabot/npm_and_yarn/lodash-4.17.23
 ec6afa5 Merge pull request #3 from clevertree/dependabot/npm_and_yarn/next-16.1.5
 9894232 chore(deps): bump next from 15.5.9 to 16.1.5
