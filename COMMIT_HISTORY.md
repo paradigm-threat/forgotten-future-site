@@ -1,3 +1,4 @@
+44d0c49 Add new images for Lynn and Rahu to character page
 808c860 Fix Next.js 16 build error by adding empty turbopack config
 0d58f5f Update Ajax character gallery and assets
 e650815 Merge pull request #2 from clevertree/dependabot/npm_and_yarn/lodash-4.17.23

@@ -51,8 +51,14 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.89",
+    "version": "v0.11.90",
     "commits": [
+      {
+        "sha": "808c860",
+        "message": "Fix Next.js 16 build error by adding empty turbopack config",
+        "date": "2026-02-03T19:24:42.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/808c860"
+      },
       {
         "sha": "0d58f5f",
         "message": "Update Ajax character gallery and assets",
@@ -64,12 +70,6 @@
         "message": "Merge pull request #2 from clevertree/dependabot/npm_and_yarn/lodash-4.17.23",
         "date": "2026-02-03T17:50:44.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/e650815"
-      },
-      {
-        "sha": "ec6afa5",
-        "message": "Merge pull request #3 from clevertree/dependabot/npm_and_yarn/next-16.1.5",
-        "date": "2026-02-03T17:50:29.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/ec6afa5"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

@@ -37,7 +37,8 @@ const CHARACTERS: Character[] = [
             { src: prefixPath('/media/characters/lynn/lynn-nexus.png'), alt: 'Lynn - Nexus Connection' },
             { src: prefixPath('/media/characters/lynn/lynn-reset.png'), alt: 'Lynn - Reset' },
             { src: prefixPath('/media/characters/lynn/lynn-blackout.png'), alt: 'Lynn - Blackout' },
-            { src: prefixPath('/media/characters/lynn/lynn-glass-locket-landscape.png'), alt: 'Lynn - Glass Locket' }
+            { src: prefixPath('/media/characters/lynn/lynn-glass-locket-landscape.png'), alt: 'Lynn - Glass Locket' },
+            { src: prefixPath('/media/characters/lynn/glass-locket-portrait.png'), alt: 'Lynn - Glass Locket (Portrait)' }
         ]
     },
     {
@@ -99,7 +100,8 @@ const CHARACTERS: Character[] = [
         images: [
             { src: prefixPath('/media/characters/elowen/elowen-landscape.png'), alt: 'Dr. Elowen Vane' },
             { src: prefixPath('/media/characters/elowen/elowen_storyboard.png'), alt: 'Dr. Elowen Vane - Storyboard' },
-            { src: prefixPath('/media/characters/elowen/elowen_storyboard_gorgon.png'), alt: 'Dr. Elowen Vane - Gorgon Research' }
+            { src: prefixPath('/media/characters/elowen/elowen_storyboard_gorgon.png'), alt: 'Dr. Elowen Vane - Gorgon Research' },
+            { src: prefixPath('/media/characters/elowen/elowen-wuxing-landscape.png'), alt: 'Dr. Elowen Vane - Wu Xing' }
         ]
     },
     {
