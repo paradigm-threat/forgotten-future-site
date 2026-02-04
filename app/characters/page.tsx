@@ -466,9 +466,8 @@ export default function CharactersPage() {
                             onClick={() => handleImageClick('elowen')}
                             description={
                                 <p>
-                                    A bio-engineer and <a href="https://en.wikipedia.org/wiki/Wuxing_(Chinese_philosophy)">Wuxing</a>
+                                    A bio-engineer and <a href="https://en.wikipedia.org/wiki/Wuxing_(Chinese_philosophy)">Wuxing</a>{' '}
                                     visionary who created the Elemental Vessels - living spiritual artificial humans each built on the fundimental concepts of Wuxing Theory.
-                                    She eventually broke with the Core to preserve the integrity of the record.
                                 </p>
                             }
                         />
