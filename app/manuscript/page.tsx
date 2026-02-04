@@ -343,7 +343,7 @@ function ManuscriptContent() {
                 {/* Chapters List */}
                 <div className="lg:w-2/3 order-2 lg:order-2">
                     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-                        <h1 className="text-3xl md:text-4xl text-glow uppercase tracking-tighter">Manuscript: Lem's Memories</h1>
+                        <h1 className="text-3xl md:text-4xl text-glow uppercase tracking-tighter">Manuscript: Lem's Records</h1>
                         {draftVersion && <div className="text-[10px] text-muted uppercase tracking-widest bg-white/5 px-3 py-1 rounded border border-white/5">Draft: v{draftVersion}</div>}
                     </div>
 
@@ -399,7 +399,7 @@ function ManuscriptContent() {
                         {!isLoading && parts.length > 0 && (
                             <div className="mt-16 p-8 border border-dashed border-primary/10 text-center rounded-lg mb-12">
                                 <p className="text-muted text-sm italic">
-                                    The First Edition of Lem's Memories is complete.
+                                    The First Edition of Lem's Records is complete.
                                     Further aetheric logs may be uncompiled in future iterations.
                                 </p>
                             </div>

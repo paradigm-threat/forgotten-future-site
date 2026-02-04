@@ -35,7 +35,7 @@ export default function Home() {
     ];
 
     return (
-        <main className="min-h-screen selection:bg-accent/30">
+        <main className="min-h-screen">
             <PwaRedirect />
             {/* Hero Section */}
             <section className="relative h-[80vh] flex items-center justify-center overflow-hidden border-b border-foreground/10">

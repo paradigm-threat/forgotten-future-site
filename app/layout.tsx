@@ -74,7 +74,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={`${inter.className} scroll-smooth`} data-scroll-behavior="smooth" suppressHydrationWarning>
-            <body className="bg-background text-foreground transition-colors duration-300 selection:bg-accent/30">
+            <body className="bg-background text-foreground transition-colors duration-300">
                 <Providers>
                     <header className="fixed top-0 w-full z-[1000] no-print">
                         <div className="absolute inset-0 bg-background/95 backdrop-blur-md border-b border-foreground/10 -z-10" />
