@@ -8,6 +8,8 @@ import { StickyNav } from '../components/StickyNav';
 import { Notification } from '../components/Notification';
 import { ChapterCard } from '../components/ChapterCard';
 import { FAQItem } from '../components/FAQItem';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 function ManuscriptContent() {
     const searchParams = useSearchParams();
@@ -378,9 +380,22 @@ function ManuscriptContent() {
                                         {section.title}
                                         <span className="h-px bg-cyan-500/20 flex-grow"></span>
                                     </h2>
-                                    <p className="text-xs text-muted italic mb-8 text-center max-w-xl mx-auto">
-                                        {section.summary}
-                                    </p>
+                                    <div className="text-xs text-muted italic mb-8 text-center max-w-xl mx-auto prose dark:prose-invert prose-xs">
+                                        <ReactMarkdown
+                                            remarkPlugins={[remarkGfm]}
+                                            components={{
+                                                a: ({ node, href, children, ...props }: any) => {
+                                                    const isExternal = href?.startsWith('http');
+                                                    if (isExternal) {
+                                                        return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>
+                                                    }
+                                                    return <Link href={href || ''} {...props}>{children}</Link>
+                                                }
+                                            }}
+                                        >
+                                            {section.summary}
+                                        </ReactMarkdown>
+                                    </div>
                                     <div className="space-y-6">
                                         {section.chapters
                                             .map((chapter) => (

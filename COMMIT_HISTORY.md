@@ -1,3 +1,6 @@
+91b5f71 remove disabled text selection
+d3263ff elowen update
+e5dbafb update manuscript
 bc59e95 Update Elowen character page with new diagrams
 5ad5f2e Add more character images to character page
 44d0c49 Add new images for Lynn and Rahu to character page

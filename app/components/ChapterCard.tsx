@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Chapter {
     id: number;
@@ -64,10 +66,21 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({
                         )}
                     </div>
                 </div>
-                <div className="prose dark:prose-invert prose-sm max-w-none text-secondary leading-relaxed italic">
-                    {(chapter.summary || chapter.content).split('\n').map((para, i) => (
-                        para.trim() && <p key={i}>{para}</p>
-                    ))}
+                <div className="prose dark:prose-invert prose-sm max-w-none text-secondary leading-relaxed text-justify">
+                    <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                            a: ({ node, href, children, ...props }: any) => {
+                                const isExternal = href?.startsWith('http');
+                                if (isExternal) {
+                                    return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>
+                                }
+                                return <Link href={href || ''} {...props}>{children}</Link>
+                            }
+                        }}
+                    >
+                        {chapter.summary || chapter.content}
+                    </ReactMarkdown>
                 </div>
             </div>
         </div>
