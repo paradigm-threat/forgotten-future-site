@@ -257,7 +257,7 @@ export default function CharactersPage() {
 
                 <section className="mb-20">
                     <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-cyan-500/30 pb-2 mb-8 gap-4">
-                        <h2 className="text-2xl uppercase tracking-widest text-[var(--accent-color)]">The Five Vessels</h2>
+                        <h2 className="text-2xl uppercase tracking-widest text-[var(--accent-color)]">Five Elemental Vessels</h2>
                         <div className="bg-cyan-500/10 border border-cyan-500/30 px-3 py-1.5 rounded text-[10px] uppercase tracking-tighter text-[var(--accent-bright-color)] font-bold">
                             Note: Elemental Vessels (Wood, Water, Fire, Earth) are unique; Metal Vessels are a generated class.
                         </div>
@@ -454,7 +454,7 @@ export default function CharactersPage() {
                 </section>
 
                 <section className="mb-20">
-                    <h2 className="text-2xl mb-8 border-b border-cyan-500/30 pb-2 uppercase tracking-widest text-cyan-400">The Vane Lineage & High Command</h2>
+                    <h2 className="text-2xl mb-8 border-b border-cyan-500/30 pb-2 uppercase tracking-widest text-cyan-400">Technocratic Core</h2>
                     <div className="grid md:grid-cols-2 gap-12">
                         {/* Elowen */}
                         <InfoCard
@@ -466,7 +466,9 @@ export default function CharactersPage() {
                             onClick={() => handleImageClick('elowen')}
                             description={
                                 <p>
-                                    A visionary bio-engineer who designed the Vessel framework to carry "spark"—consciousness and emotional depth. She eventually broke with the Core to preserve the integrity of the record.
+                                    A bio-engineer and <a href="https://en.wikipedia.org/wiki/Wuxing_(Chinese_philosophy)">Wuxing</a>
+                                    visionary who created the Elemental Vessels - living spiritual artificial humans each built on the fundimental concepts of Wuxing Theory.
+                                    She eventually broke with the Core to preserve the integrity of the record.
                                 </p>
                             }
                         />

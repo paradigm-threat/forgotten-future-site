@@ -1,3 +1,4 @@
+bc59e95 Update Elowen character page with new diagrams
 5ad5f2e Add more character images to character page
 44d0c49 Add new images for Lynn and Rahu to character page
 808c860 Fix Next.js 16 build error by adding empty turbopack config

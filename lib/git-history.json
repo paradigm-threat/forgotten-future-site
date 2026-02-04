@@ -1,25 +1,25 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.106",
+    "version": "v0.13.111",
     "commits": [
+      {
+        "sha": "76c6d07",
+        "message": "Renumber and update manuscripts with new chapter split (12/13)",
+        "date": "2026-02-04T14:54:55.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/76c6d07"
+      },
+      {
+        "sha": "34166a6",
+        "message": "Add Elowen diagrams and character visuals",
+        "date": "2026-02-03T22:20:26.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/34166a6"
+      },
       {
         "sha": "e1dc71a",
         "message": "Add new character images and update relics",
         "date": "2026-02-03T20:12:43.000Z",
         "url": "https://github.com/clevertree/ff-story/commit/e1dc71a"
-      },
-      {
-        "sha": "062305d",
-        "message": "Rename Tor to Ajax and update assets",
-        "date": "2026-02-03T19:19:16.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/062305d"
-      },
-      {
-        "sha": "5b50baa",
-        "message": "Rename mission chapters and update Chapter 19 with Rahu's lead suit and Lem's explosion",
-        "date": "2026-02-03T14:39:32.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/5b50baa"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
@@ -51,25 +51,25 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.91",
+    "version": "v0.11.93",
     "commits": [
+      {
+        "sha": "bc59e95",
+        "message": "Update Elowen character page with new diagrams",
+        "date": "2026-02-03T22:20:44.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/bc59e95"
+      },
+      {
+        "sha": "5ad5f2e",
+        "message": "Add more character images to character page",
+        "date": "2026-02-03T20:12:57.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/5ad5f2e"
+      },
       {
         "sha": "44d0c49",
         "message": "Add new images for Lynn and Rahu to character page",
         "date": "2026-02-03T19:39:52.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/44d0c49"
-      },
-      {
-        "sha": "808c860",
-        "message": "Fix Next.js 16 build error by adding empty turbopack config",
-        "date": "2026-02-03T19:24:42.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/808c860"
-      },
-      {
-        "sha": "0d58f5f",
-        "message": "Update Ajax character gallery and assets",
-        "date": "2026-02-03T19:19:28.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/0d58f5f"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

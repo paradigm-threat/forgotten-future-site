@@ -21,8 +21,8 @@ const MANUSCRIPT_URLS: Record<ManuscriptVersion, string> = {
 };
 
 const LOCAL_MANUSCRIPT_PATHS: Record<ManuscriptVersion, string> = {
-    '13plus': '/manuscript/manuscript_13plus.md',
-    'youngadult': '/manuscript/manuscript_youngadult.md'
+    '13plus': '/manuscript/MANUSCRIPT_13_PLUS.md',
+    'youngadult': '/manuscript/MANUSCRIPT_YOUNG_ADULT.md'
 };
 
 export async function parseManuscript(text: string): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {

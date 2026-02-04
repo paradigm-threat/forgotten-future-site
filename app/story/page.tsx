@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Lore & Timeline',
-    description: 'Explore the comprehensive timeline and lore of Forgotten Future. From the Great Fry to the emergence of the Five Vessels.',
+    description: 'Explore the comprehensive timeline and lore of Forgotten Future. From the Great Fry to the emergence of the Five Elemental Vessels.',
 };
 
 export default function StoryPage() {
@@ -24,7 +24,7 @@ export default function StoryPage() {
                         <h3 className="text-accent text-lg mb-2 underline">Before Time</h3>
                         <p className="text-secondary leading-relaxed">
                             An era of systematic deception. Humanity lived under the guidance of the Technocratic Core, unaware of the
-                            Five Vessels hidden among them. The Moon was presented as a barren rock, while in reality, it housed the
+                            Five Elemental Vessels hidden among them. The Moon was presented as a barren rock, while in reality, it housed the
                             Cradle of the Archivists.
                         </p>
                     </div>
