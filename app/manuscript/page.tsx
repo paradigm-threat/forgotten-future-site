@@ -10,6 +10,7 @@ import { ChapterCard } from '../components/ChapterCard';
 import { FAQItem } from '../components/FAQItem';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { MarkdownLink } from '../components/MarkdownLink';
 
 function ManuscriptContent() {
     const searchParams = useSearchParams();
@@ -384,13 +385,7 @@ function ManuscriptContent() {
                                         <ReactMarkdown
                                             remarkPlugins={[remarkGfm]}
                                             components={{
-                                                a: ({ node, href, children, ...props }: any) => {
-                                                    const isExternal = href?.startsWith('http');
-                                                    if (isExternal) {
-                                                        return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>
-                                                    }
-                                                    return <Link href={href || ''} {...props}>{children}</Link>
-                                                }
+                                                a: MarkdownLink
                                             }}
                                         >
                                             {section.summary}

@@ -54,6 +54,12 @@
     "version": "v0.11.95",
     "commits": [
       {
+        "sha": "08f56d4",
+        "message": "Render chapter and part summaries with Markdown on manuscript page",
+        "date": "2026-02-04T16:18:45.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/08f56d4"
+      },
+      {
         "sha": "91b5f71",
         "message": "remove disabled text selection",
         "date": "2026-02-04T16:12:55.000Z",
@@ -64,12 +70,6 @@
         "message": "elowen update",
         "date": "2026-02-04T15:19:20.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/d3263ff"
-      },
-      {
-        "sha": "e5dbafb",
-        "message": "update manuscript",
-        "date": "2026-02-04T14:59:15.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/e5dbafb"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

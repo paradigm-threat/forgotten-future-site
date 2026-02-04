@@ -4,6 +4,7 @@ import React, { memo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Link from 'next/link';
+import { MarkdownLink } from './MarkdownLink';
 
 interface RemoteMarkdownProps {
     content: string;
@@ -23,13 +24,7 @@ export const RemoteMarkdown = memo(function RemoteMarkdown({ content, basePath }
             <ReactMarkdown 
                 remarkPlugins={[remarkGfm]}
                 components={{
-                    a: ({node, href, children, ref, ...props}: any) => {
-                        const isExternal = href?.startsWith('http');
-                        if (isExternal) {
-                            return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>
-                        }
-                        return <Link href={href || ''} {...props}>{children}</Link>
-                    }
+                    a: MarkdownLink
                 }}
             >
                 {content}

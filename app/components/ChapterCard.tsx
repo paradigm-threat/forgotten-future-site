@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { MarkdownLink } from './MarkdownLink';
 
 interface Chapter {
     id: number;
@@ -70,13 +71,7 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
                         components={{
-                            a: ({ node, href, children, ...props }: any) => {
-                                const isExternal = href?.startsWith('http');
-                                if (isExternal) {
-                                    return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>
-                                }
-                                return <Link href={href || ''} {...props}>{children}</Link>
-                            }
+                            a: MarkdownLink
                         }}
                     >
                         {chapter.summary || chapter.content}

@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import { fetchManuscript, Chapter, Part, ManuscriptVersion } from '../../../lib/manuscript';
 import { VersionSwitch } from '../../components/VersionSwitch';
+import { MarkdownLink } from '../../components/MarkdownLink';
 
 function FullTextContent() {
     const router = useRouter();
@@ -442,13 +443,7 @@ function FullTextContent() {
                                             <div className="text-secondary leading-[2] text-lg space-y-6">
                                                 <ReactMarkdown
                                                     components={{
-                                                        a: ({ node, href, children, ref, ...props }: any) => {
-                                                            const isExternal = href?.startsWith('http');
-                                                            if (isExternal) {
-                                                                return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>
-                                                            }
-                                                            return <Link href={href || ''} {...props}>{children}</Link>
-                                                        }
+                                                        a: MarkdownLink
                                                     }}
                                                 >{chapter.content}</ReactMarkdown>
                                             </div>
@@ -495,13 +490,7 @@ function FullTextContent() {
                                     <div className="text-secondary leading-[2] text-lg space-y-6">
                                         <ReactMarkdown
                                             components={{
-                                                a: ({ node, href, children, ref, ...props }: any) => {
-                                                    const isExternal = href?.startsWith('http');
-                                                    if (isExternal) {
-                                                        return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>
-                                                    }
-                                                    return <Link href={href || ''} {...props}>{children}</Link>
-                                                }
+                                                a: MarkdownLink
                                             }}
                                         >{chapter.content}</ReactMarkdown>
                                     </div>
