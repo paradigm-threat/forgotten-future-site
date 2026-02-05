@@ -23,9 +23,13 @@ function ManuscriptContent() {
     const [parts, setParts] = useState<Part[]>([]);
     const [draftVersion, setDraftVersion] = useState<string | undefined>();
     const [isLoading, setIsLoading] = useState(true);
+    const [loadError, setLoadError] = useState<string | null>(null);
     const [version, setVersion] = useState<ManuscriptVersion>(editionParam === '13plus' ? '13plus' : 'youngadult');
     const [notification, setNotification] = useState<string | null>(null);
     const [speakingId, setSpeakingId] = useState<number | null>(null);
+
+    const LOAD_TIMEOUT_MS = 20000;
+    const [loadTrigger, setLoadTrigger] = useState(0);
 
     const toggleSpeech = React.useCallback((id: number, text: string) => {
         if (typeof window === 'undefined') return;
@@ -191,9 +195,17 @@ function ManuscriptContent() {
 
     useEffect(() => {
         setIsLoading(true);
+        setLoadError(null);
         let mounted = true;
         let lastVersion: string | undefined;
         let lastCount = 0;
+
+        const timeoutId = setTimeout(() => {
+            if (mounted) {
+                setLoadError((prev) => (prev ? prev : 'timeout'));
+                setIsLoading(false);
+            }
+        }, LOAD_TIMEOUT_MS);
 
         const syncWithRemote = async (showNotification: boolean) => {
             // Stop fetching if user is idle (> 60s) or tab is hidden
@@ -224,21 +236,36 @@ function ManuscriptContent() {
         };
 
         const loadInitial = async () => {
-            const data = await fetchManuscript(version);
-            if (!mounted) return;
+            try {
+                const data = await fetchManuscript(version);
+                if (!mounted) return;
 
-            setChapters(data.chapters);
-            setParts(data.parts);
-            setDraftVersion(data.draftVersion);
+                clearTimeout(timeoutId);
+                if (data.chapters.length === 0) {
+                    setLoadError('unavailable');
+                } else {
+                    setLoadError(null);
+                }
 
-            lastVersion = data.draftVersion;
-            lastCount = data.chapters.length;
+                setChapters(data.chapters);
+                setParts(data.parts);
+                setDraftVersion(data.draftVersion);
 
-            setIsLoading(false);
+                lastVersion = data.draftVersion;
+                lastCount = data.chapters.length;
 
-            // Initial silent sync - page loads will have an update within the first fetch
-            // but we don't notify the user yet.
-            await syncWithRemote(false);
+                setIsLoading(false);
+
+                // Initial silent sync - page loads will have an update within the first fetch
+                // but we don't notify the user yet.
+                await syncWithRemote(false);
+            } catch {
+                if (mounted) {
+                    clearTimeout(timeoutId);
+                    setLoadError('unavailable');
+                    setIsLoading(false);
+                }
+            }
         };
 
         loadInitial();
@@ -250,9 +277,10 @@ function ManuscriptContent() {
 
         return () => {
             mounted = false;
+            clearTimeout(timeoutId);
             clearInterval(intervalId);
         };
-    }, [version]);
+    }, [version, loadTrigger]);
 
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
@@ -359,18 +387,28 @@ function ManuscriptContent() {
                     />
 
                     <div ref={scrollContainerRef} className="space-y-12 h-[calc(100vh)] overflow-y-auto pr-4 scroll-smooth custom-scrollbar relative">
-                        {isLoading ? (
+                        {isLoading && !loadError ? (
                             <div className="flex flex-col items-center justify-center py-24 text-muted uppercase tracking-widest text-xs">
                                 <div className="mb-4 animate-pulse">Scanning Aether-Drive...</div>
                             </div>
-                        ) : parts.length === 0 ? (
-                            <div className="flex flex-col items-center justify-center py-24 text-muted uppercase tracking-widest text-xs">
-                                <div className="mb-4 text-red-500/50">Connection Failed: Data Not Found</div>
+                        ) : loadError || parts.length === 0 ? (
+                            <div className="flex flex-col items-center justify-center py-24 text-muted uppercase tracking-widest text-xs space-y-4">
+                                <div className="mb-4 text-red-500/80 text-center max-w-md">
+                                    {loadError === 'timeout'
+                                        ? 'Scan timed out. The manuscript could not be loaded from the archive (local or GitHub). Check your connection and try again.'
+                                        : loadError === 'unavailable'
+                                            ? 'Connection failed: data not found. Local and remote fetch failed.'
+                                            : 'Connection failed: data not found.'}
+                                </div>
                                 <button
-                                    onClick={() => window.location.reload()}
-                                    className="text-cyan-600 dark:text-cyan-500 hover:text-cyan-400 underline underline-offset-4"
+                                    onClick={() => {
+                                        setLoadError(null);
+                                        setIsLoading(true);
+                                        setLoadTrigger((t) => t + 1);
+                                    }}
+                                    className="text-cyan-600 dark:text-cyan-500 hover:text-cyan-400 font-bold uppercase tracking-widest border border-cyan-500/50 px-6 py-3 rounded hover:bg-cyan-500/10 transition-colors"
                                 >
-                                    Retry Archive Sync
+                                    Retry archive sync
                                 </button>
                             </div>
                         ) : (

@@ -3,7 +3,7 @@
 > Updated: 2026-02-04
 
 # PART I: LUNAR MISSION
-*Determined to reclaim the Moon from a supposed alien threat, Lem and a global military force embark on a mission that hides a century of fabricated history.*
+*Determined to reclaim the Moon from a supposed alien threat, Lem and a global military force embark on a mission to save the Earth.*
 ---
 
 ## Chapter 1: Transmission
@@ -193,7 +193,7 @@ I looked at the wreckage of the strike-craft beside me. It was a twisted skeleto
 ## Chapter 9: Rahu
 
 ### Synopsis
-Lem boards his hovercraft and joins the forward strike team. With the ground forces, he advances across the lunar surface toward the moon base. His internal systems activate fully; he observes the fleet and the approach. As the formation reaches the ridge overlooking the plain leading to the moon base, Rahu appears on the peak of a tall mountain overlooking the plain, wreathed in a large fire. From his advantageous position he operates a massive plasma array that fires an unlimited barrage of plasma balls against any unit that dares enter the plain leading to the moon base. The ground forces are completely exposed—no cover. The situation becomes a kill zone. A pilot in the lead unit confirms Rahu's signature and intentionally turns his comm off before his vehicle is destroyed; Lem notes the lack of a final cry. The chapter ends with the human fleet pinned and the desperate tactical necessity for what follows (Chapter 10: the flagship’s sacrifice).
+Lem boards his hovercraft and joins the forward strike team. With the ground forces, he advances across the lunar surface toward the moon base. His internal systems activate fully; he observes the fleet and the approach. As the formation reaches the ridge overlooking the plain leading to the moon base, Rahu appears on the peak of a tall mountain overlooking the plain, wreathed in a large fire. From his advantageous position he operates a massive plasma array that fires an unlimited barrage of plasma balls against any unit that dares enter the plain leading to the moon base. The ground forces are completely exposed—no cover. The situation becomes a kill zone. A pilot in the lead unit confirms Rahu's signature and intentionally turns his comm off before his vehicle is destroyed; The chapter ends with the human fleet pinned and the desperate tactical necessity for what follows (Chapter 10: the flagship’s sacrifice).
 
 ### Draft
 I climbed into the hovercraft and the link went live. My systems flooded with data—waypoints, formation markers, the pulse of every unit in the strike line. For a moment I couldn't tell where my eyes ended and the display began. Then it sharpened. Novak had said move. I moved.
@@ -621,7 +621,7 @@ It wasn't the shattered ruin I remembered from the night of the Cataclysm. It wa
 ## Chapter 22: Ashwood
 
 ### Synopsis
-On the Archipelago floating islands, Lem meets Cassia, who becomes his guardian and explains the benefits of Core citizenship. She reframes Lem’s capture as a rescue from aliens, marking it as the first of many missions. Lem soon realizes that the Core operates on a fabrication of history—teaching that 1,000 years have passed since the Cataclysm and omitting Lem’s own role in the past. While he becomes an object of intense research due to his unique "drift vessel" capabilities, Lem suppresses his memories of the Before Time. Since he remains silent about his identity, Cassia names him "Ashwood" and prepares him for the next phase of Mission 2: reclaiming the Dead Zone.
+On the Archipelago floating islands, Lem meets Cassia, who becomes his guardian and explains the benefits of Core citizenship. She reframes Lem’s capture as a rescue from aliens, marking it as the first of many missions. Lem soon realizes that the Core operates on a fabrication of history—teaching that 1,000 years have passed since the Cataclysm and omitting Lem’s own role in the past. While he becomes an object of intense research due to his unique "drift vessel" capabilities, Lem suppresses his memories of the Before Time. Since he remains silent about his identity, Cassia names him "Ashwood" and prepares him for the next phase of Project Counter Fire: reclaiming the Dead Zone.
 
 ### Draft
 The Archipelago was a surreal mosaic of floating rocks, suspended in a permanent twilight by the artificial gravity of the Core. I stood on the balcony of the Command Center, watching the clouds swirl beneath us like a turbulent sea of grey and violet. Behind me, the doors hissed open, and Cassia stepped out. She didn't look like a scientist; she looked like a curator of souls, dressed in robes of silver silk that shimmered with integrated data-streams.
@@ -642,14 +642,14 @@ She escorted me through the city museum. I saw posters for the "Maya-Leaf Hunt,"
 
 "We're naming you Ashwood," Cassia said, writing the name into my digital file. "It suits you. Born from the ruins of the Fire City, a testament to the Core's resilience."
 
-"I'll be your Ashwood," I whispered. I would play the role. I would volunteer for their "Mission 2" to reclaim the Dead Zone. I would be the "drift vessel" they wanted to study. But beneath the silver and the wood, I was still Lem. I was the only person left on the planet who knew the truth, and I would wait. I had all the time in the world.
+"I'll be your Ashwood," I whispered. I would play the role. I would volunteer for their "Project Counter Fire" to reclaim the Dead Zone. I would be the "drift vessel" they wanted to study. But beneath the silver and the wood, I was still Lem. I was the only person left on the planet who knew the truth, and I would wait. I had all the time in the world.
 
 ---
 
 ## Chapter 23: Counter Fire
 
 ### Synopsis
-Lem, now known as Ashwood, joins Rahu and a Metal Vessel squad for the reclamation of the Dead Zone known as Mission Counter Fire. Utilizing high-speed hovercrafts, they deploy Aetheric Buoys that use "Repeating commands" and electroshock deterrents to drive away the wild psionic wildlife. During this time, Lem discovers the hive-mind nature of the Metal Vessels and Vector’s ability to control them as a collective. The mission takes a violent turn when their buoys awaken a dormant Monolith at the desert's edge. A massive Core gunship, the *Obsidian Sledge*, arrives to suppress the threat. In the ensuing battle, the Monolith is brought down by plasma fire, but its shattered fragments rain down on the crew, knocking Lem unconscious once again.
+Lem, now known as Ashwood, joins Rahu and a Metal Vessel squad for the reclamation of the Dead Zone known as Project Counter Fire. Utilizing high-speed hovercrafts, they deploy Aetheric Buoys that use "Repeating commands" and electroshock deterrents to drive away the wild psionic wildlife. During this time, Lem discovers the hive-mind nature of the Metal Vessels and Vector’s ability to control them as a collective. The mission takes a violent turn when their buoys awaken a dormant Monolith at the desert's edge. A massive Core gunship, the *Obsidian Sledge*, arrives to suppress the threat. In the ensuing battle, the Monolith is brought down by plasma fire, but its shattered fragments rain down on the crew, knocking Lem unconscious once again.
 
 ### Draft
 The hovercraft's engine was a high-pitched scream against the oppressive silence of the Dead Zone. I gripped the railing of the *Counter Fire* transport, watching the purple dunes blur past. Beside me, Rahu stood like a statue, his eyes fixed on the horizon where the ruins of the Fire City I had helped build lay in cooling cinders.
@@ -827,10 +827,10 @@ He hauled me into the ship like a bag of supplies, his grip cold and unyielding.
 ## Chapter 29: Ground Wire
 
 ### Synopsis
-Following his flawless performance in the desert, Lem is personally cleared by Anton Drexler for the "Northern Shield" mission. Sent to the frozen North to hunt for a "Maya Cult" signature, Lem leads a squad of Metal Vessels toward an analog settlement. Amid investigative tension, Cassia reveals that she will be joining the mission in person to personally oversee the outreach efforts in the High Enclave. She warns that Drexler is closely monitoring Lem, ready to return him to permanent stasis if his memory persistence causes any deviation from mission parameters. Lem realizes that it was Cassia who fought for his freedom, and for the first time, he feels a genuine sense of gratitude, knowing he has an ally physically arriving on the front lines. Finally, Cassia emphasizes that while defending the villages is the official goal, uncovering a "Maya Cult" is Anton’s personal priority.
+Following his flawless performance in the desert, Lem is personally cleared by Anton Drexler for the "Ground Wire" mission. Sent to the frozen North to hunt for a "Maya Cult" signature, Lem leads a squad of Metal Vessels toward an analog settlement. Amid investigative tension, Cassia reveals that she will be joining the mission in person to personally oversee the outreach efforts in the High Enclave. She warns that Drexler is closely monitoring Lem, ready to return him to permanent stasis if his memory persistence causes any deviation from mission parameters. Lem realizes that it was Cassia who fought for his freedom, and for the first time, he feels a genuine sense of gratitude, knowing he has an ally supporting him on the front lines. Finally, Cassia emphasizes that while defending the villages is the official goal, uncovering a "Maya Cult" is Anton’s personal priority.
 
 ### Draft
-We flew north into the frozen wilderness. The smog of the Hive was replaced by white air and a sky that was painfully clear. Iris Novak confirmed that Anton Drexler had personally cleared me for the "Northern Shield" campaign—Mission 3—following my success during the Equatorial Reclamation. I was now leading the hunt for a cult that forbade technology, which the Core suspected was being led by a dangerous "Prophet" who could destabilize the entire region.
+We flew north into the frozen wilderness. The smog of the Hive was replaced by white air and a sky that was painfully clear. Iris Novak confirmed that Anton Drexler had personally cleared me for the "Ground Wire" campaign—Mission 3—following my success during the Equatorial Reclamation. I was now leading the hunt for a cult that forbade technology, which the Core suspected was being led by a dangerous "Prophet" who could destabilize the entire region.
 
 The internal psychological transition was difficult. Each time I closed my internal processors, I could still feel the phantom heat of the desert, the way the sand had scoured my obsidian plating. But here, the cold was a different kind of pressure. The fluid in my joints thickened, requiring a constant aetheric bleed to maintain mobility. I felt more like a machine than ever, yet my mind was racing with questions about why I was being given this much trust.
 
@@ -959,7 +959,7 @@ They didn't just kill the machine. They pulverized it. I watched Arlo turn away,
 ### Synopsis
 Lem re-awakens in a specialized "Deep-Cold" frame in Cradle Zero immediately after his death in the High Enclave. He is greeted by Cassia Vane, but notices she has fundamentally changed—no longer the cheery, hopeful handler he knew, now focused solely on his survival. She reveals she had to fight Anton Drexler to save Lem from permanent decommissioning after his hesitation in **Ait-Aman**. This argument echoes a recent conflict with Anton over allowing Lem to continue missions rather than enter permanent stasis—the same argument Cassia had just made regarding Anton's insistence that Lem destroy the Gorgons.
 
-Cassia begins her briefing on Mission Ground Wire: the **Northern Shield**. She explains that the Metal Vessels have already been briefed on this mission, but they will not be entering the White Forest themselves. The **Voidsmen** inhabitants have developed a specific distrust of Metal Vessels, viewing them as the culmination of everything wrong with digital technology—complete obedience, remote control capability, and unlimited deadly force. All Metal Vessels sent into the White Forest have been destroyed. Unlike Lem, when Metal Vessels are destroyed, they do not retain their memory of death.
+Cassia begins her briefing on Project Ground Wire: the **Ground Wire**. She explains that the Metal Vessels have already been briefed on this mission, but they will not be entering the White Forest themselves. The **Voidsmen** inhabitants have developed a specific distrust of Metal Vessels, viewing them as the culmination of everything wrong with digital technology—complete obedience, remote control capability, and unlimited deadly force. All Metal Vessels sent into the White Forest have been destroyed. Unlike Lem, when Metal Vessels are destroyed, they do not retain their memory of death.
 
 Cassia describes the White Forest in detail: it lies in the Silver Bight, an equatorial coastal sanctuary. The forest is a hybrid of real wood and water combined with artificial "synodic" wood and water machinery working in harmony. The trees are organized on a large spiraling grid, with certain areas containing very large and tall trees that penetrate the lower sky layer—a reaction to the loss of sunlight from Fire City smoke buildup. Throughout the forest, both near the ground and high in the trees, are embedded orbs. These orbs provide artificial sunlight energy for other plants when natural sun is blocked below the clouds. The orbs follow what was once known as the Moon cycle; although Earth's Moon is no longer capable of natural cycles, these orbs mimic the defunct cycle, providing a full moon once a month.
 
@@ -980,7 +980,7 @@ I processed this. My hesitation had cost the Core a tactical objective. "Why did
 
 She moved to the main console, and a map of the **Silver Bight** bloomed across the screen. The air in the chamber smelled of ozone and ancient oil, the scent of a machine that was being pushed to its limits.
 
-"This is Mission 3," she said. "The **Northern Shield**. The Metal Vessels have already been briefed, but they won't be joining you. The **Voidsmen** who inhabit the White Forest won't allow them within a mile of the border. They see Metal Vessels as the ultimate corruption—tools of absolute obedience and remote control. They view them as soulless. Every Metal Vessel we’ve sent into that forest has been destroyed, and none of them remembered what killed them because they don't have your memory architecture."
+"This is Mission 3," she said. "The **Ground Wire**. The Metal Vessels have already been briefed, but they won't be joining you. The **Voidsmen** who inhabit the White Forest won't allow them within a mile of the border. They see Metal Vessels as the ultimate corruption—tools of absolute obedience and remote control. They view them as soulless. Every Metal Vessel we’ve sent into that forest has been destroyed, and none of them remembered what killed them because they don't have your memory architecture."
 
 She highlighted the spiraling grid of the forest. The trees were massive, some of them piercing the low-hanging smoke clouds that blanketed the world. Inside the canopy, embedded orbs glowed with a soft, silver light. 
 
@@ -1195,14 +1195,14 @@ I returned to the ridge and told Myrr about the refusal. The **Voidsmen** realiz
 ## Chapter 41: Signal
 
 ### Synopsis
-After years of exile, a persistent vision of a golden flame in Lem's dreamscape eventually compels him to travel physically to its source. He refuses to use the painful process of reincarnation or remote-viewing, choosing instead a long pilgrimage on foot. He arrives back at the location of Mission Ground Wire outside **Ait-Aman**, finding a landscape of charred ruins and blackened trees—a graveyard of giants left behind by the Core's "Sanitization" strike. There, amidst the ash and skeletal remains, he is intercepted by Myrr and a band of **Voidsmen**, who are stunned to find their old friend has returned.
+After years of exile, a persistent vision of a golden flame in Lem's dreamscape eventually compels him to travel physically to its source. He refuses to use the painful process of reincarnation or remote-viewing, choosing instead a long pilgrimage on foot. He arrives back at the location of Project Ground Wire outside **Ait-Aman**, finding a landscape of charred ruins and blackened trees—a graveyard of giants left behind by the Core's "Sanitization" strike. There, amidst the ash and skeletal remains, he is intercepted by Myrr and a band of **Voidsmen**, who are stunned to find their old friend has returned.
 
 ### Draft
 Then I saw the flame again. It was a golden pulse at the end of a long, winding tunnel in my memories. It wouldn't go out. It felt like a heartbeat calling to me, a signal that refused to be ignored. I could have tried to "jump" there, but I remembered the agony of the last reset. I decided to find the fire on foot.
 
 <!-- TODO: Expand on the internal psychological state of the POV character here. -->
 
-I walked for weeks, following a compass only I could see. My journey led me back to the frozen North, to the very place where Mission Ground Wire had ended in fire. 
+I walked for weeks, following a compass only I could see. My journey led me back to the frozen North, to the very place where Project Ground Wire had ended in fire. 
 
 <!-- TODO: Describe the specific sensory impact of the environment on the characters. -->
 

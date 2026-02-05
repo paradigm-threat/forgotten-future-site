@@ -42,6 +42,12 @@ const nextConfig = {
         : {
             loader: 'custom',
             loaderFile: './lib/imageLoader.ts',
+            localPatterns: [
+                {
+                    pathname: '/**',
+                    search: '?*',
+                },
+            ],
         },
 }
 

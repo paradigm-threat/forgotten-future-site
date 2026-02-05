@@ -1,25 +1,25 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.119",
+    "version": "v0.13.125",
     "commits": [
       {
-        "sha": "b1bf09d",
-        "message": "5-part reorganization and 61-chapter sync",
-        "date": "2026-02-04T15:49:15.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/b1bf09d"
+        "sha": "8fee3ed",
+        "message": "Rewrite Chapter 30 synopsis, beats and drafts",
+        "date": "2026-02-05T14:08:28.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/8fee3ed"
       },
       {
-        "sha": "b50fa59",
-        "message": "Rename Ch 5 to 'Monitor' and Ch 8 to 'Deep Well'",
-        "date": "2026-02-04T15:41:52.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/b50fa59"
+        "sha": "a1ac972",
+        "message": "Update locket lore, Lynn's backstory, and ch29 briefing integration",
+        "date": "2026-02-05T13:43:08.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/a1ac972"
       },
       {
-        "sha": "fbfc6ad",
-        "message": "Rename chapters 17 and 18, format Part V and VI in INDEX, and regenerate manuscripts",
-        "date": "2026-02-04T15:12:31.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/fbfc6ad"
+        "sha": "1c6c711",
+        "message": "Update Chapters 32-34: Plot corrections for Lem's isolation, Core tracking limits, and Mission Mochikomi briefing",
+        "date": "2026-02-05T13:00:34.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/1c6c711"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
@@ -51,8 +51,14 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.95",
+    "version": "v0.11.98",
     "commits": [
+      {
+        "sha": "f990c57",
+        "message": "Refactor external link logic into shared MarkdownLink component",
+        "date": "2026-02-04T16:25:54.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/f990c57"
+      },
       {
         "sha": "08f56d4",
         "message": "Render chapter and part summaries with Markdown on manuscript page",
@@ -64,12 +70,6 @@
         "message": "remove disabled text selection",
         "date": "2026-02-04T16:12:55.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/91b5f71"
-      },
-      {
-        "sha": "d3263ff",
-        "message": "elowen update",
-        "date": "2026-02-04T15:19:20.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/d3263ff"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

@@ -21,7 +21,7 @@ export const RemoteMarkdown = memo(function RemoteMarkdown({ content, basePath }
             prose-pre:bg-slate-900 prose-pre:border prose-pre:border-slate-800
             prose-img:rounded-lg prose-img:border prose-img:border-slate-800
         ">
-            <ReactMarkdown 
+            <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
                     a: MarkdownLink

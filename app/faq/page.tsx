@@ -78,7 +78,7 @@ export default function FAQPage() {
         },
         {
             q: "Did Rahu's memory survive?",
-            a: "Rahu underwent a 'slow-burn' reset by the Core to sanitize his memories of the 202X Truth before he was redeployed for the Northern Shield campaign."
+            a: "Rahu underwent a 'slow-burn' reset by the Core to sanitize his memories of the 202X Truth before he was redeployed for the Ground Wire campaign."
         },
         {
             q: "Is Arlo the Water Vessel?",

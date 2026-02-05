@@ -1,3 +1,4 @@
+f990c57 Refactor external link logic into shared MarkdownLink component
 08f56d4 Render chapter and part summaries with Markdown on manuscript page
 91b5f71 remove disabled text selection
 d3263ff elowen update

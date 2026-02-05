@@ -17,9 +17,13 @@ function FullTextContent() {
     const [parts, setParts] = useState<Part[]>([]);
     const [draftVersion, setDraftVersion] = useState<string | undefined>();
     const [isLoading, setIsLoading] = useState(true);
+    const [loadError, setLoadError] = useState<string | null>(null);
     const [version, setVersion] = useState<ManuscriptVersion>(editionParam === '13plus' ? '13plus' : 'youngadult');
     const [notification, setNotification] = useState<string | null>(null);
     const [speakingId, setSpeakingId] = useState<number | null>(null);
+
+    const LOAD_TIMEOUT_MS = 20000;
+    const [loadTrigger, setLoadTrigger] = useState(0);
 
     // Track state to avoid redundant updates and rapid reloads
     const currentVersionRef = useRef<string | undefined>(undefined);
@@ -189,6 +193,13 @@ function FullTextContent() {
 
     useEffect(() => {
         setIsLoading(true);
+        setLoadError(null);
+
+        const timeoutId = setTimeout(() => {
+            setLoadError((prev) => (prev ? prev : 'timeout'));
+            setIsLoading(false);
+        }, LOAD_TIMEOUT_MS);
+
         const loadManuscript = (forceRemote = false) => {
             const now = Date.now();
 
@@ -207,7 +218,9 @@ function FullTextContent() {
             }
 
             fetchManuscript(version, forceRemote).then(data => {
+                clearTimeout(timeoutId);
                 if (data.chapters.length > 0) {
+                    setLoadError(null);
                     const hasNewVersion = data.draftVersion !== currentVersionRef.current;
 
                     if (forceRemote && hasNewVersion && currentVersionRef.current !== undefined) {
@@ -223,6 +236,8 @@ function FullTextContent() {
                         currentVersionRef.current = data.draftVersion;
                         prevChaptersRef.current = data.chapters;
                     }
+                } else {
+                    setLoadError('unavailable');
                 }
                 setIsLoading(false);
 
@@ -236,6 +251,10 @@ function FullTextContent() {
                         }
                     }, 100);
                 }
+            }).catch(() => {
+                clearTimeout(timeoutId);
+                setLoadError('unavailable');
+                setIsLoading(false);
             });
         };
 
@@ -249,10 +268,11 @@ function FullTextContent() {
         const intervalId = setInterval(() => loadManuscript(true), 60000);
 
         return () => {
+            clearTimeout(timeoutId);
             clearTimeout(remoteCheckTimeout);
             clearInterval(intervalId);
         };
-    }, [version]);
+    }, [version, loadTrigger]);
 
     // Track scroll position to save last read chapter
     useEffect(() => {
@@ -383,18 +403,28 @@ function FullTextContent() {
 
                 <article className="lg:w-3/4 space-y-24 pb-[100vh] order-2 lg:order-2">
                     {/* ARTICLE_START */}
-                    {isLoading ? (
+                    {isLoading && !loadError ? (
                         <div className="flex flex-col items-center justify-center py-24 text-muted uppercase tracking-widest text-xs">
                             <div className="mb-4 animate-pulse">Decrypting Aether-Logs...</div>
                         </div>
-                    ) : chapters.length === 0 ? (
-                        <div className="flex flex-col items-center justify-center py-24 text-muted uppercase tracking-widest text-xs">
-                            <div className="mb-4 text-red-500/50">Link Severed: Records Inaccessible</div>
+                    ) : loadError || chapters.length === 0 ? (
+                        <div className="flex flex-col items-center justify-center py-24 text-muted uppercase tracking-widest text-xs space-y-4">
+                            <div className="mb-4 text-red-500/80 text-center max-w-md">
+                                {loadError === 'timeout'
+                                    ? 'Link timed out. The manuscript could not be loaded from the archive (local or GitHub). Check your connection and try again.'
+                                    : loadError === 'unavailable'
+                                        ? 'Link severed: records inaccessible. Local and remote fetch failed.'
+                                        : 'Link severed: records inaccessible.'}
+                            </div>
                             <button
-                                onClick={() => window.location.reload()}
-                                className="text-cyan-500 hover:text-cyan-400 underline underline-offset-4"
+                                onClick={() => {
+                                    setLoadError(null);
+                                    setIsLoading(true);
+                                    setLoadTrigger((t) => t + 1);
+                                }}
+                                className="text-cyan-500 hover:text-cyan-400 font-bold uppercase tracking-widest border border-cyan-500/50 px-6 py-3 rounded hover:bg-cyan-500/10 transition-colors"
                             >
-                                Re-establish Connection
+                                Re-establish connection
                             </button>
                         </div>
                     ) : (

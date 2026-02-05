@@ -113,13 +113,22 @@ export async function parseManuscript(text: string): Promise<{ parts: Part[], ch
     };
 }
 
+const REMOTE_FETCH_TIMEOUT_MS = 15000;
+const LOCAL_FETCH_TIMEOUT_MS = 8000;
+
+function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+    return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timeoutId));
+}
+
 export async function fetchRemoteManuscript(version: ManuscriptVersion = '13plus'): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string } | null> {
     try {
         const baseUrl = MANUSCRIPT_URLS[version];
         const url = `${baseUrl}?t=${Date.now()}`;
         console.log(`[Manuscript] Initiating remote check for version: ${version}`);
 
-        const response = await fetch(url);
+        const response = await fetchWithTimeout(url, REMOTE_FETCH_TIMEOUT_MS);
         if (!response.ok) return null;
 
         const text = await response.text();
@@ -143,7 +152,7 @@ export async function fetchManuscript(version: ManuscriptVersion = '13plus', for
 
         console.log(`[Manuscript] Attempting local load from: ${localUrl}`);
         try {
-            const localResponse = await fetch(localUrl);
+            const localResponse = await fetchWithTimeout(localUrl, LOCAL_FETCH_TIMEOUT_MS);
             if (localResponse.ok) {
                 text = await localResponse.text();
             }
