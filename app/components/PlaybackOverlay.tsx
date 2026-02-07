@@ -52,7 +52,10 @@ export function PlaybackOverlay({
                             {state.segments.length > 1 && (
                                 <button
                                     onClick={() => {
-                                        const element = document.getElementById(`chapter-${currentSegment.id}`);
+                                        const elementId = typeof currentSegment.id === 'string'
+                                            ? currentSegment.id
+                                            : `chapter-${currentSegment.id}`;
+                                        const element = document.getElementById(elementId);
                                         if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                     }}
                                     className="bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-400 text-[10px] font-black px-1.5 py-0.5 rounded border border-cyan-500/30 transition-colors"

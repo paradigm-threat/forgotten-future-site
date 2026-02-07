@@ -1,3 +1,13 @@
+0af493e fix: add manuscript api slash
+df6881d fix: rewrite browser api slash
+d9b4e6b fix: add trailing slash for browser api
+cc0e8f4 fix: align api base for static
+b70d185 fix: add CORS headers for api
+e188a75 fix: require api base for browser
+fe7d221 fix: use basePath API for static browser
+602e411 feat: proxy story browser via API
+b89b8b2 chore: add turbopack config
+67ff080 fix: disable turbopack in build
 b2729c1 feat: add API-backed manuscript and local dev config
 e6d2f1a ui: unify mobile navigation and TTS playback controls
 a4182b0 fix: resolve TTS builds by correcting imports and API signatures

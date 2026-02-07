@@ -58,9 +58,18 @@ function FullTextContent() {
     useEffect(() => {
         if (tts.isPlaying && tts.currentSegmentIndex !== -1) {
             const currentSegment = tts.segments[tts.currentSegmentIndex];
-            const element = document.getElementById(`chapter-${currentSegment.id}`);
+            const elementId = typeof currentSegment.id === 'string'
+                ? currentSegment.id
+                : `chapter-${currentSegment.id}`;
+
+            const element = document.getElementById(elementId);
             if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const rect = element.getBoundingClientRect();
+                const isVisible = rect.top >= 0 && rect.top <= window.innerHeight * 0.8;
+
+                if (!isVisible) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         }
     }, [tts.isPlaying, tts.currentSegmentIndex, tts.segments]);

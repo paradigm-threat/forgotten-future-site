@@ -94,6 +94,36 @@ function ManuscriptContent() {
     const lastActiveRef = useRef(Date.now());
 
     useEffect(() => {
+        if (tts.isPlaying && tts.currentSegmentIndex !== -1) {
+            const currentSegment = tts.segments[tts.currentSegmentIndex];
+            const elementId = typeof currentSegment.id === 'string'
+                ? currentSegment.id
+                : `chapter-${currentSegment.id}`;
+
+            const element = document.getElementById(elementId);
+            const container = scrollContainerRef.current;
+            if (element && container) {
+                // Check if already mostly in view within the container
+                const rect = element.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                // If the top of the element is not visible in the container
+                const isVisible = (
+                    rect.top >= containerRect.top &&
+                    rect.top <= containerRect.bottom
+                );
+
+                if (!isVisible) {
+                    const scrollOffset = element.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop;
+                    container.scrollTo({
+                        top: scrollOffset - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+    }, [tts.isPlaying, tts.currentSegmentIndex, tts.segments]);
+
+    useEffect(() => {
         const handleActivity = () => {
             lastActiveRef.current = Date.now();
         };
@@ -249,7 +279,7 @@ function ManuscriptContent() {
                                     <button
                                         onClick={() => {
                                             const segments: TTSSegment[] = parts.flatMap(p => [
-                                                { id: `part-${p.id}`, title: p.title, text: p.summary },
+                                                { id: p.id, title: p.title, text: p.summary },
                                                 ...p.chapters.map(ch => ({
                                                     id: ch.id,
                                                     title: `Chapter ${ch.id}: ${ch.title}`,
@@ -258,12 +288,12 @@ function ManuscriptContent() {
                                             ]);
                                             play(segments);
                                         }}
-                                        className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${tts.isPlaying && tts.segments.some(s => typeof s.id === 'string' && s.id.startsWith('part-'))
+                                        className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${tts.isPlaying && tts.segments.some(s => typeof s.id === 'string')
                                             ? 'bg-purple-500 text-black border-purple-500 shadow-lg shadow-element-ethics/50'
                                             : 'bg-transparent text-purple-500 border-purple-500/30 hover:bg-purple-500/10'
                                             }`}
                                     >
-                                        {tts.isPlaying && tts.segments.some(s => typeof s.id === 'string' && s.id.startsWith('part-')) ? '⏯ Playing Synopsis...' : '▶ Play Full Synopsis'}
+                                        {tts.isPlaying && tts.segments.some(s => typeof s.id === 'string') ? '⏯ Playing Synopsis...' : '▶ Play Full Synopsis'}
                                     </button>
                                 </div>
                             </div>
