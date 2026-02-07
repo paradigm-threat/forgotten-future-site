@@ -92,6 +92,9 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(__dirname, 'styles')],
     },
+    // Turbopack config required when a webpack config is present (next-pwa)
+    turbopack: {},
+    webpack: (config) => config,
     images: process.env.NEXT_PUBLIC_IS_STATIC === 'true'
         ? {
             unoptimized: true,
