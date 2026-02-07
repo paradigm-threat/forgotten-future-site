@@ -44,3 +44,7 @@ public/swe-worker-*.js.map
 public/fallback-*.js
 public/fallback-*.js.map
 public/manifest.json.map
+
+# Local Story Link
+public/story
+/public/story

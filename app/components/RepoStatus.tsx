@@ -30,6 +30,10 @@ export default function RepoStatus({ name, apiUrl, repoUrl, initialData }: RepoS
 
   useEffect(() => {
     async function fetchData() {
+      if (!apiUrl || apiUrl.startsWith('/')) {
+        setLoading(false);
+        return;
+      }
       try {
         setLoading(true);
         // Fetch commits

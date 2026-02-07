@@ -6,6 +6,20 @@ import subprocess
 import re
 import argparse
 
+def run_git(args, cwd):
+    """Run a git command with a clean environment to avoid cross-repo corruption."""
+    env = os.environ.copy()
+    for key in ['GIT_DIR', 'GIT_INDEX_FILE', 'GIT_WORK_TREE', 'GIT_PREFIX']:
+        env.pop(key, None)
+    return subprocess.check_output(["git"] + args, cwd=cwd, env=env).decode('utf-8')
+
+def run_git_simple(args, cwd, stdout=None):
+    """Run a git command with a clean environment (simple version)."""
+    env = os.environ.copy()
+    for key in ['GIT_DIR', 'GIT_INDEX_FILE', 'GIT_WORK_TREE', 'GIT_PREFIX']:
+        env.pop(key, None)
+    return subprocess.run(["git"] + args, cwd=cwd, env=env, stdout=stdout, check=True)
+
 def bump_version(version_str):
     parts = version_str.strip().split('.')
     if len(parts) >= 3:
@@ -31,7 +45,7 @@ def get_repo_info(path):
     
     commits = []
     try:
-        output = subprocess.check_output(["git", "log", "-n", "3", "--oneline"], cwd=path).decode('utf-8')
+        output = run_git(["log", "-n", "3", "--oneline"], cwd=path)
         for line in output.strip().split('\n'):
             if line:
                 parts = line.split(' ', 1)
@@ -115,7 +129,7 @@ def update_dashboard():
     print("Dashboard updated in app/page.tsx")
     # Only add if we are in the site repo git context
     try:
-        subprocess.run(["git", "add", "app/page.tsx"], cwd=site_dir, check=True)
+        run_git_simple(["add", "app/page.tsx"], cwd=site_dir)
     except:
         pass
 
@@ -140,13 +154,13 @@ def main():
                 json.dump(pkg, f, indent=2)
                 f.write('\n')
             print(f"Bumped Site version: {old_v} -> {new_v}")
-            subprocess.run(["git", "add", "package.json"], cwd=site_dir)
+            run_git_simple(["add", "package.json"], cwd=site_dir)
 
         # Update COMMIT_HISTORY.md
         history_file = os.path.join(site_dir, "COMMIT_HISTORY.md")
         with open(history_file, 'w') as f:
-            subprocess.run(["git", "log", "--oneline"], stdout=f, cwd=site_dir)
-        subprocess.run(["git", "add", "COMMIT_HISTORY.md"], cwd=site_dir)
+            run_git_simple(["log", "--oneline"], cwd=site_dir, stdout=f)
+        run_git_simple(["add", "COMMIT_HISTORY.md"], cwd=site_dir)
 
     update_dashboard()
 

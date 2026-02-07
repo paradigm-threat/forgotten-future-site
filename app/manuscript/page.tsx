@@ -3,11 +3,13 @@
 import React, { useState, useRef, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { fetchManuscript, fetchRemoteManuscript, Chapter, Part, ManuscriptVersion } from '../../lib/manuscript';
+import { fetchManuscript, Chapter, Part, ManuscriptVersion } from '../../lib/manuscript';
 import { StickyNav } from '../components/StickyNav';
 import { Notification } from '../components/Notification';
 import { ChapterCard } from '../components/ChapterCard';
 import { FAQItem } from '../components/FAQItem';
+import { useTTS, TTSSegment } from '../../lib/hooks/useTTS';
+import { PlaybackOverlay } from '../components/PlaybackOverlay';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { MarkdownLink } from '../components/MarkdownLink';
@@ -26,143 +28,57 @@ function ManuscriptContent() {
     const [loadError, setLoadError] = useState<string | null>(null);
     const [version, setVersion] = useState<ManuscriptVersion>(editionParam === '13plus' ? '13plus' : 'youngadult');
     const [notification, setNotification] = useState<string | null>(null);
-    const [speakingId, setSpeakingId] = useState<number | null>(null);
+    const {
+        state: tts,
+        availableVoices,
+        play,
+        pause,
+        stop,
+        next,
+        prev,
+        setVoice,
+        setRate,
+        setLangFilter,
+        setLocalOnly
+    } = useTTS();
 
     const LOAD_TIMEOUT_MS = 20000;
     const [loadTrigger, setLoadTrigger] = useState(0);
 
     const toggleSpeech = React.useCallback((id: number, text: string) => {
-        if (typeof window === 'undefined') return;
-
-        if (!window.speechSynthesis) {
-            alert("Your browser does not support Text-to-Speech playback. Please try a modern browser like Chrome or Safari.");
+        if (tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex]?.id === id) {
+            stop();
             return;
         }
-
-        if (speakingId === id) {
-            window.speechSynthesis.cancel();
-            setSpeakingId(null);
-            return;
-        }
-
-        window.speechSynthesis.cancel();
-
-        const plainText = text
-            .replace(/[#*_~`\[\]()]/g, '')
-            .replace(/>\s+/g, '')
-            .replace(/\n+/g, ' ');
-
-        // Chunking for long text (browsers have limits per utterance)
-        const chunks: string[] = [];
-        const maxChunkLen = 3000;
-
-        if (plainText.length > maxChunkLen) {
-            let currentPath = plainText;
-            while (currentPath.length > 0) {
-                if (currentPath.length <= maxChunkLen) {
-                    chunks.push(currentPath);
-                    break;
-                }
-
-                // Try to find a good breaking point (sentence or space)
-                let breakIdx = currentPath.lastIndexOf('.', maxChunkLen);
-                if (breakIdx === -1 || breakIdx < maxChunkLen * 0.5) {
-                    breakIdx = currentPath.lastIndexOf(' ', maxChunkLen);
-                }
-
-                if (breakIdx === -1) breakIdx = maxChunkLen;
-
-                chunks.push(currentPath.substring(0, breakIdx + 1));
-                currentPath = currentPath.substring(breakIdx + 1).trim();
-            }
-        } else {
-            chunks.push(plainText);
-        }
-
-        let currentChunk = 0;
-
-        const speakNextChunk = () => {
-            if (currentChunk >= chunks.length) {
-                setSpeakingId(null);
-                return;
-            }
-
-            const utterance = new SpeechSynthesisUtterance(chunks[currentChunk]);
-
-            utterance.onstart = () => {
-                if (currentChunk === 0) setSpeakingId(id);
-            };
-
-            utterance.onend = () => {
-                currentChunk++;
-                speakNextChunk();
-            };
-
-            utterance.onerror = (event) => {
-                console.error("SpeechSynthesis error details:", {
-                    error: event.error,
-                    message: (event as any).message,
-                    event: event
-                });
-
-                // Only alert on critical errors (not when we manually stop/cancel)
-                if (event.error !== 'interrupted' && event.error !== 'canceled') {
-                    setSpeakingId(null);
-
-                    const errorType = event.error || (event as any).message || "Unknown Code";
-
-                    if (event.error === 'not-allowed') {
-                        alert("Playback blocked: Please ensure your device is not in 'Silent Mode' and that you have interacted with the page recently.");
-                    } else if (event.error === 'network') {
-                        alert("Speech failed: This voice requires an internet connection which was lost.");
-                    } else {
-                        alert(`Speech playback failed (${errorType}). Note: Some mobile browsers require the screen to stay on.`);
-                    }
-                }
-            };
-
-            utterance.rate = 1.0;
-            utterance.pitch = 1.0;
-            utterance.volume = 1.0;
-
-            if (window.speechSynthesis.paused) {
-                window.speechSynthesis.resume();
-            }
-
-            window.speechSynthesis.speak(utterance);
+        const segment: TTSSegment = {
+            id,
+            title: chapters.find(c => c.id === id)?.title || "Chapter",
+            text
         };
-
-        try {
-            // Small delay to ensure cancel() has finished clearing the queue
-            setTimeout(() => {
-                speakNextChunk();
-            }, 100);
-        } catch (err) {
-            console.error("Speech initiation failed:", err);
-            alert("Failed to initialize speech engines.");
-            setSpeakingId(null);
-        }
-    }, [speakingId]);
+        play([segment]);
+    }, [chapters, play, stop, tts.isPlaying, tts.currentSegmentIndex, tts.segments]);
 
     useEffect(() => {
         const handleRequest = (e: Event) => {
             const ce = e as CustomEvent;
             const targetId = ce.detail?.chapterId;
-            if (speakingId) {
-                window.speechSynthesis.cancel();
-                setSpeakingId(null);
+            if (tts.isPlaying && tts.currentSegmentIndex !== -1) {
+                stop();
             } else if (targetId) {
                 const ch = chapters.find(c => c.id === targetId);
-                if (ch) toggleSpeech(ch.id, ch.summary || ch.content);
+                if (ch) {
+                    const segment: TTSSegment = {
+                        id: ch.id,
+                        title: `Chapter ${ch.id}: ${ch.title}`,
+                        text: ch.summary || ch.content
+                    };
+                    play([segment]);
+                }
             }
         };
         window.addEventListener('ff-request-tts', handleRequest);
         return () => window.removeEventListener('ff-request-tts', handleRequest);
-    }, [speakingId, chapters, toggleSpeech]);
-
-    useEffect(() => {
-        window.dispatchEvent(new CustomEvent('ff-tts-status', { detail: { speakingId } }));
-    }, [speakingId]);
+    }, [tts.isPlaying, tts.currentSegmentIndex, chapters, play, stop]);
 
     const fullManuscriptId = 9999;
     const fullSynopsisId = 9998;
@@ -213,7 +129,7 @@ function ManuscriptContent() {
             const isHidden = document.visibilityState === 'hidden';
             if (showNotification && (isIdle || isHidden)) return;
 
-            const remoteData = await fetchRemoteManuscript(version);
+            const remoteData = await fetchManuscript(version);
             if (!mounted || !remoteData || remoteData.chapters.length === 0) return;
 
             const isUpdated = remoteData.draftVersion !== lastVersion ||
@@ -258,7 +174,7 @@ function ManuscriptContent() {
 
                 // Initial silent sync - page loads will have an update within the first fetch
                 // but we don't notify the user yet.
-                await syncWithRemote(false);
+                // await syncWithRemote(false);
             } catch {
                 if (mounted) {
                     clearTimeout(timeoutId);
@@ -315,22 +231,39 @@ function ManuscriptContent() {
                                 </div>
                                 <div className="w-full pt-4 space-y-2">
                                     <button
-                                        onClick={() => toggleSpeech(fullManuscriptId, manuscriptText)}
-                                        className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${speakingId === fullManuscriptId
+                                        onClick={() => {
+                                            const segments: TTSSegment[] = chapters.map(ch => ({
+                                                id: ch.id,
+                                                title: `Chapter ${ch.id}: ${ch.title}`,
+                                                text: ch.content
+                                            }));
+                                            play(segments);
+                                        }}
+                                        className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${tts.isPlaying && tts.segments.length > 1
                                             ? 'bg-cyan-500 text-black border-cyan-500 shadow-lg shadow-accent/50'
                                             : 'bg-transparent text-cyan-500 border-cyan-500/30 hover:bg-cyan-500/10'
                                             }`}
                                     >
-                                        {speakingId === fullManuscriptId ? '⏹ Stop Audio' : '▶ Play Full Text'}
+                                        {tts.isPlaying && tts.segments.length > 1 ? '⏯ Playing Text...' : '▶ Play Full Text'}
                                     </button>
                                     <button
-                                        onClick={() => toggleSpeech(fullSynopsisId, synopsisText)}
-                                        className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${speakingId === fullSynopsisId
+                                        onClick={() => {
+                                            const segments: TTSSegment[] = parts.flatMap(p => [
+                                                { id: `part-${p.id}`, title: p.title, text: p.summary },
+                                                ...p.chapters.map(ch => ({
+                                                    id: ch.id,
+                                                    title: `Chapter ${ch.id}: ${ch.title}`,
+                                                    text: ch.summary
+                                                }))
+                                            ]);
+                                            play(segments);
+                                        }}
+                                        className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${tts.isPlaying && tts.segments.some(s => typeof s.id === 'string' && s.id.startsWith('part-'))
                                             ? 'bg-purple-500 text-black border-purple-500 shadow-lg shadow-element-ethics/50'
                                             : 'bg-transparent text-purple-500 border-purple-500/30 hover:bg-purple-500/10'
                                             }`}
                                     >
-                                        {speakingId === fullSynopsisId ? '⏹ Stop Audio' : '▶ Play Full Synopsis'}
+                                        {tts.isPlaying && tts.segments.some(s => typeof s.id === 'string' && s.id.startsWith('part-')) ? '⏯ Playing Synopsis...' : '▶ Play Full Synopsis'}
                                     </button>
                                 </div>
                             </div>
@@ -435,7 +368,7 @@ function ManuscriptContent() {
                                                 <ChapterCard
                                                     key={chapter.id}
                                                     chapter={chapter}
-                                                    isSpeaking={speakingId === chapter.id}
+                                                    isSpeaking={tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex]?.id === chapter.id}
                                                     onToggleSpeech={toggleSpeech}
                                                     readMoreHref={`/manuscript/full-text?edition=${version}#chapter-${chapter.id}`}
                                                 />
@@ -558,6 +491,18 @@ function ManuscriptContent() {
                     </div>
                 </section>
             )}
+            <PlaybackOverlay
+                state={tts}
+                availableVoices={availableVoices}
+                onPause={pause}
+                onStop={stop}
+                onNext={next}
+                onPrev={prev}
+                onSetVoice={setVoice}
+                onSetRate={setRate}
+                onSetLangFilter={setLangFilter}
+                onSetLocalOnly={setLocalOnly}
+            />
         </div>
     );
 }

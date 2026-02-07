@@ -23,7 +23,6 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    turbopack: {},
     output: isStatic ? 'export' : undefined,
     basePath: basePath || undefined,
     assetPrefix: basePath || undefined,

@@ -1,4 +1,5 @@
-export const STORY_REPO_BASE = 'https://raw.githubusercontent.com/clevertree/ff-story/main/';
+const repoPath = process.env.NEXT_PUBLIC_REPO_STORY || 'https://raw.githubusercontent.com/clevertree/ff-story/main/';
+export const STORY_REPO_BASE = repoPath.endsWith('/') ? repoPath : `${repoPath}/`;
 
 export interface FileMetadata {
     _title?: string;

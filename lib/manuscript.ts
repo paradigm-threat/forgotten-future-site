@@ -1,3 +1,4 @@
+import { STORY_REPO_BASE } from './remoteFiles';
 
 export interface Part {
     id: string; // generated from title
@@ -16,13 +17,8 @@ export interface Chapter {
 export type ManuscriptVersion = '13plus' | 'youngadult';
 
 const MANUSCRIPT_URLS: Record<ManuscriptVersion, string> = {
-    '13plus': 'https://raw.githubusercontent.com/clevertree/ff-story/main/manuscript/MANUSCRIPT_13_PLUS.md',
-    'youngadult': process.env.NEXT_PUBLIC_MANUSCRIPT_URL || 'https://raw.githubusercontent.com/clevertree/ff-story/main/manuscript/MANUSCRIPT_YOUNG_ADULT.md'
-};
-
-const LOCAL_MANUSCRIPT_PATHS: Record<ManuscriptVersion, string> = {
-    '13plus': '/manuscript/MANUSCRIPT_13_PLUS.md',
-    'youngadult': '/manuscript/MANUSCRIPT_YOUNG_ADULT.md'
+    '13plus': `${STORY_REPO_BASE}manuscript/MANUSCRIPT_13_PLUS.md`,
+    'youngadult': `${STORY_REPO_BASE}manuscript/MANUSCRIPT_YOUNG_ADULT.md`
 };
 
 export async function parseManuscript(text: string): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
@@ -113,8 +109,7 @@ export async function parseManuscript(text: string): Promise<{ parts: Part[], ch
     };
 }
 
-const REMOTE_FETCH_TIMEOUT_MS = 15000;
-const LOCAL_FETCH_TIMEOUT_MS = 8000;
+const FETCH_TIMEOUT_MS = 15000;
 
 function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
     const controller = new AbortController();
@@ -122,53 +117,20 @@ function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
     return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timeoutId));
 }
 
-export async function fetchRemoteManuscript(version: ManuscriptVersion = '13plus'): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string } | null> {
+export async function fetchManuscript(version: ManuscriptVersion = '13plus'): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     try {
         const baseUrl = MANUSCRIPT_URLS[version];
         const url = `${baseUrl}?t=${Date.now()}`;
-        console.log(`[Manuscript] Initiating remote check for version: ${version}`);
 
-        const response = await fetchWithTimeout(url, REMOTE_FETCH_TIMEOUT_MS);
-        if (!response.ok) return null;
+        const response = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
+        if (!response.ok) {
+            throw new Error(`Failed to load manuscript: ${response.status} ${response.statusText}`);
+        }
 
         const text = await response.text();
         return parseManuscript(text);
-    } catch (e) {
-        console.error("[Manuscript] Remote fetch error:", e);
-        return null;
-    }
-}
-
-export async function fetchManuscript(version: ManuscriptVersion = '13plus', forceRemote: boolean = false): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
-    try {
-        if (forceRemote) {
-            const remoteData = await fetchRemoteManuscript(version);
-            if (remoteData) return remoteData;
-        }
-
-        let text = '';
-        const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-        const localUrl = `${basePath}${LOCAL_MANUSCRIPT_PATHS[version]}`;
-
-        console.log(`[Manuscript] Attempting local load from: ${localUrl}`);
-        try {
-            const localResponse = await fetchWithTimeout(localUrl, LOCAL_FETCH_TIMEOUT_MS);
-            if (localResponse.ok) {
-                text = await localResponse.text();
-            }
-        } catch (e) {
-            console.warn(`[Manuscript] Local load failed:`, e);
-        }
-
-        if (!text && !forceRemote) {
-            const remoteData = await fetchRemoteManuscript(version);
-            if (remoteData) return remoteData;
-            return { parts: [], chapters: [] };
-        }
-
-        return parseManuscript(text);
     } catch (error) {
-        console.error(`[Manuscript] Unexpected error in fetchManuscript:`, error);
+        console.error(`[Manuscript] Error:`, error);
         return { parts: [], chapters: [] };
     }
 }

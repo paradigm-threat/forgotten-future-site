@@ -1,33 +1,39 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.125",
+    "version": "v0.13.132",
     "commits": [
       {
-        "sha": "8fee3ed",
-        "message": "Rewrite Chapter 30 synopsis, beats and drafts",
-        "date": "2026-02-05T14:08:28.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/8fee3ed"
+        "sha": "d109af4",
+        "message": "consolidate false flag revelations to chapter 12 and scrub spoilers from early chapters",
+        "date": "2026-02-07T11:30:40.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/d109af4"
       },
       {
-        "sha": "a1ac972",
-        "message": "Update locket lore, Lynn's backstory, and ch29 briefing integration",
-        "date": "2026-02-05T13:43:08.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/a1ac972"
+        "sha": "f7d3f14",
+        "message": "rewrite ch 9 synopsis and drafts",
+        "date": "2026-02-06T13:19:55.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/f7d3f14"
       },
       {
-        "sha": "1c6c711",
-        "message": "Update Chapters 32-34: Plot corrections for Lem's isolation, Core tracking limits, and Mission Mochikomi briefing",
-        "date": "2026-02-05T13:00:34.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/1c6c711"
+        "sha": "972f78d",
+        "message": "remove 1971 from intro",
+        "date": "2026-02-06T12:22:28.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/972f78d"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
   },
   "ff-teaser": {
     "name": "Teaser",
-    "version": "v0.9.16",
+    "version": "v0.9.17",
     "commits": [
+      {
+        "sha": "3022b16",
+        "message": "Update teaser concepts and prompts",
+        "date": "2026-02-05T14:10:30.000Z",
+        "url": "https://github.com/clevertree/ff-teaser/commit/3022b16"
+      },
       {
         "sha": "851ea89",
         "message": "Update teaser concepts and prompts with new lore",
@@ -39,20 +45,20 @@
         "message": "chore: global character rename (Lem->Ren, Maya->Kira) in teaser",
         "date": "2026-01-25T19:15:27.000Z",
         "url": "https://github.com/clevertree/ff-teaser/commit/bda9170"
-      },
-      {
-        "sha": "a18c94c",
-        "message": "Add Verse 1 video generation prompt based on latest story updates",
-        "date": "2026-01-23T20:37:19.000Z",
-        "url": "https://github.com/clevertree/ff-teaser/commit/a18c94c"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-teaser/commits/main/"
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.98",
+    "version": "v0.11.101",
     "commits": [
+      {
+        "sha": "8bff9fd",
+        "message": "Sync manuscript updates from ff-story",
+        "date": "2026-02-05T14:09:46.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/8bff9fd"
+      },
       {
         "sha": "f990c57",
         "message": "Refactor external link logic into shared MarkdownLink component",
@@ -64,12 +70,6 @@
         "message": "Render chapter and part summaries with Markdown on manuscript page",
         "date": "2026-02-04T16:18:45.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/08f56d4"
-      },
-      {
-        "sha": "91b5f71",
-        "message": "remove disabled text selection",
-        "date": "2026-02-04T16:12:55.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/91b5f71"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

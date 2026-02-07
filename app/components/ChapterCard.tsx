@@ -17,7 +17,7 @@ interface Chapter {
 interface ChapterCardProps {
     chapter: Chapter;
     isSpeaking: boolean;
-    onToggleSpeech: (id: number, text: string) => void;
+    onToggleSpeech?: (id: number, text: string) => void;
     className?: string;
     readMoreHref?: string;
 }
@@ -32,9 +32,14 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({
     return (
         <div
             id={`chapter-${chapter.id}`}
-            className={`glass-panel hover:border-cyan-500/50 transition-colors group scroll-mt-24 not-prose ${className}`}
+            className={`glass-panel hover:border-cyan-500/50 transition-colors group scroll-mt-24 not-prose ${className} ${isSpeaking ? 'ring-2 ring-cyan-500 shadow-lg shadow-cyan-500/20 bg-cyan-500/5' : ''}`}
         >
-            <div className="p-6 md:p-8">
+            <div className="p-6 md:p-8 relative overflow-hidden">
+                {isSpeaking && (
+                    <div className="absolute top-0 right-0 p-2 text-[10px] uppercase font-bold text-cyan-500 animate-pulse bg-black/40 rounded-bl backdrop-blur-sm z-10">
+                        Audio Linked
+                    </div>
+                )}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
                     <div>
                         <h3 className="text-xl font-bold group-hover:text-cyan-400 transition-colors">
@@ -47,15 +52,17 @@ export const ChapterCard: React.FC<ChapterCardProps> = ({
                         )}
                     </div>
                     <div className='flex items-center gap-4'>
-                        <button
-                            onClick={() => onToggleSpeech(chapter.id, chapter.summary || chapter.content)}
-                            className={`px-4 py-1.5 rounded text-[10px] font-bold uppercase tracking-widest transition-all border ${isSpeaking
-                                ? 'bg-cyan-500 text-white border-cyan-500'
-                                : 'bg-transparent text-cyan-500 border-cyan-500/30 hover:bg-cyan-500/10'
-                                }`}
-                        >
-                            {isSpeaking ? '⏹ Stop' : '▶ Listen'}
-                        </button>
+                        {onToggleSpeech && (
+                            <button
+                                onClick={() => onToggleSpeech(chapter.id, chapter.summary || chapter.content)}
+                                className={`px-4 py-1.5 rounded text-[10px] font-bold uppercase tracking-widest transition-all border ${isSpeaking
+                                    ? 'bg-cyan-500 text-white border-cyan-500'
+                                    : 'bg-transparent text-cyan-500 border-cyan-500/30 hover:bg-cyan-500/10'
+                                    }`}
+                            >
+                                {isSpeaking ? '⏹ Stop' : '▶ Listen'}
+                            </button>
+                        )}
                         {readMoreHref && (
                             <Link
                                 href={readMoreHref}

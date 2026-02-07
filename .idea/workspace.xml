@@ -8,19 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1fd8052-f6d1-43fd-be94-4a5ee37b3b87" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/manuscript/manuscript_13plus.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manuscript/manuscript_youngadult.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/COMMIT_HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/COMMIT_HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/RemoteMarkdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/RemoteMarkdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/faq/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/faq/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/manuscript/full-text/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/manuscript/full-text/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/manuscript/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/manuscript/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/git-history.json" beforeDir="false" afterPath="$PROJECT_DIR$/lib/git-history.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/manuscript.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/manuscript.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manuscript/MANUSCRIPT_13_PLUS.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/manuscript/MANUSCRIPT_13_PLUS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manuscript/MANUSCRIPT_YOUNG_ADULT.md" beforeDir="false" afterPath="$PROJECT_DIR$/public/manuscript/MANUSCRIPT_YOUNG_ADULT.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +48,7 @@
     <select />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="40471" />
+    <option name="cachedIndexableFilesCount" value="445" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileEditorManager">
@@ -501,10 +490,10 @@
 }</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1771509640333" />
-    <option name="spentUsd" value="0.00323525" />
+    <option name="spentUsd" value="0.0161825" />
   </component>
   <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="8" />
+    <option name="suspendCountdown" value="6" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -642,6 +631,7 @@
       <workItem from="1704933080294" duration="3308000" />
       <workItem from="1768072622193" duration="722000" />
       <workItem from="1770292309137" duration="620000" />
+      <workItem from="1770300565776" duration="1216000" />
     </task>
     <servers />
   </component>

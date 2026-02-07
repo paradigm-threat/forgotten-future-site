@@ -1,12 +1,14 @@
 'use client';
 
-import React, { useState, useEffect, useRef, Suspense } from 'react';
+import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import { fetchManuscript, Chapter, Part, ManuscriptVersion } from '../../../lib/manuscript';
 import { VersionSwitch } from '../../components/VersionSwitch';
 import { MarkdownLink } from '../../components/MarkdownLink';
+import { useTTS, TTSSegment } from '../../../lib/hooks/useTTS';
+import { PlaybackOverlay } from '../../components/PlaybackOverlay';
 
 function FullTextContent() {
     const router = useRouter();
@@ -20,7 +22,19 @@ function FullTextContent() {
     const [loadError, setLoadError] = useState<string | null>(null);
     const [version, setVersion] = useState<ManuscriptVersion>(editionParam === '13plus' ? '13plus' : 'youngadult');
     const [notification, setNotification] = useState<string | null>(null);
-    const [speakingId, setSpeakingId] = useState<number | null>(null);
+    const {
+        state: tts,
+        availableVoices,
+        play,
+        pause,
+        stop,
+        next,
+        prev,
+        setVoice,
+        setRate,
+        setLangFilter,
+        setLocalOnly
+    } = useTTS();
 
     const LOAD_TIMEOUT_MS = 20000;
     const [loadTrigger, setLoadTrigger] = useState(0);
@@ -32,137 +46,39 @@ function FullTextContent() {
 
     const prevChaptersRef = useRef<Chapter[]>([]);
 
-    const toggleSpeech = React.useCallback((id: number, text: string) => {
-        if (typeof window === 'undefined') return;
+    const playChapters = useCallback((startIndex: number = 0) => {
+        const segments: TTSSegment[] = chapters.map((ch, idx) => ({
+            id: ch.id,
+            title: `Chapter ${ch.id}: ${ch.title}`,
+            text: ch.content
+        }));
+        play(segments, startIndex);
+    }, [chapters, play]);
 
-        if (!window.speechSynthesis) {
-            alert("Your browser does not support Text-to-Speech playback. Please try a modern browser like Chrome, Edge or Safari. (Tip: Use built-in Reading Mode for the best experience)");
-            return;
-        }
-
-        if (speakingId === id) {
-            window.speechSynthesis.cancel();
-            setSpeakingId(null);
-            return;
-        }
-
-        window.speechSynthesis.cancel();
-
-        // Simple markdown stripping for better TTS
-        const plainText = text
-            .replace(/[#*_~`\[\]()]/g, '') // remove symbols
-            .replace(/>\s+/g, '')          // remove blockquotes
-            .replace(/\n+/g, ' ');         // collapse newlines
-
-        // Chunking for long text (browsers have limits per utterance)
-        const chunks: string[] = [];
-        const maxChunkLen = 3000;
-
-        if (plainText.length > maxChunkLen) {
-            let currentPath = plainText;
-            while (currentPath.length > 0) {
-                if (currentPath.length <= maxChunkLen) {
-                    chunks.push(currentPath);
-                    break;
-                }
-
-                let breakIdx = currentPath.lastIndexOf('.', maxChunkLen);
-                if (breakIdx === -1 || breakIdx < maxChunkLen * 0.5) {
-                    breakIdx = currentPath.lastIndexOf(' ', maxChunkLen);
-                }
-
-                if (breakIdx === -1) breakIdx = maxChunkLen;
-
-                chunks.push(currentPath.substring(0, breakIdx + 1));
-                currentPath = currentPath.substring(breakIdx + 1).trim();
+    useEffect(() => {
+        if (tts.isPlaying && tts.currentSegmentIndex !== -1) {
+            const currentSegment = tts.segments[tts.currentSegmentIndex];
+            const element = document.getElementById(`chapter-${currentSegment.id}`);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-        } else {
-            chunks.push(plainText);
         }
-
-        let currentChunk = 0;
-
-        const speakNextChunk = () => {
-            if (currentChunk >= chunks.length) {
-                setSpeakingId(null);
-                return;
-            }
-
-            const utterance = new SpeechSynthesisUtterance(chunks[currentChunk]);
-
-            utterance.onstart = () => {
-                if (currentChunk === 0) setSpeakingId(id);
-            };
-
-            utterance.onend = () => {
-                currentChunk++;
-                speakNextChunk();
-            };
-
-            utterance.onerror = (event) => {
-                console.error("SpeechSynthesis error details:", {
-                    error: event.error,
-                    message: (event as any).message,
-                    event: event
-                });
-
-                if (event.error !== 'interrupted' && event.error !== 'canceled') {
-                    setSpeakingId(null);
-
-                    const errorType = event.error || (event as any).message || "Unknown Code";
-
-                    if (event.error === 'not-allowed') {
-                        alert("Playback blocked: Please ensure your device is not in 'Silent Mode' and that you have interacted with the page recently.");
-                    } else if (event.error === 'network') {
-                        alert("Speech failed: This voice requires an internet connection which was lost.");
-                    } else {
-                        alert(`Speech playback failed (${errorType}). Note: Some mobile browsers require the screen to stay on.`);
-                    }
-                }
-            };
-
-            utterance.rate = 1.0;
-            utterance.pitch = 1.0;
-            utterance.volume = 1.0;
-
-            if (window.speechSynthesis.paused) {
-                window.speechSynthesis.resume();
-            }
-
-            window.speechSynthesis.speak(utterance);
-        };
-
-        try {
-            // Small delay to ensure cancel() has finished clearing the queue
-            setTimeout(() => {
-                speakNextChunk();
-            }, 100);
-        } catch (err) {
-            console.error("Speech initiation failed:", err);
-            alert("Failed to initialize speech engines.");
-            setSpeakingId(null);
-        }
-    }, [speakingId]);
+    }, [tts.isPlaying, tts.currentSegmentIndex, tts.segments]);
 
     useEffect(() => {
         const handleRequest = (e: Event) => {
             const ce = e as CustomEvent;
             const targetId = ce.detail?.chapterId;
-            if (speakingId) {
-                window.speechSynthesis.cancel();
-                setSpeakingId(null);
+            if (tts.isPlaying && tts.currentSegmentIndex !== -1) {
+                stop();
             } else if (targetId) {
-                const ch = chapters.find(c => c.id === targetId);
-                if (ch) toggleSpeech(ch.id, ch.content);
+                const idx = chapters.findIndex(c => c.id === targetId);
+                if (idx !== -1) playChapters(idx);
             }
         };
         window.addEventListener('ff-request-tts', handleRequest);
         return () => window.removeEventListener('ff-request-tts', handleRequest);
-    }, [speakingId, chapters, toggleSpeech]);
-
-    useEffect(() => {
-        window.dispatchEvent(new CustomEvent('ff-tts-status', { detail: { speakingId } }));
-    }, [speakingId]);
+    }, [tts.isPlaying, tts.currentSegmentIndex, chapters, playChapters, stop]);
 
     const handleVersionChange = (newVersion: ManuscriptVersion) => {
         setVersion(newVersion);
@@ -217,7 +133,7 @@ function FullTextContent() {
                 lastUpdateAttemptRef.current = now;
             }
 
-            fetchManuscript(version, forceRemote).then(data => {
+            fetchManuscript(version).then(data => {
                 clearTimeout(timeoutId);
                 if (data.chapters.length > 0) {
                     setLoadError(null);
@@ -326,22 +242,19 @@ function FullTextContent() {
                 )}
                 <div className="mt-6 flex flex-wrap gap-4 no-print">
                     <button
-                        onClick={() => {
-                            const fullText = chapters.map(c => `Chapter ${c.id}: ${c.title}. ${c.content}`).join(' ');
-                            toggleSpeech(999, fullText);
-                        }}
-                        className={`flex items-center gap-3 px-6 py-2 rounded-full border text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${speakingId === 999
+                        onClick={() => playChapters(0)}
+                        className={`flex items-center gap-3 px-6 py-2 rounded-full border text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${tts.isPlaying && tts.segments.length > 1
                             ? 'bg-cyan-500 text-background border-cyan-500 shadow-xl shadow-accent/50'
                             : 'bg-primary/5 text-cyan-400 border-primary/10 hover:bg-white/10'
                             }`}
                     >
-                        {speakingId === 999 ? (
+                        {tts.isPlaying && tts.segments.length > 1 ? (
                             <>
                                 <span className="relative flex h-2 w-2">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-background opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-background"></span>
                                 </span>
-                                Stop Full Audio
+                                Playing Full Audio...
                             </>
                         ) : (
                             <>
@@ -449,13 +362,20 @@ function FullTextContent() {
                                                     {chapter.title}
                                                 </h3>
                                                 <button
-                                                    onClick={() => toggleSpeech(chapter.id, chapter.content)}
-                                                    className={`no-print flex items-center gap-2 px-4 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${speakingId === chapter.id
+                                                    onClick={() => {
+                                                        if (tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex].id === chapter.id) {
+                                                            stop();
+                                                        } else {
+                                                            const idx = chapters.findIndex(c => c.id === chapter.id);
+                                                            if (idx !== -1) playChapters(idx);
+                                                        }
+                                                    }}
+                                                    className={`no-print flex items-center gap-2 px-4 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex].id === chapter.id
                                                         ? 'bg-cyan-500 text-background border-cyan-500 shadow-lg shadow-accent/50'
                                                         : 'bg-transparent text-cyan-500 border-cyan-500/30 hover:bg-cyan-500/10'
                                                         }`}
                                                 >
-                                                    {speakingId === chapter.id ? (
+                                                    {tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex].id === chapter.id ? (
                                                         <>
                                                             <span className="relative flex h-2 w-2">
                                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-background opacity-75"></span>
@@ -470,7 +390,7 @@ function FullTextContent() {
                                                     )}
                                                 </button>
                                             </div>
-                                            <div className="text-secondary leading-[2] text-lg space-y-6">
+                                            <div className={`leading-[2] text-lg space-y-6 transition-all duration-500 ${tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex].id === chapter.id ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]' : 'text-secondary'}`}>
                                                 <ReactMarkdown
                                                     components={{
                                                         a: MarkdownLink
@@ -496,13 +416,20 @@ function FullTextContent() {
                                             {chapter.title}
                                         </h3>
                                         <button
-                                            onClick={() => toggleSpeech(chapter.id, chapter.content)}
-                                            className={`no-print flex items-center gap-2 px-4 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${speakingId === chapter.id
+                                            onClick={() => {
+                                                if (tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex].id === chapter.id) {
+                                                    stop();
+                                                } else {
+                                                    const idx = chapters.findIndex(c => c.id === chapter.id);
+                                                    if (idx !== -1) playChapters(idx);
+                                                }
+                                            }}
+                                            className={`no-print flex items-center gap-2 px-4 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex].id === chapter.id
                                                 ? 'bg-cyan-500 text-background border-cyan-500 shadow-lg shadow-accent/50'
                                                 : 'bg-transparent text-cyan-500 border-cyan-500/30 hover:bg-cyan-500/10'
                                                 }`}
                                         >
-                                            {speakingId === chapter.id ? (
+                                            {tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex].id === chapter.id ? (
                                                 <>
                                                     <span className="relative flex h-2 w-2">
                                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-background opacity-75"></span>
@@ -517,7 +444,7 @@ function FullTextContent() {
                                             )}
                                         </button>
                                     </div>
-                                    <div className="text-secondary leading-[2] text-lg space-y-6">
+                                    <div className={`leading-[2] text-lg space-y-6 transition-all duration-500 ${tts.isPlaying && tts.currentSegmentIndex !== -1 && tts.segments[tts.currentSegmentIndex].id === chapter.id ? 'text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]' : 'text-secondary'}`}>
                                         <ReactMarkdown
                                             components={{
                                                 a: MarkdownLink
@@ -540,6 +467,19 @@ function FullTextContent() {
                     Protocol: Full Sync | Archive ID: FF-MAN-MAX
                 </p>
             </footer>
+
+            <PlaybackOverlay
+                state={tts}
+                availableVoices={availableVoices}
+                onPause={pause}
+                onStop={stop}
+                onNext={next}
+                onPrev={prev}
+                onSetVoice={setVoice}
+                onSetRate={setRate}
+                onSetLangFilter={setLangFilter}
+                onSetLocalOnly={setLocalOnly}
+            />
         </div>
     );
 }
