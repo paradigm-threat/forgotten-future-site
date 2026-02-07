@@ -45,7 +45,7 @@ try {
     apiBase = normalizeApiBase(fallback);
 }
 
-const MANUSCRIPT_API = `${apiBase}/api/manuscript`;
+const MANUSCRIPT_API = `${apiBase}/api/manuscript/`;
 
 export async function parseManuscript(text: string): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     const versionMatch = text.match(/> Draft Version: ([\d.]+)/);

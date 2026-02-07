@@ -113,6 +113,10 @@ const nextConfig = {
                 source: '/api/browser',
                 destination: '/api/browser/',
             },
+            {
+                source: '/api/manuscript',
+                destination: '/api/manuscript/',
+            },
         ];
     },
     images: process.env.NEXT_PUBLIC_IS_STATIC === 'true'
