@@ -51,25 +51,25 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.105",
+    "version": "v0.11.106",
     "commits": [
       {
-        "sha": "b89b8b2",
-        "message": "chore: add turbopack config",
-        "date": "2026-02-07T15:01:57.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/b89b8b2"
+        "sha": "0af493e",
+        "message": "fix: add manuscript api slash",
+        "date": "2026-02-07T19:20:51.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/0af493e"
       },
       {
-        "sha": "67ff080",
-        "message": "fix: disable turbopack in build",
-        "date": "2026-02-07T14:59:27.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/67ff080"
+        "sha": "df6881d",
+        "message": "fix: rewrite browser api slash",
+        "date": "2026-02-07T19:15:41.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/df6881d"
       },
       {
-        "sha": "b2729c1",
-        "message": "feat: add API-backed manuscript and local dev config",
-        "date": "2026-02-07T14:57:47.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/b2729c1"
+        "sha": "d9b4e6b",
+        "message": "fix: add trailing slash for browser api",
+        "date": "2026-02-07T19:11:18.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/d9b4e6b"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

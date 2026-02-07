@@ -1,3 +1,4 @@
+091bc4f feat: auto-scroll to active TTS chapter/part in manuscript and full text pages
 0af493e fix: add manuscript api slash
 df6881d fix: rewrite browser api slash
 d9b4e6b fix: add trailing slash for browser api
