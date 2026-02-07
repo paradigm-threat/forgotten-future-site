@@ -1,13 +1,13 @@
 {
   "name": "forgotten-future-site",
-  "version": "0.11.103",
+  "version": "0.11.104",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "dev:local": "ln -sf ../../ff-story public/story && next dev",
+    "dev": "next dev -p 3000",
+    "dev:local": "NEXT_PUBLIC_API_BASE=http://localhost:3000 NEXT_PUBLIC_REPO_STORY=http://localhost:3000/story/ ln -sf ../../ff-story public/story && next dev -p 3000",
     "prebuild": "node scripts/fetch-git-history.mjs",
     "build": "next build",
-    "start": "next start -p 8082",
+    "start": "next start -p 3000",
     "lint": "next lint",
     "test": "cypress run --component",
     "test:watch": "cypress open --component",

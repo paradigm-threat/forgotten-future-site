@@ -51,25 +51,25 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.102",
+    "version": "v0.11.104",
     "commits": [
+      {
+        "sha": "e6d2f1a",
+        "message": "ui: unify mobile navigation and TTS playback controls",
+        "date": "2026-02-07T13:02:17.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/e6d2f1a"
+      },
+      {
+        "sha": "a4182b0",
+        "message": "fix: resolve TTS builds by correcting imports and API signatures",
+        "date": "2026-02-07T12:34:00.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/a4182b0"
+      },
       {
         "sha": "8bff9fd",
         "message": "Sync manuscript updates from ff-story",
         "date": "2026-02-05T14:09:46.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/8bff9fd"
-      },
-      {
-        "sha": "f990c57",
-        "message": "Refactor external link logic into shared MarkdownLink component",
-        "date": "2026-02-04T16:25:54.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/f990c57"
-      },
-      {
-        "sha": "08f56d4",
-        "message": "Render chapter and part summaries with Markdown on manuscript page",
-        "date": "2026-02-04T16:18:45.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/08f56d4"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

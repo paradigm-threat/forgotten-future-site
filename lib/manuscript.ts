@@ -1,5 +1,3 @@
-import { STORY_REPO_BASE } from './remoteFiles';
-
 export interface Part {
     id: string; // generated from title
     title: string;
@@ -16,10 +14,38 @@ export interface Chapter {
 
 export type ManuscriptVersion = '13plus' | 'youngadult';
 
-const MANUSCRIPT_URLS: Record<ManuscriptVersion, string> = {
-    '13plus': `${STORY_REPO_BASE}manuscript/MANUSCRIPT_13_PLUS.md`,
-    'youngadult': `${STORY_REPO_BASE}manuscript/MANUSCRIPT_YOUNG_ADULT.md`
-};
+const DEFAULT_API_BASE = 'https://www.forgottenfuturebook.com';
+const LOCAL_API_BASE = 'http://localhost:3000';
+
+function normalizeApiBase(value: string): string {
+    const cleaned = value.trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
+    let url: URL;
+    try {
+        url = new URL(cleaned);
+    } catch {
+        throw new Error('NEXT_PUBLIC_API_BASE must be an absolute http(s) URL');
+    }
+
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+        throw new Error('NEXT_PUBLIC_API_BASE must use http(s)');
+    }
+
+    return cleaned.replace(/\/$/, '');
+}
+
+const apiCandidate = process.env.NEXT_PUBLIC_API_BASE
+    || (process.env.NEXT_PUBLIC_IS_STATIC === 'true' ? DEFAULT_API_BASE : LOCAL_API_BASE);
+let apiBase: string;
+
+try {
+    apiBase = normalizeApiBase(apiCandidate);
+} catch (error) {
+    console.warn('[Manuscript] Invalid NEXT_PUBLIC_API_BASE, falling back to default.');
+    const fallback = process.env.NEXT_PUBLIC_IS_STATIC === 'true' ? DEFAULT_API_BASE : LOCAL_API_BASE;
+    apiBase = normalizeApiBase(fallback);
+}
+
+const MANUSCRIPT_API = `${apiBase}/api/manuscript`;
 
 export async function parseManuscript(text: string): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     const versionMatch = text.match(/> Draft Version: ([\d.]+)/);
@@ -119,12 +145,19 @@ function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
 
 export async function fetchManuscript(version: ManuscriptVersion = '13plus'): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     try {
-        const baseUrl = MANUSCRIPT_URLS[version];
-        const url = `${baseUrl}?t=${Date.now()}`;
+        const url = `${MANUSCRIPT_API}?edition=${encodeURIComponent(version)}`;
 
         const response = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
         if (!response.ok) {
             throw new Error(`Failed to load manuscript: ${response.status} ${response.statusText}`);
+        }
+
+        const contentType = response.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+            const payload = await response.json();
+            if (payload?.chapters?.length) {
+                return payload;
+            }
         }
 
         const text = await response.text();

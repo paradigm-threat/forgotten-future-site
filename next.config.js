@@ -18,6 +18,64 @@ const withPWA = require("@ducanh2912/next-pwa").default({
     ],
     workboxOptions: {
         disableDevLogs: true,
+        runtimeCaching: [
+            {
+                urlPattern: /^https:\/\/www\.forgottenfuturebook\.com\/api\/manuscript(\?.*)?$/i,
+                handler: 'StaleWhileRevalidate',
+                options: {
+                    cacheName: 'ff-api-manuscript',
+                    expiration: {
+                        maxEntries: 20,
+                        maxAgeSeconds: 60 * 60 * 24 * 7,
+                    },
+                    cacheableResponse: {
+                        statuses: [0, 200],
+                    },
+                },
+            },
+            {
+                urlPattern: /^https:\/\/www\.forgottenfuturebook\.com\/api\/versions(\?.*)?$/i,
+                handler: 'StaleWhileRevalidate',
+                options: {
+                    cacheName: 'ff-api-versions',
+                    expiration: {
+                        maxEntries: 20,
+                        maxAgeSeconds: 60 * 60 * 24 * 7,
+                    },
+                    cacheableResponse: {
+                        statuses: [0, 200],
+                    },
+                },
+            },
+            {
+                urlPattern: /\/api\/manuscript(\?.*)?$/i,
+                handler: 'StaleWhileRevalidate',
+                options: {
+                    cacheName: 'ff-api-manuscript-local',
+                    expiration: {
+                        maxEntries: 20,
+                        maxAgeSeconds: 60 * 60 * 24 * 7,
+                    },
+                    cacheableResponse: {
+                        statuses: [0, 200],
+                    },
+                },
+            },
+            {
+                urlPattern: /\/api\/versions(\?.*)?$/i,
+                handler: 'StaleWhileRevalidate',
+                options: {
+                    cacheName: 'ff-api-versions-local',
+                    expiration: {
+                        maxEntries: 20,
+                        maxAgeSeconds: 60 * 60 * 24 * 7,
+                    },
+                    cacheableResponse: {
+                        statuses: [0, 200],
+                    },
+                },
+            },
+        ],
     },
 });
 

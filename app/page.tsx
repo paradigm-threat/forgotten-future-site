@@ -67,19 +67,19 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <RepoStatus
                         name="Story"
-                        apiUrl={process.env.NEXT_PUBLIC_REPO_STORY || ''}
+                        repoKey="ff-story"
                         repoUrl="https://github.com/clevertree/ff-story/commits/main/"
                         initialData={(gitHistory as any)['ff-story']}
                     />
                     <RepoStatus
                         name="Teaser"
-                        apiUrl={process.env.NEXT_PUBLIC_REPO_TEASER || ''}
+                        repoKey="ff-teaser"
                         repoUrl="https://github.com/clevertree/ff-teaser/commits/main/"
                         initialData={(gitHistory as any)['ff-teaser']}
                     />
                     <RepoStatus
                         name="Site"
-                        apiUrl={process.env.NEXT_PUBLIC_REPO_SITE || ''}
+                        repoKey="forgotten-future-site"
                         repoUrl="https://github.com/clevertree/forgotten-future-site/commits/master/"
                         initialData={(gitHistory as any)['forgotten-future-site']}
                     />

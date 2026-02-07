@@ -1,3 +1,4 @@
+e6d2f1a ui: unify mobile navigation and TTS playback controls
 a4182b0 fix: resolve TTS builds by correcting imports and API signatures
 8bff9fd Sync manuscript updates from ff-story
 f990c57 Refactor external link logic into shared MarkdownLink component

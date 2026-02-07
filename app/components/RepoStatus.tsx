@@ -18,59 +18,62 @@ interface RepoData {
 
 interface RepoStatusProps {
   name: string;
-  apiUrl: string;
+  repoKey: string;
   repoUrl: string;
   initialData?: RepoData;
 }
 
-export default function RepoStatus({ name, apiUrl, repoUrl, initialData }: RepoStatusProps) {
+const DEFAULT_API_BASE = 'https://www.forgottenfuturebook.com';
+const LOCAL_API_BASE = 'http://localhost:3000';
+
+function normalizeApiBase(value: string) {
+  const cleaned = value.trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
+  let url: URL;
+  try {
+    url = new URL(cleaned);
+  } catch {
+    throw new Error('NEXT_PUBLIC_API_BASE must be an absolute http(s) URL');
+  }
+
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+    throw new Error('NEXT_PUBLIC_API_BASE must use http(s)');
+  }
+
+  return cleaned.replace(/\/$/, '');
+}
+
+function getApiBase() {
+  const isStatic = process.env.NEXT_PUBLIC_IS_STATIC === 'true';
+  const apiBase = process.env.NEXT_PUBLIC_API_BASE || (isStatic ? DEFAULT_API_BASE : LOCAL_API_BASE);
+  try {
+    return normalizeApiBase(apiBase);
+  } catch (error) {
+    console.warn('[RepoStatus] Invalid NEXT_PUBLIC_API_BASE, falling back to default.');
+    const fallback = isStatic ? DEFAULT_API_BASE : LOCAL_API_BASE;
+    return normalizeApiBase(fallback);
+  }
+}
+
+export default function RepoStatus({ name, repoKey, repoUrl, initialData }: RepoStatusProps) {
   const [data, setData] = useState<RepoData | null>(initialData || null);
   const [loading, setLoading] = useState(!initialData);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchData() {
-      if (!apiUrl || apiUrl.startsWith('/')) {
-        setLoading(false);
-        return;
-      }
       try {
         setLoading(true);
-        // Fetch commits
-        const commitsRes = await fetch(`${apiUrl}/commits?per_page=3`);
-        if (!commitsRes.ok) throw new Error('Failed to fetch commits');
-        const commitsData = await commitsRes.json();
-
-        // Fetch version (heuristic: try VERSION then package.json)
-        let version = 'v?.?.?';
-        try {
-          // Try VERSION file first
-          const versionRes = await fetch(`${apiUrl}/contents/VERSION`);
-          if (versionRes.ok) {
-            const vData = await versionRes.json();
-            version = 'v' + atob(vData.content).trim();
-          } else {
-            // Try package.json
-            const pkgRes = await fetch(`${apiUrl}/contents/package.json`);
-            if (pkgRes.ok) {
-              const pData = await pkgRes.json();
-              const pkg = JSON.parse(atob(pData.content));
-              version = 'v' + pkg.version;
-            }
-          }
-        } catch (vErr) {
-          console.error(`Error fetching version for ${name}:`, vErr);
-        }
+        const apiBase = getApiBase();
+        const endpoint = `${apiBase}/api/versions?repo=${encodeURIComponent(repoKey)}`;
+        const res = await fetch(endpoint);
+        if (!res.ok) throw new Error('Failed to fetch repo status');
+        const payload = await res.json();
+        const repo = payload?.repo;
+        if (!repo) throw new Error('Invalid repo status response');
 
         setData({
+          ...repo,
           name,
-          version,
-          commits: commitsData.map((c: any) => ({
-            sha: c.sha.substring(0, 7),
-            message: c.commit.message.split('\n')[0],
-            date: c.commit.author.date,
-            url: c.html_url
-          })),
           repoUrl
         });
       } catch (err: any) {
@@ -81,7 +84,7 @@ export default function RepoStatus({ name, apiUrl, repoUrl, initialData }: RepoS
     }
 
     fetchData();
-  }, [name, apiUrl, repoUrl]);
+  }, [name, repoKey, repoUrl]);
 
   if (loading) {
     return (

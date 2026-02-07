@@ -1,5 +1,33 @@
-const repoPath = process.env.NEXT_PUBLIC_REPO_STORY || 'https://raw.githubusercontent.com/clevertree/ff-story/main/';
-export const STORY_REPO_BASE = repoPath.endsWith('/') ? repoPath : `${repoPath}/`;
+const DEFAULT_REPO_BASE = 'https://raw.githubusercontent.com/clevertree/ff-story/main/';
+
+function normalizeRepoBase(value: string): string {
+    const cleaned = value.trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
+    let url: URL;
+    try {
+        url = new URL(cleaned);
+    } catch {
+        throw new Error('NEXT_PUBLIC_REPO_STORY must be an absolute http(s) URL');
+    }
+
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+        throw new Error('NEXT_PUBLIC_REPO_STORY must use http(s)');
+    }
+
+    return cleaned.endsWith('/') ? cleaned : `${cleaned}/`;
+}
+
+const repoPath = process.env.NEXT_PUBLIC_REPO_STORY || DEFAULT_REPO_BASE;
+let resolvedRepoBase: string;
+try {
+    resolvedRepoBase = normalizeRepoBase(repoPath);
+} catch (error) {
+    console.warn('[Story Repo] Invalid NEXT_PUBLIC_REPO_STORY, falling back to default.', {
+        value: repoPath
+    });
+    resolvedRepoBase = normalizeRepoBase(DEFAULT_REPO_BASE);
+}
+
+export const STORY_REPO_BASE = resolvedRepoBase;
 
 export interface FileMetadata {
     _title?: string;
