@@ -1,3 +1,4 @@
+b2729c1 feat: add API-backed manuscript and local dev config
 e6d2f1a ui: unify mobile navigation and TTS playback controls
 a4182b0 fix: resolve TTS builds by correcting imports and API signatures
 8bff9fd Sync manuscript updates from ff-story
