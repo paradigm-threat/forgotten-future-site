@@ -10,6 +10,7 @@ interface PlaybackOverlayProps {
     onStop: () => void;
     onNext: () => void;
     onPrev: () => void;
+    onJumpToChapter: (index: number) => void;
     onSetVoice: (voice: SpeechSynthesisVoice) => void;
     onSetRate: (rate: number) => void;
     onSetLangFilter: (lang: string) => void;
@@ -23,6 +24,7 @@ export function PlaybackOverlay({
     onStop,
     onNext,
     onPrev,
+    onJumpToChapter,
     onSetVoice,
     onSetRate,
     onSetLangFilter,
@@ -50,21 +52,28 @@ export function PlaybackOverlay({
                         <span className="text-[10px] uppercase tracking-widest text-cyan-400 font-bold">Aether-Drive Audio Link</span>
                         <div className="flex items-center gap-2">
                             {state.segments.length > 1 && (
-                                <button
-                                    onClick={() => {
-                                        const elementId = typeof currentSegment.id === 'string'
-                                            ? currentSegment.id
-                                            : `chapter-${currentSegment.id}`;
-                                        const element = document.getElementById(elementId);
-                                        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    }}
-                                    className="bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-400 text-[10px] font-black px-1.5 py-0.5 rounded border border-cyan-500/30 transition-colors"
-                                    title="Jump to chapter start"
-                                >
-                                    {state.currentSegmentIndex + 1}/{state.segments.length}
-                                </button>
+                                <div className="relative group/chapter">
+                                    <select
+                                        value={state.currentSegmentIndex}
+                                        onChange={(e) => {
+                                            const idx = parseInt(e.target.value);
+                                            onJumpToChapter(idx);
+                                        }}
+                                        className="appearance-none bg-cyan-500/10 hover:bg-cyan-500/30 text-cyan-400 text-[10px] font-black px-2 py-1.5 rounded border border-cyan-500/20 transition-colors pr-6 cursor-pointer outline-none focus:border-cyan-400/50"
+                                        title="Jump to Section..."
+                                    >
+                                        {state.segments.map((s, idx) => (
+                                            <option key={idx} value={idx} className="bg-neutral-900 text-white">
+                                                {idx + 1}. {s.title}
+                                            </option>
+                                        ))}
+                                    </select>
+                                    <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-[8px] text-cyan-400/50">
+                                        ▼
+                                    </div>
+                                </div>
                             )}
-                            <span className="text-sm font-medium text-white truncate max-w-[200px] md:max-w-md">
+                            <span className="text-sm font-medium text-white truncate max-w-[150px] md:max-w-md">
                                 {currentSegment?.title || 'Synthesis...'}
                             </span>
                         </div>

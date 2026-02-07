@@ -1,25 +1,25 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.134",
+    "version": "v0.13.140",
     "commits": [
       {
-        "sha": "4b1def6",
-        "message": "narrative: rewrite ch7 synopsis and drafts",
-        "date": "2026-02-07T20:20:43.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/4b1def6"
+        "sha": "709c089",
+        "message": "narrative: expand ch11 synopsis and finalize beat titles",
+        "date": "2026-02-07T22:00:27.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/709c089"
       },
       {
-        "sha": "1ab98bd",
-        "message": "narrative: rewrite ch6 synopsis and drafts",
-        "date": "2026-02-07T20:06:21.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/1ab98bd"
+        "sha": "7619e7c",
+        "message": "docs: expand chapter 8 synopsis and sync manuscript",
+        "date": "2026-02-07T21:48:36.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/7619e7c"
       },
       {
-        "sha": "d109af4",
-        "message": "consolidate false flag revelations to chapter 12 and scrub spoilers from early chapters",
-        "date": "2026-02-07T11:30:40.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/d109af4"
+        "sha": "b0ac2e7",
+        "message": "docs: expand chaper 5 synopsis with more detail",
+        "date": "2026-02-07T21:36:56.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/b0ac2e7"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
@@ -51,25 +51,25 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.108",
+    "version": "v0.11.111",
     "commits": [
+      {
+        "sha": "566c1eb",
+        "message": "docs: sync manuscript and update git history",
+        "date": "2026-02-07T21:48:44.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/566c1eb"
+      },
+      {
+        "sha": "a4097bc",
+        "message": "sync: update manuscripts for ch7",
+        "date": "2026-02-07T20:20:56.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/a4097bc"
+      },
       {
         "sha": "a0970ff",
         "message": "sync: latest manuscripts from story repo",
         "date": "2026-02-07T20:06:35.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/a0970ff"
-      },
-      {
-        "sha": "091bc4f",
-        "message": "feat: auto-scroll to active TTS chapter/part in manuscript and full text pages",
-        "date": "2026-02-07T19:44:08.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/091bc4f"
-      },
-      {
-        "sha": "0af493e",
-        "message": "fix: add manuscript api slash",
-        "date": "2026-02-07T19:20:51.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/0af493e"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

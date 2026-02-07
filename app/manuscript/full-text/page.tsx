@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
@@ -46,14 +46,17 @@ function FullTextContent() {
 
     const prevChaptersRef = useRef<Chapter[]>([]);
 
-    const playChapters = useCallback((startIndex: number = 0) => {
-        const segments: TTSSegment[] = chapters.map((ch, idx) => ({
+    const segments = useMemo(() => {
+        return chapters.map((ch) => ({
             id: ch.id,
             title: `Chapter ${ch.id}: ${ch.title}`,
             text: ch.content
         }));
+    }, [chapters]);
+
+    const playChapters = useCallback((startIndex: number = 0) => {
         play(segments, startIndex);
-    }, [chapters, play]);
+    }, [segments, play]);
 
     useEffect(() => {
         if (tts.isPlaying && tts.currentSegmentIndex !== -1) {
@@ -78,16 +81,25 @@ function FullTextContent() {
         const handleRequest = (e: Event) => {
             const ce = e as CustomEvent;
             const targetId = ce.detail?.chapterId;
+
+            // If already playing this exact chapter, stop. 
+            // Otherwise, restart with the new chapter immediately.
             if (tts.isPlaying && tts.currentSegmentIndex !== -1) {
-                stop();
-            } else if (targetId) {
+                const currentId = tts.segments[tts.currentSegmentIndex]?.id;
+                if (currentId === targetId) {
+                    stop();
+                    return;
+                }
+            }
+
+            if (targetId) {
                 const idx = chapters.findIndex(c => c.id === targetId);
                 if (idx !== -1) playChapters(idx);
             }
         };
         window.addEventListener('ff-request-tts', handleRequest);
         return () => window.removeEventListener('ff-request-tts', handleRequest);
-    }, [tts.isPlaying, tts.currentSegmentIndex, chapters, playChapters, stop]);
+    }, [tts.isPlaying, tts.currentSegmentIndex, tts.segments, chapters, playChapters, stop]);
 
     const handleVersionChange = (newVersion: ManuscriptVersion) => {
         setVersion(newVersion);
@@ -484,6 +496,7 @@ function FullTextContent() {
                 onStop={stop}
                 onNext={next}
                 onPrev={prev}
+                onJumpToChapter={(index) => play(tts.segments, index)}
                 onSetVoice={setVoice}
                 onSetRate={setRate}
                 onSetLangFilter={setLangFilter}

@@ -1,3 +1,4 @@
+566c1eb docs: sync manuscript and update git history
 a4097bc sync: update manuscripts for ch7
 a0970ff sync: latest manuscripts from story repo
 091bc4f feat: auto-scroll to active TTS chapter/part in manuscript and full text pages

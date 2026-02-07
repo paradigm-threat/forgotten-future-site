@@ -150,12 +150,19 @@ export function useTTS() {
             return;
         }
 
+        // Update state immediately for UI responsiveness
+        if (chunkIndex === 0) {
+            setState(prev => ({ ...prev, currentSegmentIndex: index, isPlaying: true }));
+        }
+
         currentChunkIndexRef.current = chunkIndex;
 
         if (cancelTimeoutRef.current) clearTimeout(cancelTimeoutRef.current);
+        
+        // Critical: Cancel current speech immediately. 
+        // We use a small delay because most browsers need a "tick" to actually clear the hardware buffer.
         synth.cancel();
 
-        // Small delay to ensure browser cleared the voice queue
         cancelTimeoutRef.current = setTimeout(() => {
             // Check status again after timeout
             if (!isPlayingRef.current) return;
@@ -210,6 +217,7 @@ export function useTTS() {
             utterance.volume = 1.0;
 
             utterance.onstart = () => {
+                // Ensure state is synced if skip occurred
                 setState(prev => ({ ...prev, currentSegmentIndex: index, isPlaying: true }));
             };
 
@@ -230,7 +238,7 @@ export function useTTS() {
 
             utteranceRef.current = utterance;
             synth.speak(utterance);
-        }, 50);
+        }, 20);
     }, [synth, stop]);
 
     const play = useCallback((segments: TTSSegment[], startIndex: number = 0) => {

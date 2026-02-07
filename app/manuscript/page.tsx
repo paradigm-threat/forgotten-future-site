@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect, Suspense } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { fetchManuscript, Chapter, Part, ManuscriptVersion } from '../../lib/manuscript';
@@ -62,9 +62,18 @@ function ManuscriptContent() {
         const handleRequest = (e: Event) => {
             const ce = e as CustomEvent;
             const targetId = ce.detail?.chapterId;
+
+            // If already playing this exact chapter, stop. 
+            // Otherwise, restart with the new chapter immediately.
             if (tts.isPlaying && tts.currentSegmentIndex !== -1) {
-                stop();
-            } else if (targetId) {
+                const currentId = tts.segments[tts.currentSegmentIndex]?.id;
+                if (currentId === targetId) {
+                    stop();
+                    return;
+                }
+            }
+
+            if (targetId) {
                 const ch = chapters.find(c => c.id === targetId);
                 if (ch) {
                     const segment: TTSSegment = {
@@ -78,18 +87,31 @@ function ManuscriptContent() {
         };
         window.addEventListener('ff-request-tts', handleRequest);
         return () => window.removeEventListener('ff-request-tts', handleRequest);
-    }, [tts.isPlaying, tts.currentSegmentIndex, chapters, play, stop]);
+    }, [tts.isPlaying, tts.currentSegmentIndex, tts.segments, chapters, play, stop]);
 
     const fullManuscriptId = 9999;
     const fullSynopsisId = 9998;
 
-    const manuscriptText = chapters.map(c => `${c.title}. ${c.content}`).join(' ');
+    const fullTextSegments = useMemo(() => {
+        return chapters.map(ch => ({
+            id: ch.id,
+            title: `Chapter ${ch.id}: ${ch.title}`,
+            text: ch.content
+        }));
+    }, [chapters]);
 
-    const synopsisText = parts.map(p => {
-        const partInfo = `${p.title}. ${p.summary}`;
-        const chapterInfo = p.chapters.map(c => `Chapter ${c.id}: ${c.title}. ${c.summary}`).join('. ');
-        return `${partInfo}. ${chapterInfo}`;
-    }).join('. ');
+    const synopsisSegments = useMemo(() => {
+        return parts.flatMap(p => [
+            { id: p.id, title: p.title, text: p.summary },
+            ...p.chapters.map(ch => ({
+                id: ch.id,
+                title: `Chapter ${ch.id}: ${ch.title}`,
+                text: ch.summary
+            }))
+        ]);
+    }, [parts]);
+
+    const manuscriptText = useMemo(() => chapters.map(c => `${c.title}. ${c.content}`).join(' '), [chapters]);
 
     const lastActiveRef = useRef(Date.now());
 
@@ -260,31 +282,18 @@ function ManuscriptContent() {
                                 <div className="w-full pt-4 space-y-2">
                                     <button
                                         onClick={() => {
-                                            const segments: TTSSegment[] = chapters.map(ch => ({
-                                                id: ch.id,
-                                                title: `Chapter ${ch.id}: ${ch.title}`,
-                                                text: ch.content
-                                            }));
-                                            play(segments);
+                                            play(fullTextSegments);
                                         }}
-                                        className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${tts.isPlaying && tts.segments.length > 1
+                                        className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${tts.isPlaying && tts.segments.length > 1 && !tts.segments.some(s => typeof s.id === 'string')
                                             ? 'bg-cyan-500 text-black border-cyan-500 shadow-lg shadow-accent/50'
                                             : 'bg-transparent text-cyan-500 border-cyan-500/30 hover:bg-cyan-500/10'
                                             }`}
                                     >
-                                        {tts.isPlaying && tts.segments.length > 1 ? '⏯ Playing Text...' : '▶ Play Full Text'}
+                                        {tts.isPlaying && tts.segments.length > 1 && !tts.segments.some(s => typeof s.id === 'string') ? '⏯ Playing Text...' : '▶ Play Full Text'}
                                     </button>
                                     <button
                                         onClick={() => {
-                                            const segments: TTSSegment[] = parts.flatMap(p => [
-                                                { id: p.id, title: p.title, text: p.summary },
-                                                ...p.chapters.map(ch => ({
-                                                    id: ch.id,
-                                                    title: `Chapter ${ch.id}: ${ch.title}`,
-                                                    text: ch.summary
-                                                }))
-                                            ]);
-                                            play(segments);
+                                            play(synopsisSegments);
                                         }}
                                         className={`w-full py-2 rounded text-xs font-bold uppercase tracking-widest transition-all border ${tts.isPlaying && tts.segments.some(s => typeof s.id === 'string')
                                             ? 'bg-purple-500 text-black border-purple-500 shadow-lg shadow-element-ethics/50'
@@ -521,6 +530,7 @@ function ManuscriptContent() {
                 onStop={stop}
                 onNext={next}
                 onPrev={prev}
+                onJumpToChapter={(index) => play(tts.segments, index)}
                 onSetVoice={setVoice}
                 onSetRate={setRate}
                 onSetLangFilter={setLangFilter}
