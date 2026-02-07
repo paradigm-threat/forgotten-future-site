@@ -95,6 +95,18 @@ const nextConfig = {
     // Turbopack config required when a webpack config is present (next-pwa)
     turbopack: {},
     webpack: (config) => config,
+    async headers() {
+        return [
+            {
+                source: '/api/:path*',
+                headers: [
+                    { key: 'Access-Control-Allow-Origin', value: '*' },
+                    { key: 'Access-Control-Allow-Methods', value: 'GET, OPTIONS' },
+                    { key: 'Access-Control-Allow-Headers', value: 'Content-Type, Authorization' },
+                ],
+            },
+        ];
+    },
     images: process.env.NEXT_PUBLIC_IS_STATIC === 'true'
         ? {
             unoptimized: true,
