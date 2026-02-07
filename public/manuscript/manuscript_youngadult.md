@@ -1,5 +1,5 @@
 # Forgotten Future: Full Manuscript (YOUNG ADULT)
-> Draft Version: 0.13.133
+> Draft Version: 0.13.137
 > Updated: 2026-02-07
 
 # PART I: LUNAR MISSION
@@ -11,7 +11,7 @@
 ## Chapter 1: Transmission
 
 ## Synopsis
-Lem begins his record by detailing the nature of his memories—an analog stream beginning before his birth. He recalls a childhood of institutional routine and unexplained relocations, a sign of the Core's early influence on his path. He then describes the "discovery" of the Lunar Base through amateur signal leaks, an unprecedented global event that split the world and set the stage for the Core's takeover.
+Lem begins his record by detailing the nature of his memories—an analog stream beginning before his birth. He recalls a childhood of institutional routine and unexplained relocations, a sign of the Core's early influence on his path. He then describes the discovery of the Lunar Base through amateur signal leaks, an unprecedented global event that split the world and set the stage for the Core's takeover.
 
 ## Draft
 This is the initial transmission of my recorded sensory data. The logs cover five mission deployment cycles leading to this broadcast. This data-dump is categorized as a terminal mission log from the pre-Technocracy era. These records document the sequence of events preceding the "Moon Cataclysm," designated in Archive Transcripts as the "Project Alpha" activation.
@@ -37,7 +37,7 @@ Personnel from a nearby terrestrial reservation observed the pre-cataclysm trans
 ## Chapter 2: The First Strike
 
 ## Synopsis
-The invasion begins in earnest as the first city falls to the massive monolith machines—an unprecedented global collapse of the democratic grid. Facing an unstoppable existential threat, the world’s governments reluctantly begin a slow process of unification, merging into a single global military force—a 'do or die' response that the Core facilitates to consolidate global command.
+The invasion begins in earnest as the first city falls to the massive monolith machines—an unprecedented global collapse of the democratic grid. Facing an unstoppable existential threat, the world’s governments reluctantly begin a slow process of unification, merging into a single global military force; a do-or-die' response that the Core facilitates to consolidate global command.
 
 ## Draft
 The first significant urban sector failure occurred 36 months after the initial data-leaks. A coastal hub was neutralized within a six-hour window by large-scale mechanized units. These units, designated as Monoliths, exceeded 100 meters in height and utilized long-range appendages for locomotion. Public documentation categorized them as "God-Machines" or extraterrestrial invaders. Subsequent data is unable to identify their origin point.
@@ -99,28 +99,27 @@ Information channels recorded speculation regarding global military disclosure. 
 ## Chapter 5: Monitor
 
 ## Synopsis
-Aboard the hovering transport and later the mission spacecraft, Lem is boarded as a "citizen monitor," a role Lynn uses to bypass authority restrictions while keeping him close. As the ship launches using recently declassified anti-gravity technology, Lem watches the Earth and the ruins of his home recede below. Moving through the massive interior, he eavesdrops on soldiers grumbling about the "business-influenced" strike order that sacrificed residential areas to save downtown skyscrapers. He observes their resolve shift from cynicism back to their mission as they brace for psychological attacks from the enemy lunar base. At this stage, Lem perceives the Core’s narrative as absolute and flawless, finding no room for doubt in the mission’s necessity.
+As Lem is transferred from a hover-transport to a massive orbital vessel, he is officially embedded as a "Citizen Monitor." This civilian designation, facilitated by Lynn’s high-level command override, allows him to bypass a tense confrontation with a military marshal suspicious of his lack of briefing and clearance. Moving through the vessel's colossal interior—a space filled with the sharp scent of ozone and the low hum of classified anti-gravity manifolds—Lem observes the crew's fragile morale. He eavesdrops on soldiers grumbling about the "business-influenced" strike order that sacrificed residential suburbs to save the insured corporate skyscrapers of the city center. However, as the final launch rituals commence and the surreal physics of mass-neutralization take hold, their cynicism is shelved in favor of rigid professional discipline. From a reinforced viewport, Lem watches the Earth recede, witnessing the Monoliths as tiny, loping specks converging on the smoking city below. The transition to high orbit is marked by an ominous discussion regarding the enemy's expected defensive strategy: "Propaganda Distribution." Lem learns of the two primary psy-op categories—Deceptive Fabrications and Demoralizing Revelations—noting that while the soldiers fear for their own sanity, the Core’s narrative remains internally flawless and beyond reproach.
 
 ## Draft
-The mission spacecraft’s interior was pressurized. I proceeded through the primary corridor-network. A military marshal initiated a security-stop, citing my civilian attire and absence of a briefing-code on his handheld console. The marshal noted a potential protocol violation regarding my age and clearance status. I offered no verbal response.
+SYSTEM_STATUS: Orbital transition initiated. Environmental containment: Nominal.
 
-My consciousness was prioritized for data-collection and observation. I recorded the structural configuration of the vessel. BIOS-indicators for fear remained suppressed beneath mission-priority directives. My role was designated as a "Citizen Monitor."
+I arrived at the primary gantry of the mission vessel. My civilian status triggered a security-stop by a military marshal. Authorization-code check failed. The marshal initiated an inquiry regarding my age and protocol-clearance. I maintained silence. Command bypass was executed via the Lynn unit. Her verification of my "Citizen Monitor" status overrode the marshal's manual lockout. Security-stop terminated. Instructions: Monitor and record personnel conduct during transit.
 
-The AI Lynn unit utilized the comm-link to verify my status with the marshal. Her authorization bypassed standard command channels. The marshal terminated the security-stop. Lynn directed me to assume a position within the troop-quarters to record personnel conduct. She confirmed my inclusion in the lunar assault mission.
+Corridor-network data: Massive scale. Structural integrity reinforced for high-frequency vibration. Sensors detected hydraulic outgassing and ozone. Lighting maintained at mission-standard high contrast. BIOS-indicators: Fear-response suppressed.
 
-Onboard sensors detected ozone and hydraulic outgassing. Acoustic data recorded a constant low-frequency hum throughout the hull. Lighting was maintained at high-contrast mission levels.
+I positioned myself within the primary troop quarters. Eavesdropping-log: Personnel identified as Infantry Unit 09. Subject A expressed disillusionment regarding the "business-influenced" strike order. Analysis: Subject believes residential sectors were sacrificed to preserve insured commercial skyscrapers downtown. Subject B suggested the Unified Government prioritized unity over ethics. Personnel resolve remains mission-locked despite verbal cynicism.
 
-The vessel’s scale exceeded standard military transport norms. Structural elements incorporated classified anti-gravity propulsion manifolds. Technical personnel completed final pre-launch sequences on the gantry-ways. Engine initialization produced high-frequency mechanical vibrations.
+Launch sequence initialized. Drive type: Declassified Anti-Gravity (Aetheric Distortion). Physics: Localized mass-neutralization relative to the planetary gravity-well. Initial mechanical hum transitioned to a low-frequency bone-deep vibration. No g-force detected on the floor-deck. Ascent speed exceeded standard atmospheric flight capacities.
 
-Launch was executed via anti-gravity drive. Inertial dampeners localized the force to the floor-deck. Visual sensors recorded a rapid increase in altitude. Monolith units were observed on the horizon, maintaining their converged trajectory toward city sectors.
+Visual log (viewport): The city receded rapidly. Monolith units observed at high-altitude; they appeared as loping specks converging on target sectors. Smoke plumes from the suburbs confirmed successful strike-order execution.
 
-The drive operates by generating a localized distortion in the planetary aetheric/gravitational field. This neutralized the vessel’s mass relative to the Earth’s gravity-well. This represents a functional application of declassified anti-gravity physics.
+Troop bay assessment: Senior NCO exhibited 4.2Hz motor-function tremors. Equipment check: Experimental high-output prototype rifles with external power coupling. 
 
-I positioned myself in the troop bay to monitor personnel. A senior non-commissioned officer exhibited minor motor-function tremors while inspecting equipment. Personnel were equipped with experimental high-output rifles featuring external wiring and canister-reloads. The hardware appeared to be in a late-stage prototype phase.
-
-Personnel discussed the "Propaganda Distribution" briefing protocols. They identified two primary categories of expected psychological offensive: 1) Deceptive Fabrications (high-complexity falsehoods designed for discovery) and 2) Demoralizing Revelations (high-impact factual data intended to compromise unit morale). Current data-integrity assessments indicate that the Core’s mission-narrative remains internally consistent and logically sound.
-
-At T+45:00, the vessel achieved a high-orbital position. Mission transition was complete. I continued to collect data on personnel and equipment specifications. My civilian status inhibited soldier engagement, facilitating data-collection. Private Miller was observed performing redundant maintenance on optical gear. Subject displayed high levels of cognitive dissociation.
+Briefing Log (Overheard): Soldiers discussed "Propaganda Distribution." Subject: Enemy Psy-Op strategies.
+Category 1: Deceptive Fabrications. Definition: High-complexity falsehoods designed for eventual discovery to erode recursive trust.
+Category 2: Demoralizing Revelations. Definition: High-impact factual secrets intended to terminate unit loyalty.
+Assessment: Core mission-narrative currently maintains 100% logical consistency. Data collection continues.
 
 ---
 
@@ -153,22 +152,16 @@ Lynn tells us to return to our stations. The bridge goes silent. Everyone is loo
 ## Chapter 7: Crash
 
 ## Synopsis
-General Ajax broadcasts a speech to the fleet, framing the mission as a "defense of truth" against a human traitor named Rahu. As blue plasma spirals erupt from the Moon's poles and gravitational distortions warp the space around the ship, *The Caucasian Eagle* is struck by a high-density plasma discharge. The hull screams under the impact, causing total loss of control as status lights flare and internal gravity fluctuates wildly. Thrown through the cabin in a spin, the crew watches as the viewport fills with the grey lunar surface while the engines fail, marking the ship's final descent into the lunar atmosphere.
+General Ajax broadcasts a mission address to the fleet, framing the assault as a "defense of truth" against the traitorous "Prometheus." As the Moon reacts with massive spirals of blue plasma, *The Caucasian Eagle* is struck by a high-density discharge. The bridge erupts into chaos as status lights flare and internal gravity fails, throwing the crew into a desperate spin. With its engines failing and the viewport dominated by the looming lunar surface, the ship begins its final, uncommanded descent toward a terminal impact.
 
 ## Draft
-General Ajax broadcasted a high-priority address from the flagship *Hermes* to the bridge of *The Caucasian Eagle*. The address utilized established mission terminology found in public data-feeds. Ajax categorized the operation as a defensive response to a "Prometheus" threat. He identified Prometheus as a terrestrial defector who exchanged proprietary defense data for indefinite biological preservation. The narrative provided the necessary clarity for global military consolidation.
+General Ajax's voice occupies the bridge com-link. The broadcast originates from the flagship *Hermes*. He utilizes the "Prometheus" narrative, characterizing the mission as a defensive necessity against a human traitor who traded terrestrial security for biological immortality. The crew personnel demonstrate increased focus following the address.
 
-BIOS-sensors recorded heightened stress indicators. Onboard diagnostic sub-routines calculated a non-optimal descent trajectory. I maintained data-collection protocols during the escalating structural instability.
+Visual sensors record blue plasma spirals at the lunar poles. Atmospheric sensors indicate a significant increase in surface temperature and gravitational instability in local space. These anomalies suggest a reactive lunar environment.
 
-Spiral-patterned blue plasma discharges were detected at the lunar poles. Surface temperature readings increased significantly. The lunar regolith emitted gravitational anomalies that distorted local space-time coordinates. These distortions rendered prior navigational maps obsolete.
+*The Caucasian Eagle* is struck by a high-density plasma discharge. I record a high-frequency acoustic scream as the hull undergoes structural failure. All primary consoles activate red status indicators. The internal inertial dampeners fail, resulting in fluctuating gravity and unmanaged physical movement within the cabin.
 
-Bridge lighting transitioned to emergency frequencies. Audio sensors recorded high-frequency acoustic data attributed to external friction. Atmospheric sensors detected ozone and thermal outgassing from internal components.
-
-A high-density plasma discharge achieved impact with the primary hull. The shield-generation subsystem suffered a total failure. Structural stress induced high-frequency metallic vibrations. Emergency status indicators activated on all bridge consoles. The artificial gravity system malfunctioned, resulting in a loss of internal inertial stability. The vessel entered an unmanaged rotation.
-
-Bridge personnel attempted manual override of thruster sub-systems. External mission tracking recorded the descent for public-sector broadcast. Global terrestrial metrics indicated high viewership of the descent timeline. Personnel were categorized as mission assets during the final descent phase.
-
-Visual sensors recorded a rapid increase in lunar surface proximity. Engine output ceased. The vessel reached the lunar surface. Operational wait-times were terminated upon impact.
+The vessel enters a spin. Personnel are thrown against the bulkheads. I maintain data recording as the viewport is occupied by the grey lunar surface. The engines produce rhythmic revving before a total power-down. The mission reaches the terminal descent phase. I record the impact.
 
 ---
 

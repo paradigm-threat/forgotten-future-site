@@ -256,9 +256,7 @@ function ManuscriptContent() {
                                 <div className="text-2xl font-bold text-glow text-cyan-400">
                                     Full Manuscript
                                 </div>
-                                <div className="text-[10px] text-muted italic text-center">
-                                    Listen to the entire document using browser-native speech synthesis.
-                                </div>
+                                {draftVersion && <div className="text-[10px] text-muted uppercase tracking-widest bg-white/5 px-3 py-1 rounded border border-white/5">Draft: v{draftVersion}</div>}
                                 <div className="w-full pt-4 space-y-2">
                                     <button
                                         onClick={() => {
@@ -336,11 +334,6 @@ function ManuscriptContent() {
 
                 {/* Chapters List */}
                 <div className="lg:w-2/3 order-2 lg:order-2">
-                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-                        <h1 className="text-3xl md:text-4xl text-glow uppercase tracking-tighter">Manuscript: Lem's Records</h1>
-                        {draftVersion && <div className="text-[10px] text-muted uppercase tracking-widest bg-white/5 px-3 py-1 rounded border border-white/5">Draft: v{draftVersion}</div>}
-                    </div>
-
                     {/* Section Tabs */}
                     <StickyNav
                         sections={parts}
