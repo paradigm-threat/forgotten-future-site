@@ -107,6 +107,14 @@ const nextConfig = {
             },
         ];
     },
+    async rewrites() {
+        return [
+            {
+                source: '/api/browser',
+                destination: '/api/browser/',
+            },
+        ];
+    },
     images: process.env.NEXT_PUBLIC_IS_STATIC === 'true'
         ? {
             unoptimized: true,
