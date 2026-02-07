@@ -1,4 +1,4 @@
-const DEFAULT_API_BASE = 'https://www.forgottenfuturebook.com';
+const DEFAULT_API_BASE = 'https://forgottenfuturebook.com';
 
 function normalizeApiBase(value: string): string {
     let url: URL;

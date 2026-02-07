@@ -14,7 +14,7 @@ export interface Chapter {
 
 export type ManuscriptVersion = '13plus' | 'youngadult';
 
-const DEFAULT_API_BASE = 'https://www.forgottenfuturebook.com';
+const DEFAULT_API_BASE = 'https://forgottenfuturebook.com';
 const LOCAL_API_BASE = 'http://localhost:3000';
 
 function normalizeApiBase(value: string): string {
