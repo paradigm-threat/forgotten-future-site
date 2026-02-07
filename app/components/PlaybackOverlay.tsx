@@ -48,9 +48,23 @@ export function PlaybackOverlay({
                 <div className="flex items-center justify-between border-b border-white/10 pb-2">
                     <div className="flex flex-col">
                         <span className="text-[10px] uppercase tracking-widest text-cyan-400 font-bold">Aether-Drive Audio Link</span>
-                        <span className="text-sm font-medium text-white truncate max-w-[250px] md:max-w-md">
-                            {currentSegment?.title || 'Synthesis...'}
-                        </span>
+                        <div className="flex items-center gap-2">
+                            {state.segments.length > 1 && (
+                                <button
+                                    onClick={() => {
+                                        const element = document.getElementById(`chapter-${currentSegment.id}`);
+                                        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }}
+                                    className="bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-400 text-[10px] font-black px-1.5 py-0.5 rounded border border-cyan-500/30 transition-colors"
+                                    title="Jump to chapter start"
+                                >
+                                    {state.currentSegmentIndex + 1}/{state.segments.length}
+                                </button>
+                            )}
+                            <span className="text-sm font-medium text-white truncate max-w-[200px] md:max-w-md">
+                                {currentSegment?.title || 'Synthesis...'}
+                            </span>
+                        </div>
                     </div>
                     <button
                         onClick={onStop}

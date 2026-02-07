@@ -193,8 +193,8 @@ export default function ScrollNavigation() {
             className={`fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[100] flex flex-col items-center gap-3 transition-all duration-500 ease-in-out ${(isVisible || isFullText) ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-10 pointer-events-none'
                 } max-md:left-1/2 max-md:-translate-x-1/2 max-md:right-auto max-md:flex-row max-md:bottom-8`}
         >
-            {isFullText && currentChapter !== null && (
-                <div className="flex items-center gap-1 bg-background/90 backdrop-blur-xl border border-cyan-500/20 p-1 rounded-full shadow-lg shadow-accent/15 transition-all">
+            {isFullText && currentChapter !== null && speakingId === null && (
+                <div className="flex items-center gap-1 bg-background/90 backdrop-blur-xl border border-cyan-500/20 p-1 rounded-full shadow-lg shadow-accent/15 transition-all animate-in fade-in zoom-in duration-300">
                     <button
                         onClick={() => scrollToChapter(Math.max(1, currentChapter - 1))}
                         className="p-2 hover:bg-cyan-500/20 text-cyan-400 rounded-full transition-colors active:scale-90 disabled:opacity-30"
