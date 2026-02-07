@@ -1,5 +1,5 @@
 # Forgotten Future: Full Manuscript (13 PLUS)
-> Draft Version: 0.13.131
+> Draft Version: 0.13.133
 > Updated: 2026-02-07
 
 # PART I: LUNAR MISSION
@@ -25,7 +25,7 @@ The presence on the Moon became a global fixation. On the streets, children turn
 ## Chapter 2: The First Strike
 
 ## Synopsis
-The "invasion" begins in earnest as the first city falls to the massive monolith machines—an unprecedented global collapse of the democratic grid. Facing an unstoppable existential threat, the world’s governments reluctantly begin a slow process of unification, merging into a single global military force—a 'do or die' response that the Core facilitates to consolidate global command.
+The invasion begins in earnest as the first city falls to the massive monolith machines—an unprecedented global collapse of the democratic grid. Facing an unstoppable existential threat, the world’s governments reluctantly begin a slow process of unification, merging into a single global military force—a 'do or die' response that the Core facilitates to consolidate global command.
 
 ## Draft
 The first city didn't just fall; it was transformed. A coastal jewel was eclipsed by the arrival of the Monoliths—stadium-sized shadows that walked with a terrifying, rhythmic grace. They were like industrial structures that had been mobilized. We called it the Great Fry, as the grid collapsed and the lights of civilization winked out one by one.
@@ -75,7 +75,7 @@ A wall of fire and metal shards, each the size of a car, tore down the street. I
 ## Chapter 4: Dreamscape
 
 ## Synopsis
-In the darkness following the destruction of his street, Lem enters a dream-like state where he is met by Lynn. She reveals that he has been in "deep cover" for his own protection and that she has extracted him amidst the chaos to hide his recruitment from the enemy. Lem, in a state of high suggestibility, agrees to help her. Unknown to Lem, a presence—AI Lynn—begins to stir in the back of his mind. He wakes to find himself on a declassified hovering military transport, heading toward a military base while the ruins of his life recede below.
+In the darkness following the destruction of his street, Lem enters a dream-like state where he is met by Lynn. She reveals that he has been in "deep cover" for his own protection and that she has extracted him amidst the chaos to hide his recruitment from the enemy. Lem, in a state of high suggestibility, agrees to help her. Unknown to Lem, a presence—AI Lynn—begins to stir in the back of his mind. He wakes to find himself on a hovering military transport, heading toward a military base while the ruins of his life recede below.
 
 ## Draft
 I was floating.
@@ -159,24 +159,26 @@ I sat in my corner, ignored by the soldiers who were too busy wrestling with the
 ## Chapter 6: Zenith
 
 ## Synopsis
-As the Moon swells to fill the entire sky, the atmospheric rim of an oxygenated atmosphere and ancient structures on its surface reveal its true, undeniable nature. This overwhelming reveal triggers a faith crisis, but Iris Novak reinforces the Core's justification: the Moon’s nature was a necessary military secret, only declassified now for those charged with its reclamation. While most accept this as the heavy burden of truth, a veteran crewman's spirit breaks under the weight of the previous secrecy, which he blames for Earth’s blindness to the invasion. Lynn intervenes with absolute authority, declaring the crewman's collapse a risk to the mission and ordering his removal. With discipline restored through the excise of unstable factors, the crew returns to their consoles in a heavy, focused silence as the ship reaches Zenith alignment, with Lem witnessing the event as the first true test of their resolve against the demoralizing revelations of the mission.
+As the mission reaches its peak alignment at Zenith, the true nature of the Moon is revealed: it is not a distant, barren rock, but a nearby world with a breathable atmosphere and ancient, geometrically complex structures. This "demoralizing revelation"—a classified military secret used for centuries to maintain social order—triggers a profound crisis of faith among the crew. While Iris Novak defends the Core’s decision to hide the truth as a strategic necessity, a veteran crewman breaks down, blaming the secrecy for Earth’s lack of preparation against the Monoliths. Lynn intervenes with clinical authority, declaring the man's psychological collapse a risk to mission integrity and ordering his removal. Novak executes the ejection of the man in an escape pod, restoring a grim, heavy discipline to the bridge. Lem observes the event as the first test of human resolve against the weight of the Core’s long-held deceptions.
 
 ## Draft
-The Moon didn't just get closer; it claimed the sky. It didn't drift across the viewports like a satellite; it simply grew, expanding until it consumed the stars and filled every window with a pitted, silver landscape that felt old beyond measure. A thin, ethereal blue line shimmered along the curve of the lunar horizon—a living atmosphere where there should have been only the void. Below us, the craters weren't just shadows; they were the foundations of ancient, impossible cities that spanned the dusty plains like the ghosts of a forgotten empire.
+The Moon didn't just grow; it colonized the sky. It didn’t drift through the viewports like it belonged in a textbook; it simply lunged forward, expanding in a silent, silver explosion that swallowed the stars. One moment we were in transit, and the next, the lunar surface was a landscape of jagged peaks and shadowed craters that felt close enough to touch. Then I saw it—a thin, ethereal rim of sapphire light hugging the curve of the horizon. It was a shimmer of oxygen, a living breath where there should have been only the vacuum of space.
 
-The crisis of trust on the bridge was a physical weight, heavier than the gravity pulling us down. I watched an older crewman at the navigation console, his fingers splayed over the screen as if trying to hold back the tide. He wasn't entering coordinates; he was staring at the impossible reality of the Moon. His pupils were wide with a terror that no training could have prepared him for. The navigation alarm for the "Zenith" alignment began to chime—a steady, melodic pulse that he ignored as he sank into the abyss of his own thoughts.
+Below us, the "craters" began to reveal their true shapes. They weren't just impacts; they were the foundations of colossal, ancient cities—white mineral spires and dark alloy monoliths that spanned the dust-choked plains in a geometric grid of impossible scale. I felt the shock hit the bridge like a physical wave. I hadn’t been in the briefing room when they explained the "demoralizing revelation." I was seeing it for the first time: the Moon wasn't a distant satellite. It was a neighbor. A twin. And someone had been lying to us for a very, very long time.
 
-Iris Novak moved toward him, her own posture a fortress of resolve. Her voice was steady, the sound of a commander who had already made peace with the impossible. "The data was classified for the survival of the species," she said, her voice echoing through the silent bridge. "The Core held this truth in stewardship until a generation was born strong enough to face it. That generation is us. You were briefed on the protocols of the demoralizing revelation. You were chosen because you were supposed to be able to carry this."
+The bridge grew cold with a silence that felt heavier than the gravity pulling at the ship. I watched an older crewman at the auxiliary navigation console. His fingers weren't moving. He was staring at the viewport with eyes that were too wide, reflecting the silver glow of the world outside. "Two hundred thousand miles," he whispered, his voice cracking. "They told us it was a dead rock at the edge of the sky. They let us feel safe behind a wall of distance that never existed."
 
-The crewman didn't look up. "If we had known," he whispered, his voice cracking with a grief that silenced the bridge. "If they hadn't hidden the heavens from us, we wouldn't have been blind when the Monoliths arrived. They kept us in a cage, and now they expect us to be kings of the ruins."
+We reached Zenith alignment, and the awe turned into a suffocating dread. The navigator’s whisper rose into a shout of betrayal. He accused the Core—the world’s leaders—of keeping us blind while the Monoliths gathered their strength in the shadows of the very sky we trusted.
 
-Iris stood frozen. Her authority hadn't been broken by a lie, but by the jagged edge of a truth that cut through the comfort of the sanitized past.
+Iris Novak stepped forward, her face a mask of iron-clad resolve. "The truth was a burden the population couldn't carry," she said, her voice cutting through his panic. "It was a military secret kept for the sake of world order. It’s declassified now because it’s our turn to hold the line. We don’t have the luxury of grief."
 
-Lynn entered from the aft hatch, and the air seemed to sharpen around her. She didn't look at the crewman, and she didn't look at the Moon. She looked at the diagnostics on the main display, her eyes reflecting the silver glow of the world below. "His focus has failed," she said. Her voice wasn't cold; it was filled with a terrible, absolute clarity. "He has allowed the demoralizing revelation to become a weapon against himself. He cannot carry the weight of what is to come. For the sake of the mission, he must be removed."
+"If we had known," the crewman spat back, "we wouldn't be kings of a graveyard now. We would have seen them coming."
 
-Novak didn't hesitate, but her movements weren't mechanical. They were somber, a grim ritual of necessity. She placed a hand on the man's shoulder and guided him from the chair. He didn't fight her; he just kept staring at the Moon, his eyes wet and searching for an answer that wasn't there. The airlock to the escape pod hissed open like a held breath, then slammed shut. I counted the heartbeats. At the forty-eighth, there was a sharp *clack* of magnetic shears, and the pod was gone—a silver spark falling toward the grey horizon, back toward the Earth he couldn't face.
+Novak flinched, but she didn't have to answer. The air sharpened as Lynn stepped onto the bridge. She didn't look at the Moon, and she didn't look at the man. She looked at the mission clock. "His focus is gone," she said, her voice as sharp and clinical as a scalpel. "He has internalized the revelation as a weapon against himself. He is no longer an asset; he is a risk."
 
-"Back to stations," Lynn said, and her voice was a call to arms. "The descent is our duty. Honor his release by becoming the strength he lacked." The crew returned to their consoles.
+She didn't wait for a rebuttal. She cited Article 92 and ordered his immediate ejection. Novak didn't say a word as she guided the trembling man toward the corridors. I watched the viewport until I saw the spark of the escape pod—a single, lonely star falling away from us, back toward the Earth he felt he had lost.
+
+"Stations," Lynn barked. The bridge snapped back to life, but the sound was different now. It was the sound of a crew that had been broken and then forced back together, hard and silent as the mineral cities waiting for us below. We were at Zenith, and the only way left was down.
 
 ---
 

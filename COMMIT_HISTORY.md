@@ -1,3 +1,4 @@
+a0970ff sync: latest manuscripts from story repo
 091bc4f feat: auto-scroll to active TTS chapter/part in manuscript and full text pages
 0af493e fix: add manuscript api slash
 df6881d fix: rewrite browser api slash

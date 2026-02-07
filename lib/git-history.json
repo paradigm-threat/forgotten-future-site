@@ -1,8 +1,14 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.132",
+    "version": "v0.13.133",
     "commits": [
+      {
+        "sha": "1ab98bd",
+        "message": "narrative: rewrite ch6 synopsis and drafts",
+        "date": "2026-02-07T20:06:21.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/1ab98bd"
+      },
       {
         "sha": "d109af4",
         "message": "consolidate false flag revelations to chapter 12 and scrub spoilers from early chapters",
@@ -14,12 +20,6 @@
         "message": "rewrite ch 9 synopsis and drafts",
         "date": "2026-02-06T13:19:55.000Z",
         "url": "https://github.com/clevertree/ff-story/commit/f7d3f14"
-      },
-      {
-        "sha": "972f78d",
-        "message": "remove 1971 from intro",
-        "date": "2026-02-06T12:22:28.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/972f78d"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
@@ -51,8 +51,14 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.106",
+    "version": "v0.11.107",
     "commits": [
+      {
+        "sha": "091bc4f",
+        "message": "feat: auto-scroll to active TTS chapter/part in manuscript and full text pages",
+        "date": "2026-02-07T19:44:08.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/091bc4f"
+      },
       {
         "sha": "0af493e",
         "message": "fix: add manuscript api slash",
@@ -64,12 +70,6 @@
         "message": "fix: rewrite browser api slash",
         "date": "2026-02-07T19:15:41.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/df6881d"
-      },
-      {
-        "sha": "d9b4e6b",
-        "message": "fix: add trailing slash for browser api",
-        "date": "2026-02-07T19:11:18.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/d9b4e6b"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"
