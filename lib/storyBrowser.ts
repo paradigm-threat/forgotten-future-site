@@ -1,29 +1,21 @@
 const DEFAULT_API_BASE = 'https://www.forgottenfuturebook.com';
-const DEFAULT_BASE_PATH = '/forgotten-future-site';
 
 function normalizeApiBase(value: string): string {
     let url: URL;
     try {
         url = new URL(value);
     } catch {
-        return DEFAULT_API_BASE;
+        throw new Error('NEXT_PUBLIC_API_BASE must be an absolute http(s) URL');
     }
 
     if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-        return DEFAULT_API_BASE;
+        throw new Error('NEXT_PUBLIC_API_BASE must use http(s)');
     }
 
     return value.replace(/\/$/, '');
 }
 
 export function getApiBase(): string {
-    const isStatic = process.env.NEXT_PUBLIC_IS_STATIC === 'true';
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || DEFAULT_BASE_PATH;
-
-    if (isStatic && typeof window !== 'undefined') {
-        return `${window.location.origin}${basePath}`.replace(/\/$/, '');
-    }
-
     const apiBase = process.env.NEXT_PUBLIC_API_BASE || DEFAULT_API_BASE;
     return normalizeApiBase(apiBase);
 }
