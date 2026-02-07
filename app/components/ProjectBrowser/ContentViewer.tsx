@@ -3,7 +3,7 @@
 import React from 'react';
 import { RemoteMarkdown } from '@/app/components/RemoteMarkdown';
 import { NavControls } from './NavControls';
-import { STORY_REPO_BASE } from '@/lib/remoteFiles';
+import { getStoryAssetBase, getStoryGitHubUrl } from '@/lib/storyBrowser';
 import { getImageUrl } from '@/lib/browserUtils';
 
 interface ContentViewerProps {
@@ -35,7 +35,7 @@ export const ContentViewer: React.FC<ContentViewerProps> = ({
     currentIdx,
     total
 }) => {
-    const gitHubLink = `${STORY_REPO_BASE.replace('raw.githubusercontent.com', 'github.com').replace('/main/', '/blob/main/')}${currentPath}`;
+    const gitHubLink = getStoryGitHubUrl(currentPath);
 
     const renderHeader = () => isViewingFile && (
         <NavControls
@@ -68,7 +68,7 @@ export const ContentViewer: React.FC<ContentViewerProps> = ({
                 {renderHeader()}
                 <RemoteMarkdown
                     content={content}
-                    basePath={`${STORY_REPO_BASE}${currentPath.includes('/') ? currentPath.split('/').slice(0, -1).join('/') : ''}`}
+                    basePath={getStoryAssetBase(currentPath.includes('/') ? currentPath.split('/').slice(0, -1).join('/') : '')}
                 />
                 {renderFooter()}
             </div>

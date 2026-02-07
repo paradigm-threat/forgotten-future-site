@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
-import { STORY_REPO_BASE, getStoryIndex, getStoryFile, FileTree } from '@/lib/remoteFiles';
+import { getStoryIndex, getStoryFile, FileTree } from '@/lib/remoteFiles';
+import { getStoryAssetUrl } from '@/lib/storyBrowser';
 import { isDir, isImage, isVideo, formatSlug } from '@/lib/browserUtils';
 
 export function useFileBrowser() {
@@ -62,9 +63,9 @@ export function useFileBrowser() {
                         setLoading(true);
                         try {
                             if (isImage(currentPath)) {
-                                setImageLoaded(`${STORY_REPO_BASE}${currentPath}`);
+                                setImageLoaded(getStoryAssetUrl(currentPath));
                             } else if (isVideo(currentPath)) {
-                                setVideoLoaded(`${STORY_REPO_BASE}${currentPath}`);
+                                setVideoLoaded(getStoryAssetUrl(currentPath));
                             } else {
                                 const fileContent = await getStoryFile(currentPath);
                                 setContent(fileContent);

@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Folder, File } from 'lucide-react';
-import { STORY_REPO_BASE } from '@/lib/remoteFiles';
+import { getStoryAssetUrl } from '@/lib/storyBrowser';
 import { isDir, isImage, isVideo, getImageUrl, getBrowserLink } from '@/lib/browserUtils';
 
 interface FileGridProps {
@@ -90,7 +90,7 @@ export const FileGrid: React.FC<FileGridProps> = ({ currentLevel, browsePath }) 
                                     />
                                 )}
                                 <img
-                                    src={getImageUrl(`${STORY_REPO_BASE}${path}`, 400)}
+                                    src={getImageUrl(getStoryAssetUrl(path), 400)}
                                     alt={name}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 relative z-10"
                                     loading="lazy"

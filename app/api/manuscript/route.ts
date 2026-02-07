@@ -1,11 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { parseManuscript, ManuscriptVersion } from '@/lib/manuscript';
-import { STORY_REPO_BASE } from '@/lib/remoteFiles';
 
 const MANUSCRIPT_FILES: Record<ManuscriptVersion, string> = {
     '13plus': 'manuscript/MANUSCRIPT_13_PLUS.md',
     'youngadult': 'manuscript/MANUSCRIPT_YOUNG_ADULT.md'
 };
+
+const DEFAULT_STORY_REPO_BASE = 'https://raw.githubusercontent.com/clevertree/ff-story/main/';
+
+function normalizeRepoBase(value: string): string {
+    let url: URL;
+    try {
+        url = new URL(value);
+    } catch {
+        return DEFAULT_STORY_REPO_BASE;
+    }
+
+    if (url.protocol !== 'http:' && url.protocol !== 'https:') {
+        return DEFAULT_STORY_REPO_BASE;
+    }
+
+    return value.endsWith('/') ? value : `${value}/`;
+}
+
+function getStoryRepoBase(): string {
+    const candidate = process.env.STORY_REPO_BASE || DEFAULT_STORY_REPO_BASE;
+    return normalizeRepoBase(candidate);
+}
 
 const CACHE_TTL_MS = 5 * 60 * 1000;
 const cache = new Map<string, { timestamp: number; payload: any }>();
@@ -76,7 +97,7 @@ export async function GET(request: NextRequest) {
     }
 
     const manuscriptPath = MANUSCRIPT_FILES[version];
-    const manuscriptUrl = `${STORY_REPO_BASE}${manuscriptPath}`;
+    const manuscriptUrl = `${getStoryRepoBase()}${manuscriptPath}`;
 
     const isGithub = isGithubUrl(manuscriptUrl);
     const isLocalhost = isLocalhostUrl(manuscriptUrl);

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { X, Play, Pause, ChevronLeft, ChevronRight, Settings2, ImageIcon, Maximize, Minimize } from 'lucide-react';
-import { STORY_REPO_BASE } from '@/lib/remoteFiles';
+import { getStoryAssetUrl } from '@/lib/storyBrowser';
 import { getImageUrl } from '@/lib/browserUtils';
 
 export interface SlideshowConfig {
@@ -152,7 +152,7 @@ export const SlideshowPlayer: React.FC<SlideshowPlayerProps> = ({
                             key={img}
                             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${isActive ? 'opacity-100' : 'opacity-0'}`}
                             style={{
-                                backgroundImage: `url(${getImageUrl(STORY_REPO_BASE + img, 1920)})`,
+                                backgroundImage: `url(${getImageUrl(getStoryAssetUrl(img), 1920)})`,
                                 backgroundSize: 'contain',
                                 backgroundPosition: 'center',
                                 backgroundRepeat: 'no-repeat',
@@ -162,7 +162,7 @@ export const SlideshowPlayer: React.FC<SlideshowPlayerProps> = ({
                             {isActive && (
                                 <div className={`w-full h-full ${animationClass}`}
                                     style={{
-                                        backgroundImage: `url(${getImageUrl(STORY_REPO_BASE + img, 1920)})`,
+                                        backgroundImage: `url(${getImageUrl(getStoryAssetUrl(img), 1920)})`,
                                         backgroundSize: 'contain',
                                         backgroundPosition: 'center',
                                         backgroundRepeat: 'no-repeat'

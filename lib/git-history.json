@@ -54,22 +54,22 @@
     "version": "v0.11.105",
     "commits": [
       {
+        "sha": "b89b8b2",
+        "message": "chore: add turbopack config",
+        "date": "2026-02-07T15:01:57.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/b89b8b2"
+      },
+      {
+        "sha": "67ff080",
+        "message": "fix: disable turbopack in build",
+        "date": "2026-02-07T14:59:27.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/67ff080"
+      },
+      {
         "sha": "b2729c1",
         "message": "feat: add API-backed manuscript and local dev config",
         "date": "2026-02-07T14:57:47.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/b2729c1"
-      },
-      {
-        "sha": "e6d2f1a",
-        "message": "ui: unify mobile navigation and TTS playback controls",
-        "date": "2026-02-07T13:02:17.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/e6d2f1a"
-      },
-      {
-        "sha": "a4182b0",
-        "message": "fix: resolve TTS builds by correcting imports and API signatures",
-        "date": "2026-02-07T12:34:00.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/a4182b0"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"
