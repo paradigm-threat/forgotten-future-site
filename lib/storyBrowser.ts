@@ -22,9 +22,9 @@ export function getApiBase(): string {
 
 export function getBrowserEndpoint(path?: string): string {
     const base = getApiBase();
-    if (!path) return `${base}/api/browser`;
+    if (!path) return `${base}/api/browser/`;
     const searchParams = new URLSearchParams({ path });
-    return `${base}/api/browser?${searchParams.toString()}`;
+    return `${base}/api/browser/?${searchParams.toString()}`;
 }
 
 export function getStoryAssetUrl(path: string): string {
