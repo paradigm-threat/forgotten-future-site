@@ -1,8 +1,14 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.140",
+    "version": "v0.13.141",
     "commits": [
+      {
+        "sha": "664448a",
+        "message": "Update character profiles for Arlo, Kiran, and Azar with Black representation and Great Fry history",
+        "date": "2026-02-19T13:38:36.000Z",
+        "url": "https://github.com/clevertree/ff-story/commit/664448a"
+      },
       {
         "sha": "831b838",
         "message": "narrative: refine ch11 synopsis with core beats and fulfill titles",
@@ -14,12 +20,6 @@
         "message": "narrative: expand ch11 synopsis and finalize beat titles",
         "date": "2026-02-07T22:00:27.000Z",
         "url": "https://github.com/clevertree/ff-story/commit/709c089"
-      },
-      {
-        "sha": "7619e7c",
-        "message": "docs: expand chapter 8 synopsis and sync manuscript",
-        "date": "2026-02-07T21:48:36.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/7619e7c"
       }
     ],
     "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
@@ -51,8 +51,14 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.113",
+    "version": "v0.11.115",
     "commits": [
+      {
+        "sha": "2914396",
+        "message": "Update character page with Black representation and add Old Man Azar",
+        "date": "2026-02-19T13:38:52.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/2914396"
+      },
       {
         "sha": "236adb3",
         "message": "fix: resolve build errors by adding missing React imports and useEffect dependencies",
@@ -64,12 +70,6 @@
         "message": "docs: sync manuscript and update git history",
         "date": "2026-02-07T21:48:44.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/566c1eb"
-      },
-      {
-        "sha": "a4097bc",
-        "message": "sync: update manuscripts for ch7",
-        "date": "2026-02-07T20:20:56.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/a4097bc"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

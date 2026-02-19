@@ -1,6 +1,6 @@
 # Forgotten Future: Full Manuscript (13 PLUS)
-> Draft Version: 0.13.140
-> Updated: 2026-02-07
+> Draft Version: 0.13.141
+> Updated: 2026-02-19
 
 # PART I: LUNAR MISSION
 
@@ -199,7 +199,7 @@ The grey craters of the Moon rushed up to meet us, jagged and hungry. The engine
 ## Chapter 8: Deep Well
 
 ## Synopsis
-Following the catastrophic crash of *The Caucasian Eagle*, Lem’s consciousness is suspended in a flickering dreamscape where he is guided by an AI rendition of Lynn. As she provides frantic telemetry updates and survival statistics—revealing that only 35% of the crew successfully evacuated—Lem is physically extracted from the wreckage by a massive industrial claw and sealed within an automated medical incubation capsule. While inside, a 'resonance synchronization' occurs, merging the AI construct into the real Lynn, who informs him that a spiraling debris field has seperated the orbital fleet from the ground forces. Lem accepts Lynn’s plea to join the front lines. After a mysterious suit reconfiguration during a momentary blackout, he emerges to find Iris Novak taking command of the survivors. Activated as a Core army soldier, Lem joins the desperate ground assault on the Lunar Pyramid, the primary enemy stronghold on the moon.
+Following the catastrophic crash of *The Caucasian Eagle*, Lem’s consciousness is suspended in a flickering dreamscape where he is guided by an AI rendition of Lynn. As she provides regular telemetry updates and survival statistics—revealing that only 35% of the crew successfully evacuated—Lem is physically extracted from the wreckage by a massive industrial claw and sealed within an automated medical incubation capsule. While inside, a 'resonance synchronization' occurs, merging the AI construct into the real Lynn, who informs him that a spiraling debris field has seperated the orbital fleet from the ground forces. Lem accepts Lynn’s plea to join the front lines. After a mysterious suit reconfiguration during a momentary blackout, he emerges to find Iris Novak taking command of the survivors. Activated as a Core army soldier, Lem joins the desperate ground assault on the Lunar Pyramid, the primary enemy stronghold on the moon.
 
 ## Draft
 The transition was a physical blow. One second I was suspended in the air, watching the world I knew burn beneath the heavy, indifferent tread of the Monoliths. The next, I was back in the belly of the beast, the cabin of the *Caucasian Eagle* a tomb of twisted metal and hissing gas. A red emergency light blinked on the console like the steady, frantic heartbeat of a dying god.
@@ -615,6 +615,10 @@ On the Archipelago floating islands, Lem meets Cassia, who becomes his guardian 
 The Archipelago was an exercise in celestial hubris—a collection of lunar fragments tethered together by aetheric anchors, hovering in the perpetual twilight of the stratosphere. From the observation deck of the Core Command Center, I watched the distorted curvature of the Earth. It was a world of shadows and industrial scars. Cassia, my designated guardian and a High Archivist of the Core, approached with the measured grace of someone who had never known the weight of gravity.
 
 "Your arrival is a pivot point for the Reconstruction, Ashwood," she announced. Her voice carried the weight of a thousand-year conviction. "You were recovered from the Synodic occupation zones just as the infection was beginning to take hold of your humanoid core."
+
+During the acclimatization period, I worked with Kiran, a high-ranking analyst of African descent. He provided a perspective on the "Great Fry"—the cataclysmic devastation of Africa that forced a mass evacuation to the Archipelago. He spoke of the racial tensions that had once plagued the process, noting that the Core leadership—initially mostly white—tried to enforce equality despite civilian-level racism and schisms. Kiran viewed the past as a series of solved problems, mentioning figures like "Old Man Azar," who refused evacuation and stayed behind to help those the Core deemed "unfit," as relics of a more problematic era.
+
+For Kiran, the Core's meritocracy had solved the social problems of the Before Time, but to me, it felt more like a refined form of suppression. I accepted the designation of "Ashwood" as a mask to preserve my internal identity as Lem.
 
 The narrative was flawless. In the Core’s official record, the Great Fry of Year 0 had triggered a millennium of alien darkness. I was told that humanity had spent a thousand years hiding in the shadows of the "Maya Cult" and the "Gorgon Swarms" before Rahu and Ajax returned to liberate the race in Year 1000. It was a masterful synthesis of fact and fable. They had taken my real history—a mere fifteen years ago—and stretched it into an epic of ancient suffering to justify their current tyranny.
 

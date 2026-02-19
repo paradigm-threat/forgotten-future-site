@@ -1,6 +1,6 @@
 # Forgotten Future: Full Manuscript (YOUNG ADULT)
-> Draft Version: 0.13.140
-> Updated: 2026-02-07
+> Draft Version: 0.13.141
+> Updated: 2026-02-19
 
 # PART I: LUNAR MISSION
 
@@ -168,7 +168,7 @@ The vessel enters a spin. Personnel are thrown against the bulkheads. I maintain
 ## Chapter 8: Deep Well
 
 ## Synopsis
-Following the catastrophic crash of *The Caucasian Eagle*, Lem’s consciousness is suspended in a flickering dreamscape where he is guided by an AI rendition of Lynn. As she provides frantic telemetry updates and survival statistics—revealing that only 35% of the crew successfully evacuated—Lem is physically extracted from the wreckage by a massive industrial claw and sealed within an automated medical incubation capsule. While inside, a 'resonance synchronization' occurs, merging the AI construct into the real Lynn, who informs him that a spiraling debris field has seperated the orbital fleet from the ground forces. Lem accepts Lynn’s plea to join the front lines. After a mysterious suit reconfiguration during a momentary blackout, he emerges to find Iris Novak taking command of the survivors. Activated as a Core army soldier, Lem joins the desperate ground assault on the Lunar Pyramid, the primary enemy stronghold on the moon.
+Following the catastrophic crash of *The Caucasian Eagle*, Lem’s consciousness is suspended in a flickering dreamscape where he is guided by an AI rendition of Lynn. As she provides regular telemetry updates and survival statistics—revealing that only 35% of the crew successfully evacuated—Lem is physically extracted from the wreckage by a massive industrial claw and sealed within an automated medical incubation capsule. While inside, a 'resonance synchronization' occurs, merging the AI construct into the real Lynn, who informs him that a spiraling debris field has seperated the orbital fleet from the ground forces. Lem accepts Lynn’s plea to join the front lines. After a mysterious suit reconfiguration during a momentary blackout, he emerges to find Iris Novak taking command of the survivors. Activated as a Core army soldier, Lem joins the desperate ground assault on the Lunar Pyramid, the primary enemy stronghold on the moon.
 
 ## Draft
 My processing state fluctuated between archived visual data and immediate sensory input. I recorded the destruction of Earth’s urban centers by Monolith units; the thermal signatures indicated a high-efficiency neutralization of the grid. Somatic response was absent in the observation-state, though environmental sensors detected the onset of trauma-related dissociation.
@@ -477,7 +477,7 @@ Cassia noted my unique memory persistence and rapid reintegration cycle. She sta
 
 The museum narrative utilizes historical names and symbols to construct a revised chronology. Rahu was present in the plaza, surrounded by individuals identified as "Lamenters." This group views Vessels as spiritual reincarnations. Rahu’s biometric data indicated heightened stress. He appeared to have no recollection of the events on the Moon or the "Slow-burn" memory procedure performed by the Core. He functioned according to his assigned role as a hero figure.
 
-Cassia officially designated my unit as "Ashwood." She stated the name was a reference to the Fire City ruins and Core resilience. I accepted the designation and confirmed my participation in Project Counter Fire. This project involves the reclamation of the Dead Zone. I maintained my internal identity as Lem while complying with the research and mission requirements of the Core. I will continue to monitor the discrepancy between the external narrative and my internal data.
+Cassia officially designated my unit as "Ashwood." She stated the name was a reference to the Fire City ruins and Core resilience. I accepted the designation and confirmed my participation in Project Counter Fire. This project involves the reclamation of the Dead Zone. I also met Kiran, a high-ranking analyst of African descent. He spoke of the "Great Fry" and the racial tensions that had once plagued the evacuations to the Archipelago. Kiran noted that while those struggles were a tedious part of the past, the current meritocracy has largely moved beyond them, viewing people such as "Old Man Azar"—who stayed on the surface to help the abandoned—as historical curiosities rather than heroes. I maintained my internal identity as Lem while complying with the research and mission requirements of the Core. I will continue to monitor the discrepancy between the external narrative and my internal data.
 
 ---
 
