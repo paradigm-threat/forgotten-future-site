@@ -76,10 +76,17 @@ const CHARACTERS: Character[] = [
         category: 'Survivor',
         images: [
             { src: prefixPath('/media/characters/arlo/arlo-landscape.png'), alt: 'Arlo - The Tech-Welder' },
-            { src: prefixPath('/media/characters/arlo/arlo-portrait.png'), alt: 'Arlo - Portrait' },
-            { src: prefixPath('/media/characters/arlo/arlo-landscape2.png'), alt: 'Arlo - Scavenging' },
-            { src: prefixPath('/media/characters/arlo/arlo-pillar.png'), alt: 'Arlo at the Pillar' },
-            { src: prefixPath('/media/characters/arlo/arlo-entry.png'), alt: 'Arlo - Entry' }
+            { src: prefixPath('/media/characters/arlo/arlo-high-enclave.png'), alt: 'Arlo - High Enclave' },
+            { src: prefixPath('/media/characters/arlo/arlo-pillar.png'), alt: 'Arlo at the Pillar' }
+        ]
+    },
+    {
+        id: 'azar',
+        name: 'Azar',
+        category: 'Survivor',
+        images: [
+            { src: prefixPath('/media/characters/azar/azar-landscape.png'), alt: 'Old Man Azar - Keeper of the Root' },
+            { src: prefixPath('/media/characters/azar/azar-ground-wire.png'), alt: 'Azar - The Ground Wire' }
         ]
     },
     {
@@ -158,11 +165,11 @@ const CHARACTERS: Character[] = [
         name: 'Kiran',
         category: 'Archivist',
         images: [
-            { src: prefixPath('/media/characters/kiran/kiran.png'), alt: 'Kiran - Hive Engineer' },
-            { src: prefixPath('/media/characters/kiran/kiran-desktop.png'), alt: 'Kiran at the Hive Terminal' },
+            { src: prefixPath('/media/characters/kiran/kiran-desktop.png'), alt: 'Kiran - Hive Engineer' },
             { src: prefixPath('/media/characters/kiran/kiran-forge.png'), alt: 'Kiran - Synodic Forge' },
-            { src: prefixPath('/media/characters/kiran/kiran-refusal1.png'), alt: 'Kiran - The Choice of Steel' },
-            { src: prefixPath('/media/characters/kiran/kiran-refusal2.png'), alt: 'Kiran - Architecture of the Hive' }
+            { src: prefixPath('/media/characters/kiran/kiran-ashwood.png'), alt: 'Kiran - Ashwood Deployment' },
+            { src: prefixPath('/media/characters/kiran/kiran-new-hero.png'), alt: 'Kiran - New Hero Supervision' },
+            { src: prefixPath('/media/characters/kiran/kiran-parley.png'), alt: 'Kiran - The Parley' }
         ]
     },
     {

@@ -1,3 +1,4 @@
+236adb3 fix: resolve build errors by adding missing React imports and useEffect dependencies
 566c1eb docs: sync manuscript and update git history
 a4097bc sync: update manuscripts for ch7
 a0970ff sync: latest manuscripts from story repo

@@ -158,7 +158,7 @@ export function useTTS() {
         currentChunkIndexRef.current = chunkIndex;
 
         if (cancelTimeoutRef.current) clearTimeout(cancelTimeoutRef.current);
-        
+
         // Critical: Cancel current speech immediately. 
         // We use a small delay because most browsers need a "tick" to actually clear the hardware buffer.
         synth.cancel();

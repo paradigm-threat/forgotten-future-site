@@ -1,5 +1,5 @@
 # Forgotten Future: Full Manuscript (YOUNG ADULT)
-> Draft Version: 0.13.138
+> Draft Version: 0.13.140
 > Updated: 2026-02-07
 
 # PART I: LUNAR MISSION
@@ -168,7 +168,7 @@ The vessel enters a spin. Personnel are thrown against the bulkheads. I maintain
 ## Chapter 8: Deep Well
 
 ## Synopsis
-Following the catastrophic crash of *The Caucasian Eagle*, Lem’s consciousness is suspended in a flickering dreamscape where he is guided by an AI rendition of Lynn. As she provides frantic telemetry updates and survival statistics—revealing that only 35% of the crew successfully evacuated—Lem is physically extracted from the wreckage by a massive industrial claw and sealed within an automated medical incubation capsule. While inside, a 'resonance synchronization' occurs, merging the AI construct into the real Lynn, who informs him that a spiraling debris field has isolated the orbital fleet from the ground forces. Realizing the scale of the crisis, Lem accepts Lynn’s plea to transcend his role as a mere monitor and join the front lines. After a mysterious suit reconfiguration during a momentary blackout, he emerges to find Iris Novak taking command of the survivors. Activated as a Core army soldier, Lem joins the desperate ground assault on the Lunar Pyramid, the primary enemy stronghold on the moon.
+Following the catastrophic crash of *The Caucasian Eagle*, Lem’s consciousness is suspended in a flickering dreamscape where he is guided by an AI rendition of Lynn. As she provides frantic telemetry updates and survival statistics—revealing that only 35% of the crew successfully evacuated—Lem is physically extracted from the wreckage by a massive industrial claw and sealed within an automated medical incubation capsule. While inside, a 'resonance synchronization' occurs, merging the AI construct into the real Lynn, who informs him that a spiraling debris field has seperated the orbital fleet from the ground forces. Lem accepts Lynn’s plea to join the front lines. After a mysterious suit reconfiguration during a momentary blackout, he emerges to find Iris Novak taking command of the survivors. Activated as a Core army soldier, Lem joins the desperate ground assault on the Lunar Pyramid, the primary enemy stronghold on the moon.
 
 ## Draft
 My processing state fluctuated between archived visual data and immediate sensory input. I recorded the destruction of Earth’s urban centers by Monolith units; the thermal signatures indicated a high-efficiency neutralization of the grid. Somatic response was absent in the observation-state, though environmental sensors detected the onset of trauma-related dissociation.
@@ -202,7 +202,7 @@ Rahu utilized a massive plasma array to deliver an unlimited barrage across the 
 ## Chapter 10: Sacrifice
 
 ## Synopsis
-As Rahu launches relentless plasma spheres from a mountain peak, pinning the human fleet behind a ridge, the flagship *Hermes* moves into the lower atmosphere to shield the units. In a massive thermal collision, thousands of spheres converge on the *Hermes*, vaporizing both the flagship and Rahu’s position in an incandescent bloom.
+The assault on the lunar base reaches a desperate bottleneck as Rahu, entrenched atop a jagged mountain spire, unleashed a relentless bombardment of blue plasma spheres that pins the human fleet behind a protective ridge. The open plain leading to the objective becomes a killing floor, and as Rahu executes the wide-area "CheckMate" strike, the exposed ground forces find themselves caught in steep canyons with no overhead cover. In a final, decisive maneuver, the flagship *Hermes* breaks its orbital station and plunges into the lower atmosphere, utilizing its massive hull to magnetically divert thousands of converging plasma spheres away from the ground units. As the *Hermes* sustains critical damage, it unleashes a final, devastating volley from its cannons, disintegrating Rahu and his weapon station in a networked explosion of light. The chapter concludes with a massive thermal discharge as the flagship and the mountain peak are consumed in an incandescent bloom, clearing the path forward at a monumental cost.
 
 ## Draft
 Human ground units were confined behind a geological ridge due to high-persistence plasma fire. The Wood Vessel (Rahu) was positioned on a mountain peak, maintaining a continuous discharge of blue plasma spheres. These spheres effectively neutralized any unit attempting to cross the open plain. Communication channels recorded a high volume of overlapping tactical reports. The flagship *Hermes* and accompanying vessels were unable to achieve a clear target-lock on Rahu’s position due to atmospheric debris.
@@ -226,7 +226,7 @@ Localized crystalline formations near the ridge suffered structural failure due 
 ## Chapter 11: Cradle Alpha
 
 ## Synopsis
-Following the destruction of the flagship *Hermes*, Iris Novak takes command and orders the remaining human forces to advance across the lunar plain. Lem drives through the wreckage to reach the central lunar pyramid. Once inside, the teams deploy heavy metal seals to secure the perimeter, seeking refuge in the eerie silence of the hall. However, the peace is short-lived as a rhythmic pounding on the outer seals precedes the arrival of General Ajax, who enters the nexus with news that Rahu is waiting in the inner chamber.
+Following the destruction of the flagship *Hermes*, Iris Novak takes command and orders the remaining human forces to advance across the lunar plain. Lem pilots the strike force through the seismic wreckage to reach the central lunar pyramid. Once inside, the teams deploy heavy metal seals across the entry jambs to shut out the escalating lunar chaos, a desperate measure that forces them to commit the entire crew to the interior as the outside environment becomes terminal. In the eerie silence of the Hall of the Nexus, Novak hesitates in the center of the hall, her command anchored only by the flickering statistics on her tablet as she struggles to determine the next move. This heavy stillness is shattered by a rhythmic pounding on the outer seals that precedes the arrival of a scorched General Ajax, who brings the grim news that Rahu is already waiting for them in the inner chamber.
 
 ## Draft
 Iris Novak broadcasted a command over the general comms channel. She designated General Ajax’s previous actions as a necessary tactical sacrifice for mission security. She confirmed that the primary corridor was clear and authorized an immediate advance to the central pyramid. This site, designated as "Cradle Alpha," was identified as the location of a 1971 Apollo-class impact and the primary source of the Synodic infection.
