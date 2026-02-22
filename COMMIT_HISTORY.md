@@ -1,3 +1,4 @@
+86915ef Sync additional media assets and update manuscripts
 2914396 Update character page with Black representation and add Old Man Azar
 236adb3 fix: resolve build errors by adding missing React imports and useEffect dependencies
 566c1eb docs: sync manuscript and update git history

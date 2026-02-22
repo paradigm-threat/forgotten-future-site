@@ -35,6 +35,22 @@ export function useTTS() {
     const cancelTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const isPlayingRef = useRef(false);
     const currentChunkIndexRef = useRef(0);
+    const wakeLockRef = useRef<WakeLockSentinel | null>(null);
+
+    /** Request screen wake lock (keeps screen on during playback) */
+    const acquireWakeLock = useCallback(async () => {
+        try {
+            if ('wakeLock' in navigator && !wakeLockRef.current) {
+                wakeLockRef.current = await navigator.wakeLock.request('screen');
+                wakeLockRef.current.addEventListener('release', () => { wakeLockRef.current = null; });
+            }
+        } catch { /* user denied or not supported */ }
+    }, []);
+
+    const releaseWakeLock = useCallback(() => {
+        wakeLockRef.current?.release().catch(() => {});
+        wakeLockRef.current = null;
+    }, []);
 
     // Ensure audio stops on navigation or reload
     useEffect(() => {
@@ -71,6 +87,15 @@ export function useTTS() {
             }));
         }
     }, []);
+
+    // Re-acquire wake lock when tab becomes visible again (browser auto-releases on hide)
+    useEffect(() => {
+        const onVisChange = () => {
+            if (document.visibilityState === 'visible' && isPlayingRef.current) acquireWakeLock();
+        };
+        document.addEventListener('visibilitychange', onVisChange);
+        return () => document.removeEventListener('visibilitychange', onVisChange);
+    }, [acquireWakeLock]);
 
     // Sync with global events for legacy components
     useEffect(() => {
@@ -132,6 +157,7 @@ export function useTTS() {
         synth.cancel();
         isPlayingRef.current = false;
         currentChunkIndexRef.current = 0;
+        releaseWakeLock();
         setState(prev => ({ ...prev, isPlaying: false, currentSegmentIndex: -1 }));
     }, [synth]);
 
@@ -243,6 +269,7 @@ export function useTTS() {
 
     const play = useCallback((segments: TTSSegment[], startIndex: number = 0) => {
         isPlayingRef.current = true;
+        acquireWakeLock();
         setState(prev => ({ ...prev, segments, currentSegmentIndex: startIndex, isPlaying: true }));
         speak(startIndex, segments, state.voice, state.rate, 0);
     }, [speak, state.voice, state.rate]);
@@ -254,11 +281,13 @@ export function useTTS() {
             // Requested PAUSE: Cut off immediately
             isPlayingRef.current = false;
             synth.cancel(); // Most reliable way to kill audio immediately, especially on Linux
+            releaseWakeLock();
             setState(prev => ({ ...prev, isPlaying: false }));
         } else {
             // Requested RESUME: Restart from the saved chunk position
             if (state.currentSegmentIndex !== -1) {
                 isPlayingRef.current = true;
+                acquireWakeLock();
                 setState(prev => ({ ...prev, isPlaying: true }));
                 speak(state.currentSegmentIndex, state.segments, state.voice, state.rate, currentChunkIndexRef.current);
             }
