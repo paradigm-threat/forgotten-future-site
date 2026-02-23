@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
-import { TTSState } from '../../lib/hooks/useTTS';
+import { TTSState, PiperVoice, TTSProvider } from '../../lib/hooks/useTTS';
 
 interface PlaybackOverlayProps {
     state: TTSState;
     availableVoices: SpeechSynthesisVoice[];
+    availablePiperVoices: PiperVoice[];
     onPause: () => void;
     onStop: () => void;
     onNext: () => void;
@@ -15,11 +16,17 @@ interface PlaybackOverlayProps {
     onSetRate: (rate: number) => void;
     onSetLangFilter: (lang: string) => void;
     onSetLocalOnly: (local: boolean) => void;
+    onSetProvider: (provider: TTSProvider) => void;
+    onSetPiperVoiceId: (voiceId: string) => void;
+    onSetPiperLang: (lang: string) => void;
+    onSetQuoteVoiceId: (voiceId: string) => void;
+    onSetSpeakerMapInput: (input: string) => void;
 }
 
 export function PlaybackOverlay({
     state,
     availableVoices,
+    availablePiperVoices,
     onPause,
     onStop,
     onNext,
@@ -28,7 +35,12 @@ export function PlaybackOverlay({
     onSetVoice,
     onSetRate,
     onSetLangFilter,
-    onSetLocalOnly
+    onSetLocalOnly,
+    onSetProvider,
+    onSetPiperVoiceId,
+    onSetPiperLang,
+    onSetQuoteVoiceId,
+    onSetSpeakerMapInput
 }: PlaybackOverlayProps) {
     if (state.currentSegmentIndex === -1) return null;
 
@@ -39,6 +51,9 @@ export function PlaybackOverlay({
         const localMatch = !state.localOnly || v.localService === true;
         return langMatch && localMatch;
     });
+
+    const piperLanguages = Array.from(new Set(availablePiperVoices.map(v => v.lang))).sort();
+    const filteredPiperVoices = availablePiperVoices.filter(v => !state.piperLang || v.lang === state.piperLang);
 
     const languages = Array.from(new Set(availableVoices.map(v => v.lang.split('-')[0]))).sort();
 
@@ -91,6 +106,19 @@ export function PlaybackOverlay({
 
                 {/* Controls & Voice Selection */}
                 <div className="flex flex-wrap items-center justify-between gap-4">
+                    {state.error && (
+                        <div className="w-full bg-red-950/70 border border-red-500/40 text-red-100 px-4 py-2 rounded-lg text-xs flex items-center gap-3">
+                            <span>{state.error}</span>
+                            {state.provider === 'piper' && (
+                                <button
+                                    onClick={() => onSetProvider('webSpeech')}
+                                    className="ml-auto bg-red-500/20 hover:bg-red-500/30 text-red-100 text-[10px] uppercase tracking-widest px-3 py-1.5 rounded"
+                                >
+                                    Use Speech API
+                                </button>
+                            )}
+                        </div>
+                    )}
 
                     {/* Media Controls */}
                     <div className="flex items-center gap-2">
@@ -127,49 +155,115 @@ export function PlaybackOverlay({
                     <div className="flex items-center gap-3 flex-grow md:justify-end">
                         <div className="flex items-center gap-1.5 bg-white/5 border border-white/20 rounded px-2 py-1">
                             <select
-                                value={state.langFilter}
-                                onChange={(e) => onSetLangFilter(e.target.value)}
+                                value={state.provider}
+                                onChange={(e) => onSetProvider(e.target.value as TTSProvider)}
                                 className="bg-transparent text-[10px] text-cyan-400 font-bold uppercase tracking-widest focus:outline-none"
-                                title="Filter by Language"
+                                title="TTS Provider"
                             >
-                                <option value="all">ALL LANG</option>
-                                {languages.map(lang => (
-                                    <option key={lang} value={lang}>{lang.toUpperCase()}</option>
-                                ))}
+                                <option value="piper">PIPER</option>
+                                <option value="webSpeech">SPEECH API</option>
                             </select>
-                            <div className="w-px h-3 bg-white/20" />
-                            <button
-                                onClick={() => onSetLocalOnly(!state.localOnly)}
-                                className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${state.localOnly ? 'text-cyan-400' : 'text-muted hover:text-white'}`}
-                                title="Toggle Local Service Only"
-                            >
-                                Local
-                            </button>
                         </div>
 
-                        <select
-                            value={state.voice?.name || ''}
-                            onChange={(e) => {
-                                if (e.target.value === '') {
-                                    onSetVoice(null as any);
-                                    return;
-                                }
-                                const v = availableVoices.find(v => v.name === e.target.value);
-                                if (v) onSetVoice(v);
-                            }}
-                            className="bg-white/5 border border-white/20 text-xs text-secondary rounded px-2 py-1.5 focus:outline-none focus:border-cyan-500 max-w-[120px] md:max-w-[200px]"
-                        >
-                            <option value="" className="bg-black text-white">System Default</option>
-                            {filteredVoices.length === 0 ? (
-                                <option disabled>No matches</option>
-                            ) : (
-                                filteredVoices.map(voice => (
-                                    <option key={voice.name} value={voice.name} className="bg-black text-white">
-                                        {voice.name} {voice.localService ? '🏠' : '🌐'}
-                                    </option>
-                                ))
-                            )}
-                        </select>
+                        {state.provider === 'piper' ? (
+                            <>
+                                <div className="flex items-center gap-1.5 bg-white/5 border border-white/20 rounded px-2 py-1">
+                                    <select
+                                        value={state.piperLang}
+                                        onChange={(e) => onSetPiperLang(e.target.value)}
+                                        className="bg-transparent text-[10px] text-cyan-400 font-bold uppercase tracking-widest focus:outline-none"
+                                        title="Piper Language"
+                                    >
+                                        {piperLanguages.map(lang => (
+                                            <option key={lang} value={lang}>{lang.toUpperCase()}</option>
+                                        ))}
+                                    </select>
+                                </div>
+
+                                <select
+                                    value={state.piperVoiceId}
+                                    onChange={(e) => onSetPiperVoiceId(e.target.value)}
+                                    className="bg-white/5 border border-white/20 text-xs text-secondary rounded px-2 py-1.5 focus:outline-none focus:border-cyan-500 max-w-[140px] md:max-w-[220px]"
+                                    title="Narrator Voice"
+                                >
+                                    {filteredPiperVoices.map(voice => (
+                                        <option key={voice.id} value={voice.id} className="bg-black text-white">
+                                            {voice.name}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                <select
+                                    value={state.quoteVoiceId}
+                                    onChange={(e) => onSetQuoteVoiceId(e.target.value)}
+                                    className="bg-white/5 border border-white/20 text-xs text-secondary rounded px-2 py-1.5 focus:outline-none focus:border-cyan-500 max-w-[140px] md:max-w-[220px]"
+                                    title="Quote Voice"
+                                >
+                                    <option value="" className="bg-black text-white">Quotes: Narrator</option>
+                                    {filteredPiperVoices.map(voice => (
+                                        <option key={voice.id} value={voice.id} className="bg-black text-white">
+                                            Quotes: {voice.name}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                <input
+                                    value={state.speakerMapInput}
+                                    onChange={(e) => onSetSpeakerMapInput(e.target.value)}
+                                    placeholder="alice=en_US, bob=en_US"
+                                    className="bg-white/5 border border-white/20 text-[10px] text-cyan-400 rounded px-2 py-1.5 focus:outline-none focus:border-cyan-500 w-[200px] placeholder:text-cyan-400/40"
+                                    title="Speaker map: name=voiceId"
+                                />
+                            </>
+                        ) : (
+                            <>
+                                <div className="flex items-center gap-1.5 bg-white/5 border border-white/20 rounded px-2 py-1">
+                                    <select
+                                        value={state.langFilter}
+                                        onChange={(e) => onSetLangFilter(e.target.value)}
+                                        className="bg-transparent text-[10px] text-cyan-400 font-bold uppercase tracking-widest focus:outline-none"
+                                        title="Filter by Language"
+                                    >
+                                        <option value="all">ALL LANG</option>
+                                        {languages.map(lang => (
+                                            <option key={lang} value={lang}>{lang.toUpperCase()}</option>
+                                        ))}
+                                    </select>
+                                    <div className="w-px h-3 bg-white/20" />
+                                    <button
+                                        onClick={() => onSetLocalOnly(!state.localOnly)}
+                                        className={`text-[10px] font-bold uppercase tracking-widest transition-colors ${state.localOnly ? 'text-cyan-400' : 'text-muted hover:text-white'}`}
+                                        title="Toggle Local Service Only"
+                                    >
+                                        Local
+                                    </button>
+                                </div>
+
+                                <select
+                                    value={state.voice?.name || ''}
+                                    onChange={(e) => {
+                                        if (e.target.value === '') {
+                                            onSetVoice(null as any);
+                                            return;
+                                        }
+                                        const v = availableVoices.find(v => v.name === e.target.value);
+                                        if (v) onSetVoice(v);
+                                    }}
+                                    className="bg-white/5 border border-white/20 text-xs text-secondary rounded px-2 py-1.5 focus:outline-none focus:border-cyan-500 max-w-[120px] md:max-w-[200px]"
+                                >
+                                    <option value="" className="bg-black text-white">System Default</option>
+                                    {filteredVoices.length === 0 ? (
+                                        <option disabled>No matches</option>
+                                    ) : (
+                                        filteredVoices.map(voice => (
+                                            <option key={voice.name} value={voice.name} className="bg-black text-white">
+                                                {voice.name} {voice.localService ? '🏠' : '🌐'}
+                                            </option>
+                                        ))
+                                    )}
+                                </select>
+                            </>
+                        )}
 
                         <select
                             value={state.rate}

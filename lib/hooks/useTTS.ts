@@ -8,6 +8,14 @@ export interface TTSSegment {
     text: string;
 }
 
+export type TTSProvider = 'piper' | 'webSpeech';
+
+export interface PiperVoice {
+    id: string;
+    name: string;
+    lang: string;
+}
+
 export interface TTSState {
     isPlaying: boolean;
     currentSegmentIndex: number;
@@ -16,6 +24,101 @@ export interface TTSState {
     rate: number;
     langFilter: string;
     localOnly: boolean;
+    provider: TTSProvider;
+    piperVoiceId: string;
+    piperLang: string;
+    quoteVoiceId: string;
+    speakerMapInput: string;
+    error: string | null;
+}
+
+const LS_VOICE = 'ff-tts-voice';
+const LS_RATE = 'ff-tts-rate';
+const LS_LANG = 'ff-tts-lang';
+const LS_LOCAL = 'ff-tts-local-only';
+const LS_PROVIDER = 'ff-tts-provider';
+const LS_PIPER_VOICE = 'ff-tts-piper-voice';
+const LS_PIPER_LANG = 'ff-tts-piper-lang';
+const LS_PIPER_QUOTE = 'ff-tts-piper-quote-voice';
+const LS_SPEAKER_MAP = 'ff-tts-speaker-map';
+
+type SpeakerBlock = { speaker: string; text: string };
+
+function normalizeSpeaker(speaker: string): string {
+    return speaker.trim().toLowerCase();
+}
+
+function parseSpeakerBlocks(text: string): SpeakerBlock[] {
+    const blocks: SpeakerBlock[] = [];
+    const tag = /\[SPEAKER:([^\]]+)\]/gi;
+    let lastIndex = 0;
+    let currentSpeaker = 'narrator';
+    let match: RegExpExecArray | null;
+    while ((match = tag.exec(text)) !== null) {
+        const idx = match.index ?? 0;
+        const before = text.slice(lastIndex, idx).trim();
+        if (before) blocks.push({ speaker: currentSpeaker, text: before });
+        currentSpeaker = normalizeSpeaker(match[1] ?? 'narrator');
+        lastIndex = idx + match[0].length;
+    }
+    const tail = text.slice(lastIndex).trim();
+    if (tail) blocks.push({ speaker: currentSpeaker, text: tail });
+    return blocks.length > 0 ? blocks : [{ speaker: 'narrator', text }];
+}
+
+function parseSpeakerMapInput(input: string): Record<string, string> {
+    if (!input.trim()) return {};
+    const pairs = input.split(',');
+    const map: Record<string, string> = {};
+    for (const pair of pairs) {
+        const [rawKey, rawVal] = pair.split('=');
+        if (!rawKey || !rawVal) continue;
+        const key = normalizeSpeaker(rawKey);
+        const val = rawVal.trim();
+        if (key && val) map[key] = val;
+    }
+    return map;
+}
+
+function isQuotedSentence(text: string): boolean {
+    return text.includes('"');
+}
+
+function splitSentences(text: string): string[] {
+    const ABBR_PLACEHOLDER = '\x00';
+    const ABBREVIATIONS = /\b(B\.C|A\.D|B\.C\.E|C\.E|A\.M|P\.M|e\.g|i\.e|etc|vs|approx|ca?|Mr|Mrs|Ms|Dr|Jr|Sr|St|Prof|Gen|Gov|Sgt|Lt|Col|Capt|Rev|Vol|No|Fig|Dept|Univ|approx|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\./gi;
+
+    let safe = text.replace(ABBREVIATIONS, (m) => m.slice(0, -1) + ABBR_PLACEHOLDER);
+    safe = safe.replace(/\b([A-Z])\./g, '$1' + ABBR_PLACEHOLDER);
+    safe = safe.replace(/(\d)\.(\d)/g, '$1' + ABBR_PLACEHOLDER + '$2');
+
+    const lines = safe.split(/\n+/).filter(l => l.trim());
+    const allSentences: string[] = [];
+    for (const line of lines) {
+        const raw = line.match(/[^.!?]*[.!?]+(?:\s+|$)/g);
+        if (!raw) {
+            const restored = line.trim().replaceAll(ABBR_PLACEHOLDER, '.');
+            if (restored) allSentences.push(restored);
+            continue;
+        }
+        const joined = raw.join('');
+        const leftover = line.substring(joined.length).trim();
+        if (leftover) raw.push(leftover);
+        for (const s of raw) {
+            const restored = s.trim().replaceAll(ABBR_PLACEHOLDER, '.');
+            if (restored) allSentences.push(restored);
+        }
+    }
+
+    const merged: string[] = [];
+    for (const s of allSentences) {
+        if (merged.length > 0 && s.length < 30) {
+            merged[merged.length - 1] += ' ' + s;
+        } else {
+            merged.push(s);
+        }
+    }
+    return merged.filter(s => s.length > 0);
 }
 
 export function useTTS() {
@@ -27,14 +130,31 @@ export function useTTS() {
         rate: 1.0,
         langFilter: 'en',
         localOnly: false,
+        provider: 'piper',
+        piperVoiceId: '',
+        piperLang: 'en',
+        quoteVoiceId: '',
+        speakerMapInput: '',
+        error: null,
     });
 
     const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
+    const [availablePiperVoices, setAvailablePiperVoices] = useState<PiperVoice[]>([]);
     const synth = typeof window !== 'undefined' ? window.speechSynthesis : null;
     const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
     const cancelTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+    const audioUrlRef = useRef<string | null>(null);
+    const fetchAbortRef = useRef<AbortController | null>(null);
     const isPlayingRef = useRef(false);
     const currentChunkIndexRef = useRef(0);
+    const sentencesRef = useRef<string[]>([]);
+    const sentenceSpeakersRef = useRef<string[]>([]);
+    const providerRef = useRef<TTSProvider>('piper');
+    const piperVoiceIdRef = useRef<string>('');
+    const piperLangRef = useRef<string>('en');
+    const quoteVoiceIdRef = useRef<string>('');
+    const speakerMapRef = useRef<Record<string, string>>({});
     const wakeLockRef = useRef<WakeLockSentinel | null>(null);
 
     /** Request screen wake lock (keeps screen on during playback) */
@@ -48,8 +168,14 @@ export function useTTS() {
     }, []);
 
     const releaseWakeLock = useCallback(() => {
-        wakeLockRef.current?.release().catch(() => {});
+        wakeLockRef.current?.release().catch(() => { });
         wakeLockRef.current = null;
+    }, []);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            audioRef.current = new Audio();
+        }
     }, []);
 
     // Ensure audio stops on navigation or reload
@@ -75,17 +201,25 @@ export function useTTS() {
     // Initial load from localStorage
     useEffect(() => {
         if (typeof window === 'undefined') return;
-        const savedRate = localStorage.getItem('ff-tts-rate');
-        const savedLang = localStorage.getItem('ff-tts-lang');
-        const savedLocalOnly = localStorage.getItem('ff-tts-local-only');
-        if (savedRate || savedLang || savedLocalOnly) {
-            setState(prev => ({
-                ...prev,
-                rate: savedRate ? parseFloat(savedRate) : prev.rate,
-                langFilter: savedLang ? savedLang : prev.langFilter,
-                localOnly: savedLocalOnly === 'true' ? true : savedLocalOnly === 'false' ? false : prev.localOnly
-            }));
-        }
+        const savedRate = localStorage.getItem(LS_RATE);
+        const savedLang = localStorage.getItem(LS_LANG);
+        const savedLocalOnly = localStorage.getItem(LS_LOCAL);
+        const savedProvider = localStorage.getItem(LS_PROVIDER);
+        const savedPiperVoice = localStorage.getItem(LS_PIPER_VOICE);
+        const savedPiperLang = localStorage.getItem(LS_PIPER_LANG);
+        const savedQuoteVoice = localStorage.getItem(LS_PIPER_QUOTE);
+        const savedSpeakerMap = localStorage.getItem(LS_SPEAKER_MAP);
+        setState(prev => ({
+            ...prev,
+            rate: savedRate ? parseFloat(savedRate) : prev.rate,
+            langFilter: savedLang ? savedLang : prev.langFilter,
+            localOnly: savedLocalOnly === 'true' ? true : savedLocalOnly === 'false' ? false : prev.localOnly,
+            provider: (savedProvider === 'webSpeech' ? 'webSpeech' : 'piper') as TTSProvider,
+            piperVoiceId: savedPiperVoice ?? prev.piperVoiceId,
+            piperLang: savedPiperLang ?? prev.piperLang,
+            quoteVoiceId: savedQuoteVoice ?? prev.quoteVoiceId,
+            speakerMapInput: savedSpeakerMap ?? prev.speakerMapInput,
+        }));
     }, []);
 
     // Re-acquire wake lock when tab becomes visible again (browser auto-releases on hide)
@@ -125,7 +259,7 @@ export function useTTS() {
             setAvailableVoices(sortedVoices);
 
             // Try to restore saved voice OR pick a default
-            const savedVoiceName = localStorage.getItem('ff-tts-voice');
+            const savedVoiceName = localStorage.getItem(LS_VOICE);
             if (savedVoiceName && !state.voice) {
                 const savedVoice = sortedVoices.find(v => v.name === savedVoiceName);
                 if (savedVoice) {
@@ -151,12 +285,61 @@ export function useTTS() {
         }
     }, [synth, state.voice]);
 
+    // Load Piper voices from server config
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        let mounted = true;
+        fetch('/api/tts/piper/voices')
+            .then(res => res.ok ? res.json() : null)
+            .then(data => {
+                if (!mounted || !data) return;
+                const voices = Array.isArray(data.voices) ? data.voices as PiperVoice[] : [];
+                setAvailablePiperVoices(voices);
+
+                const savedVoiceId = localStorage.getItem(LS_PIPER_VOICE);
+                const defaultVoiceId = data.defaultVoiceId as string | null;
+                const firstVoiceId = voices[0]?.id ?? '';
+                const resolvedVoiceId = savedVoiceId || defaultVoiceId || firstVoiceId;
+
+                setState(prev => ({
+                    ...prev,
+                    piperVoiceId: resolvedVoiceId || prev.piperVoiceId,
+                    piperLang: prev.piperLang || voices[0]?.lang || 'en',
+                    provider: voices.length > 0 ? prev.provider : 'webSpeech',
+                }));
+            })
+            .catch(() => {
+                if (!mounted) return;
+                setAvailablePiperVoices([]);
+                setState(prev => ({ ...prev, provider: 'webSpeech' }));
+            });
+
+        return () => { mounted = false; };
+    }, []);
+
+    useEffect(() => {
+        providerRef.current = state.provider;
+        piperVoiceIdRef.current = state.piperVoiceId;
+        piperLangRef.current = state.piperLang;
+        quoteVoiceIdRef.current = state.quoteVoiceId;
+        speakerMapRef.current = parseSpeakerMapInput(state.speakerMapInput);
+    }, [state.provider, state.piperVoiceId, state.piperLang, state.quoteVoiceId, state.speakerMapInput]);
+
     const stop = useCallback(() => {
-        if (!synth) return;
         if (cancelTimeoutRef.current) clearTimeout(cancelTimeoutRef.current);
-        synth.cancel();
+        fetchAbortRef.current?.abort();
+        fetchAbortRef.current = null;
+        audioRef.current?.pause();
+        if (audioRef.current) audioRef.current.currentTime = 0;
+        if (audioUrlRef.current) {
+            URL.revokeObjectURL(audioUrlRef.current);
+            audioUrlRef.current = null;
+        }
+        synth?.cancel();
         isPlayingRef.current = false;
         currentChunkIndexRef.current = 0;
+        sentencesRef.current = [];
+        sentenceSpeakersRef.current = [];
         releaseWakeLock();
         setState(prev => ({ ...prev, isPlaying: false, currentSegmentIndex: -1 }));
     }, [synth]);
@@ -166,41 +349,124 @@ export function useTTS() {
     };
 
     const speak = useCallback((index: number, segments: TTSSegment[], voice: SpeechSynthesisVoice | null, rate: number, chunkIndex: number = 0) => {
-        if (!synth || !segments[index]) {
+        if (!segments[index]) {
             stop();
             return;
         }
 
-        // Check if we should still be playing
-        if (!isPlayingRef.current) {
-            return;
-        }
+        if (!isPlayingRef.current) return;
 
-        // Update state immediately for UI responsiveness
         if (chunkIndex === 0) {
             setState(prev => ({ ...prev, currentSegmentIndex: index, isPlaying: true }));
         }
 
         currentChunkIndexRef.current = chunkIndex;
 
-        if (cancelTimeoutRef.current) clearTimeout(cancelTimeoutRef.current);
+        if (providerRef.current === 'piper') {
+            const rawText = segments[index].text;
+            const rawWithTitle = (chunkIndex === 0 && segments[index].title)
+                ? `${segments[index].title}. ${rawText}`
+                : rawText;
 
-        // Critical: Cancel current speech immediately. 
-        // We use a small delay because most browsers need a "tick" to actually clear the hardware buffer.
+            if (chunkIndex === 0) {
+                const blocks = parseSpeakerBlocks(rawWithTitle).map(block => ({
+                    speaker: block.speaker,
+                    text: block.text
+                        .replace(/[#*_~`\[\]()]/g, ' ')
+                        .replace(/\n+/g, ' ')
+                        .replace(/\s+/g, ' ')
+                        .trim()
+                }));
+                const sentences: string[] = [];
+                const speakers: string[] = [];
+                for (const block of blocks) {
+                    const parts = splitSentences(block.text);
+                    for (const part of parts) {
+                        sentences.push(part);
+                        speakers.push(block.speaker);
+                    }
+                }
+                const resolvedSpeakers = sentences.map((s, i) => {
+                    const speaker = speakers[i] ?? 'narrator';
+                    if (speaker === 'narrator' && isQuotedSentence(s)) return 'quote';
+                    return speaker;
+                });
+                sentencesRef.current = sentences;
+                sentenceSpeakersRef.current = resolvedSpeakers;
+            }
+
+            const sentences = sentencesRef.current;
+            const speakers = sentenceSpeakersRef.current;
+
+            if (chunkIndex >= sentences.length) {
+                if (index + 1 < segments.length) {
+                    speak(index + 1, segments, voice, rate, 0);
+                } else {
+                    stop();
+                }
+                return;
+            }
+
+            const text = sentences[chunkIndex];
+            const speaker = speakers[chunkIndex] ?? 'narrator';
+            const speakerMap = speakerMapRef.current;
+            const quoteVoice = quoteVoiceIdRef.current;
+            const voiceId = speaker === 'quote' && quoteVoice
+                ? quoteVoice
+                : speakerMap[speaker] ?? piperVoiceIdRef.current;
+
+            if (!voiceId) {
+                stop();
+                return;
+            }
+
+            fetchAbortRef.current?.abort();
+            const controller = new AbortController();
+            fetchAbortRef.current = controller;
+
+            fetch('/api/tts/piper', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text, voiceId, rate }),
+                signal: controller.signal,
+            })
+                .then(res => res.ok ? res.blob() : Promise.reject(new Error(`Piper error: ${res.status}`)))
+                .then(blob => {
+                    if (!isPlayingRef.current || !audioRef.current) return;
+                    const url = URL.createObjectURL(blob);
+                    if (audioUrlRef.current) URL.revokeObjectURL(audioUrlRef.current);
+                    audioUrlRef.current = url;
+                    audioRef.current.src = url;
+                    audioRef.current.onended = () => {
+                        if (isPlayingRef.current) speak(index, segments, voice, rate, chunkIndex + 1);
+                    };
+                    audioRef.current.onerror = () => stop();
+                    audioRef.current.play().catch(() => stop());
+                })
+                .catch(() => {
+                    if (isPlayingRef.current) stop();
+                });
+
+            return;
+        }
+
+        if (!synth) {
+            stop();
+            return;
+        }
+
+        if (cancelTimeoutRef.current) clearTimeout(cancelTimeoutRef.current);
         synth.cancel();
 
         cancelTimeoutRef.current = setTimeout(() => {
-            // Check status again after timeout
             if (!isPlayingRef.current) return;
 
-            // Clean text
             const rawText = segments[index].text
                 .replace(/[#*_~`\[\]()]/g, ' ')
                 .replace(/\n+/g, ' ')
                 .replace(/\s+/g, ' ')
                 .trim();
 
-            // Internal chunking for stability (3000 chars is safe)
             const MAX_LENGTH = 2800;
             const textToProcess = (chunkIndex === 0 && segments[index].title)
                 ? `${segments[index].title}. ${rawText}`
@@ -227,7 +493,6 @@ export function useTTS() {
             }
 
             if (chunkIndex >= chunks.length) {
-                // Move to next segment
                 if (index + 1 < segments.length) {
                     speak(index + 1, segments, voice, rate, 0);
                 } else {
@@ -243,7 +508,6 @@ export function useTTS() {
             utterance.volume = 1.0;
 
             utterance.onstart = () => {
-                // Ensure state is synced if skip occurred
                 setState(prev => ({ ...prev, currentSegmentIndex: index, isPlaying: true }));
             };
 
@@ -254,7 +518,6 @@ export function useTTS() {
             };
 
             utterance.onerror = (event) => {
-                // Ignore interrupted/canceled as we do that manually
                 if (event.error !== 'interrupted' && event.error !== 'canceled') {
                     console.error('TTS Error:', event);
                     isPlayingRef.current = false;
@@ -275,12 +538,27 @@ export function useTTS() {
     }, [speak, state.voice, state.rate]);
 
     const pause = useCallback(() => {
+        if (state.provider === 'piper') {
+            if (state.isPlaying) {
+                isPlayingRef.current = false;
+                audioRef.current?.pause();
+                releaseWakeLock();
+                setState(prev => ({ ...prev, isPlaying: false }));
+            } else if (state.currentSegmentIndex !== -1) {
+                isPlayingRef.current = true;
+                acquireWakeLock();
+                setState(prev => ({ ...prev, isPlaying: true }));
+                speak(state.currentSegmentIndex, state.segments, state.voice, state.rate, currentChunkIndexRef.current);
+            }
+            return;
+        }
+
         if (!synth) return;
 
         if (state.isPlaying) {
             // Requested PAUSE: Cut off immediately
             isPlayingRef.current = false;
-            synth.cancel(); // Most reliable way to kill audio immediately, especially on Linux
+            synth.cancel();
             releaseWakeLock();
             setState(prev => ({ ...prev, isPlaying: false }));
         } else {
@@ -310,9 +588,9 @@ export function useTTS() {
 
     const setVoice = (voice: SpeechSynthesisVoice | null) => {
         if (voice) {
-            localStorage.setItem('ff-tts-voice', voice.name);
+            localStorage.setItem(LS_VOICE, voice.name);
         } else {
-            localStorage.removeItem('ff-tts-voice');
+            localStorage.removeItem(LS_VOICE);
         }
         setState(prev => ({ ...prev, voice }));
         if (state.isPlaying || synth?.paused) {
@@ -321,7 +599,7 @@ export function useTTS() {
     };
 
     const setRate = (rate: number) => {
-        localStorage.setItem('ff-tts-rate', rate.toString());
+        localStorage.setItem(LS_RATE, rate.toString());
         setState(prev => ({ ...prev, rate }));
         if (state.isPlaying || synth?.paused) {
             speak(state.currentSegmentIndex, state.segments, state.voice, rate, 0);
@@ -329,18 +607,48 @@ export function useTTS() {
     };
 
     const setLangFilter = (langFilter: string) => {
-        localStorage.setItem('ff-tts-lang', langFilter);
+        localStorage.setItem(LS_LANG, langFilter);
         setState(prev => ({ ...prev, langFilter }));
     };
 
     const setLocalOnly = (localOnly: boolean) => {
-        localStorage.setItem('ff-tts-local-only', localOnly.toString());
+        localStorage.setItem(LS_LOCAL, localOnly.toString());
         setState(prev => ({ ...prev, localOnly }));
+    };
+
+    const setProvider = (provider: TTSProvider) => {
+        localStorage.setItem(LS_PROVIDER, provider);
+        setState(prev => ({ ...prev, provider, error: null }));
+        if (state.isPlaying) stop();
+    };
+
+    const setPiperVoiceId = (voiceId: string) => {
+        localStorage.setItem(LS_PIPER_VOICE, voiceId);
+        setState(prev => ({ ...prev, piperVoiceId: voiceId }));
+        if (state.isPlaying) speak(state.currentSegmentIndex, state.segments, state.voice, state.rate, 0);
+    };
+
+    const setPiperLang = (lang: string) => {
+        localStorage.setItem(LS_PIPER_LANG, lang);
+        setState(prev => ({ ...prev, piperLang: lang }));
+    };
+
+    const setQuoteVoiceId = (voiceId: string) => {
+        localStorage.setItem(LS_PIPER_QUOTE, voiceId);
+        setState(prev => ({ ...prev, quoteVoiceId: voiceId }));
+        if (state.isPlaying) speak(state.currentSegmentIndex, state.segments, state.voice, state.rate, 0);
+    };
+
+    const setSpeakerMapInput = (input: string) => {
+        localStorage.setItem(LS_SPEAKER_MAP, input);
+        setState(prev => ({ ...prev, speakerMapInput: input }));
+        if (state.isPlaying) speak(state.currentSegmentIndex, state.segments, state.voice, state.rate, 0);
     };
 
     return {
         state,
         availableVoices,
+        availablePiperVoices,
         play,
         pause,
         stop,
@@ -349,6 +657,11 @@ export function useTTS() {
         setVoice,
         setRate,
         setLangFilter,
-        setLocalOnly
+        setLocalOnly,
+        setProvider,
+        setPiperVoiceId,
+        setPiperLang,
+        setQuoteVoiceId,
+        setSpeakerMapInput
     };
 }

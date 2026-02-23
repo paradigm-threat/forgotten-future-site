@@ -31,6 +31,7 @@ function ManuscriptContent() {
     const {
         state: tts,
         availableVoices,
+        availablePiperVoices,
         play,
         pause,
         stop,
@@ -39,7 +40,12 @@ function ManuscriptContent() {
         setVoice,
         setRate,
         setLangFilter,
-        setLocalOnly
+        setLocalOnly,
+        setProvider,
+        setPiperVoiceId,
+        setPiperLang,
+        setQuoteVoiceId,
+        setSpeakerMapInput
     } = useTTS();
 
     const LOAD_TIMEOUT_MS = 20000;
@@ -526,6 +532,7 @@ function ManuscriptContent() {
             <PlaybackOverlay
                 state={tts}
                 availableVoices={availableVoices}
+                availablePiperVoices={availablePiperVoices}
                 onPause={pause}
                 onStop={stop}
                 onNext={next}
@@ -535,6 +542,11 @@ function ManuscriptContent() {
                 onSetRate={setRate}
                 onSetLangFilter={setLangFilter}
                 onSetLocalOnly={setLocalOnly}
+                onSetProvider={setProvider}
+                onSetPiperVoiceId={setPiperVoiceId}
+                onSetPiperLang={setPiperLang}
+                onSetQuoteVoiceId={setQuoteVoiceId}
+                onSetSpeakerMapInput={setSpeakerMapInput}
             />
         </div>
     );
