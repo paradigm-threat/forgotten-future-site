@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
         if (!upstream.ok) {
             const errBody = await upstream.text();
             let msg = `Piper server error (${upstream.status})`;
-            try { msg = JSON.parse(errBody).error ?? msg; } catch {}
+            try { msg = JSON.parse(errBody).error ?? msg; } catch { }
             return NextResponse.json({ error: msg }, { status: upstream.status });
         }
 
