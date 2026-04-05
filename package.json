@@ -1,6 +1,6 @@
 {
   "name": "forgotten-future-site",
-  "version": "0.11.119",
+  "version": "0.11.120",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",

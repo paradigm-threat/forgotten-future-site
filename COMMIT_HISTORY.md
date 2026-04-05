@@ -1,3 +1,5 @@
+cf6e7a7 Update TTS piper route and git history
+5b01475 Wire Piper TTS to remote clevertree-tts-server
 6e35b02 feat: screen wake lock API prevents mobile screen off during TTS playback
 86915ef Sync additional media assets and update manuscripts
 2914396 Update character page with Black representation and add Old Man Azar

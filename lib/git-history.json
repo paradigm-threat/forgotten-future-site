@@ -51,25 +51,25 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.119",
+    "version": "v0.11.120",
     "commits": [
+      {
+        "sha": "cf6e7a7",
+        "message": "Update TTS piper route and git history",
+        "date": "2026-02-24T12:57:29.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/cf6e7a7"
+      },
+      {
+        "sha": "5b01475",
+        "message": "Wire Piper TTS to remote clevertree-tts-server",
+        "date": "2026-02-23T18:47:23.000Z",
+        "url": "https://github.com/clevertree/forgotten-future-site/commit/5b01475"
+      },
       {
         "sha": "6e35b02",
         "message": "feat: screen wake lock API prevents mobile screen off during TTS playback",
         "date": "2026-02-22T17:36:49.000Z",
         "url": "https://github.com/clevertree/forgotten-future-site/commit/6e35b02"
-      },
-      {
-        "sha": "86915ef",
-        "message": "Sync additional media assets and update manuscripts",
-        "date": "2026-02-19T13:46:57.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/86915ef"
-      },
-      {
-        "sha": "2914396",
-        "message": "Update character page with Black representation and add Old Man Azar",
-        "date": "2026-02-19T13:38:52.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/2914396"
       }
     ],
     "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"

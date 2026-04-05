@@ -91,7 +91,7 @@ export default function RootLayout({
                             <p>&copy;2026 <a href="https://clevertree.net/" className="hover:text-accent transition-colors">CLEVERTREE</a></p>
                             <div className="mt-4 flex justify-center gap-6">
                                 <a href="https://github.com/clevertree" className="hover:text-accent transition-colors">GITHUB</a>
-                                <a href="https://github.com/sponsors/clevertree" className="text-pink-500 hover:underline font-semibold transition-colors">♥ SPONSOR</a>
+                                <a href="https://www.patreon.com/c/ahsctimeline" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:underline font-semibold transition-colors">♥ PATREON</a>
                                 <a href="mailto:ari@asu.edu" className="hover:text-accent transition-colors">CONTACT</a>
                             </div>
                         </div>
