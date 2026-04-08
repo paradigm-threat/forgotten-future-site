@@ -51,25 +51,25 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.123",
+    "version": "v0.11.125",
     "commits": [
       {
-        "sha": "374f841",
-        "message": "chore: sync git-history.json",
-        "date": "2026-04-08T00:29:41.000Z",
-        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/374f841"
+        "sha": "1f92bc4",
+        "message": "fix: same-origin API base, UTC commit times, apex→www redirect",
+        "date": "2026-04-08T12:53:44.000Z",
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/1f92bc4"
       },
       {
-        "sha": "ac9a7fc",
-        "message": "chore: refresh git-history.json after ff-story/ff-teaser CI commits",
-        "date": "2026-04-08T00:29:08.000Z",
-        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/ac9a7fc"
+        "sha": "ad796fa",
+        "message": "chore: sync git-history.json after pre-commit",
+        "date": "2026-04-08T00:45:47.000Z",
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/ad796fa"
       },
       {
-        "sha": "9e4e030",
-        "message": "ci: GitLab Pages static export; point lore stack at GitLab",
-        "date": "2026-04-08T00:28:31.000Z",
-        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/9e4e030"
+        "sha": "66b3c95",
+        "message": "chore: use published GitLab Pages URLs for ff-story and ff-teaser",
+        "date": "2026-04-08T00:45:02.000Z",
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/66b3c95"
       }
     ],
     "repoUrl": "https://gitlab.com/clevertree/forgotten-future-site/-/commits/master"

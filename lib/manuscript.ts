@@ -1,3 +1,4 @@
+import { getApiFetchBase } from '@/lib/apiFetchBase';
 import { DEFAULT_FF_STORY_PAGES_ORIGIN } from '@/lib/ffPagesUrls';
 
 export interface Part {
@@ -16,43 +17,10 @@ export interface Chapter {
 
 export type ManuscriptVersion = '13plus' | 'youngadult';
 
-const DEFAULT_API_BASE = 'https://forgottenfuturebook.com';
-const LOCAL_API_BASE = 'http://localhost:3000';
-
 const MANUSCRIPT_FILES: Record<ManuscriptVersion, string> = {
     '13plus': 'manuscript/MANUSCRIPT_13_PLUS.md',
     'youngadult': 'manuscript/MANUSCRIPT_YOUNG_ADULT.md'
 };
-
-function normalizeApiBase(value: string): string {
-    const cleaned = value.trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
-    let url: URL;
-    try {
-        url = new URL(cleaned);
-    } catch {
-        throw new Error('NEXT_PUBLIC_API_BASE must be an absolute http(s) URL');
-    }
-
-    if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-        throw new Error('NEXT_PUBLIC_API_BASE must use http(s)');
-    }
-
-    return cleaned.replace(/\/$/, '');
-}
-
-const apiCandidate = process.env.NEXT_PUBLIC_API_BASE
-    || (process.env.NEXT_PUBLIC_IS_STATIC === 'true' ? DEFAULT_API_BASE : LOCAL_API_BASE);
-let apiBase: string;
-
-try {
-    apiBase = normalizeApiBase(apiCandidate);
-} catch (error) {
-    console.warn('[Manuscript] Invalid NEXT_PUBLIC_API_BASE, falling back to default.');
-    const fallback = process.env.NEXT_PUBLIC_IS_STATIC === 'true' ? DEFAULT_API_BASE : LOCAL_API_BASE;
-    apiBase = normalizeApiBase(fallback);
-}
-
-const MANUSCRIPT_API = `${apiBase}/api/manuscript/`;
 
 function getStoryRawBaseForManuscript(): string | null {
     const raw = process.env.NEXT_PUBLIC_STORY_RAW_BASE?.trim();
@@ -160,9 +128,10 @@ function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
 export async function fetchManuscript(version: ManuscriptVersion = '13plus'): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     try {
         const rawBase = getStoryRawBaseForManuscript();
+        const manuscriptApi = `${getApiFetchBase()}/api/manuscript/`;
         const url = rawBase
             ? `${rawBase}/${MANUSCRIPT_FILES[version]}`
-            : `${MANUSCRIPT_API}?edition=${encodeURIComponent(version)}`;
+            : `${manuscriptApi}?edition=${encodeURIComponent(version)}`;
 
         const response = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
         if (!response.ok) {

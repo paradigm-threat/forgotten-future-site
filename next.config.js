@@ -119,6 +119,23 @@ const nextConfig = {
             },
         ];
     },
+    // Canonical host: avoid apex vs www split (CORS, cookies, PWA). No effect on `output: 'export'`;
+    // configure redirects at the static host (e.g. GitLab Pages / CDN) for those builds.
+    ...(!isStatic
+        ? {
+              async redirects() {
+                  return [
+                      {
+                          source: '/:path*',
+                          has: [{ type: 'host', value: 'forgottenfuturebook.com' }],
+                          destination: 'https://www.forgottenfuturebook.com/:path*',
+                          permanent: true,
+                          basePath: false,
+                      },
+                  ];
+              },
+          }
+        : {}),
     images: process.env.NEXT_PUBLIC_IS_STATIC === 'true'
         ? {
             unoptimized: true,

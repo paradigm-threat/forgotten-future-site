@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { getApiFetchBase } from '@/lib/apiFetchBase';
 
 interface Commit {
   sha: string;
@@ -23,35 +24,15 @@ interface RepoStatusProps {
   initialData?: RepoData;
 }
 
-const DEFAULT_API_BASE = 'https://forgottenfuturebook.com';
-const LOCAL_API_BASE = 'http://localhost:3000';
-
-function normalizeApiBase(value: string) {
-  const cleaned = value.trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
-  let url: URL;
-  try {
-    url = new URL(cleaned);
-  } catch {
-    throw new Error('NEXT_PUBLIC_API_BASE must be an absolute http(s) URL');
-  }
-
-  if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-    throw new Error('NEXT_PUBLIC_API_BASE must use http(s)');
-  }
-
-  return cleaned.replace(/\/$/, '');
-}
-
-function getApiBase() {
-  const isStatic = process.env.NEXT_PUBLIC_IS_STATIC === 'true';
-  const apiBase = process.env.NEXT_PUBLIC_API_BASE || (isStatic ? DEFAULT_API_BASE : LOCAL_API_BASE);
-  try {
-    return normalizeApiBase(apiBase);
-  } catch (error) {
-    console.warn('[RepoStatus] Invalid NEXT_PUBLIC_API_BASE, falling back to default.');
-    const fallback = isStatic ? DEFAULT_API_BASE : LOCAL_API_BASE;
-    return normalizeApiBase(fallback);
-  }
+function formatCommitUtc(isoDate: string) {
+  return new Date(isoDate).toLocaleString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: 'UTC'
+  });
 }
 
 export default function RepoStatus({ name, repoKey, repoUrl, initialData }: RepoStatusProps) {
@@ -70,7 +51,7 @@ export default function RepoStatus({ name, repoKey, repoUrl, initialData }: Repo
     async function fetchData() {
       try {
         setLoading(true);
-        const apiBase = getApiBase();
+        const apiBase = getApiFetchBase();
         const endpoint = `${apiBase}/api/versions?repo=${encodeURIComponent(repoKey)}`;
         const res = await fetch(endpoint);
         if (!res.ok) throw new Error('Failed to fetch repo status');
@@ -122,13 +103,7 @@ export default function RepoStatus({ name, repoKey, repoUrl, initialData }: Repo
             <div key={commit.sha} className="flex flex-col mb-2 last:mb-0">
               <div className="flex gap-2 items-baseline">
                 <span className="text-[9px] text-muted/60 whitespace-nowrap">
-                  {new Date(commit.date).toLocaleString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    hour12: false
-                  })}
+                  {formatCommitUtc(commit.date)}
                 </span>
                 <span className="text-secondary break-words">{commit.message}</span>
               </div>

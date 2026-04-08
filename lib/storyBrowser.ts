@@ -1,3 +1,4 @@
+import { getApiFetchBase } from '@/lib/apiFetchBase';
 import { DEFAULT_FF_STORY_PAGES_ORIGIN } from '@/lib/ffPagesUrls';
 
 const DEFAULT_API_BASE = 'https://forgottenfuturebook.com';
@@ -31,6 +32,9 @@ function getStoryRawBase(): string | null {
 }
 
 export function getApiBase(): string {
+    if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_IS_STATIC !== 'true') {
+        return getApiFetchBase();
+    }
     const apiBase = process.env.NEXT_PUBLIC_API_BASE || DEFAULT_API_BASE;
     return normalizeApiBase(apiBase);
 }
