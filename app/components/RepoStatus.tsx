@@ -60,6 +60,13 @@ export default function RepoStatus({ name, repoKey, repoUrl, initialData }: Repo
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const isStatic = process.env.NEXT_PUBLIC_IS_STATIC === 'true';
+    if (isStatic && initialData) {
+      setData({ ...initialData, name, repoUrl });
+      setLoading(false);
+      return;
+    }
+
     async function fetchData() {
       try {
         setLoading(true);
@@ -84,7 +91,7 @@ export default function RepoStatus({ name, repoKey, repoUrl, initialData }: Repo
     }
 
     fetchData();
-  }, [name, repoKey, repoUrl]);
+  }, [name, repoKey, repoUrl, initialData]);
 
   if (loading) {
     return (
@@ -130,7 +137,7 @@ export default function RepoStatus({ name, repoKey, repoUrl, initialData }: Repo
         </div>
       </div>
       <a href={data.repoUrl} target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold text-accent uppercase tracking-widest hover:text-accent-bright inline-flex items-center gap-2">
-        GitHub Source <span className="text-lg">→</span>
+        Repository <span className="text-lg">→</span>
       </a>
     </div>
   );

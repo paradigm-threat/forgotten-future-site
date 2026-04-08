@@ -20,7 +20,7 @@ export default function ContributePage() {
                 <div className="glass-panel p-8 border border-green-500/30 rounded-lg">
                     <h2 className="text-2xl text-green-400 uppercase tracking-widest mb-4">🔧 GitHub PRs</h2>
                     <p className="text-secondary mb-6">Clone the repository, make changes locally, and submit pull requests.</p>
-                    <a href="https://github.com/clevertree/ff-story" target="_blank" rel="noopener noreferrer" className="btn-outline-green inline-block">View on GitHub</a>
+                    <a href="https://gitlab.com/clevertree/ff-story" target="_blank" rel="noopener noreferrer" className="btn-outline-green inline-block">View on GitLab</a>
                 </div>
             </div>
 
@@ -47,7 +47,7 @@ export default function ContributePage() {
                 <p className="text-secondary mb-8">Your voice matters in shaping Forgotten Future.</p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <Link href="/contact" className="btn-outline-cyan">Leave a Comment</Link>
-                    <a href="https://github.com/clevertree/ff-story" target="_blank" rel="noopener noreferrer" className="btn-outline-green">View on GitHub</a>
+                    <a href="https://gitlab.com/clevertree/ff-story" target="_blank" rel="noopener noreferrer" className="btn-outline-green">View on GitLab</a>
                 </div>
             </section>
         </div>

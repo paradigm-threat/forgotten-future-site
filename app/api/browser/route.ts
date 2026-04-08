@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const DEFAULT_STORY_REPO_BASE = 'https://raw.githubusercontent.com/clevertree/ff-story/main/';
+const DEFAULT_STORY_REPO_BASE = 'https://clevertree.gitlab.io/ff-story/';
 const CACHE_TTL_MS = 60 * 1000;
 const cache = new Map<string, { timestamp: number; payload: any }>();
 
@@ -68,7 +68,15 @@ export async function GET(request: NextRequest) {
     }
 
     const base = getStoryRepoBase();
-    const headers: HeadersInit = { 'Accept': 'application/vnd.github.raw' };
+    const isGithub = (() => {
+        try {
+            const host = new URL(base).hostname.toLowerCase();
+            return host.includes('github');
+        } catch {
+            return false;
+        }
+    })();
+    const headers: HeadersInit = isGithub ? { 'Accept': 'application/vnd.github.raw' } : {};
 
     if (!pathParam) {
         const url = `${base}index.json`;

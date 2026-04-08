@@ -7,22 +7,22 @@
         "sha": "664448a",
         "message": "Update character profiles for Arlo, Kiran, and Azar with Black representation and Great Fry history",
         "date": "2026-02-19T13:38:36.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/664448a"
+        "url": "https://gitlab.com/clevertree/ff-story/-/commit/664448a"
       },
       {
         "sha": "831b838",
         "message": "narrative: refine ch11 synopsis with core beats and fulfill titles",
         "date": "2026-02-07T22:02:46.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/831b838"
+        "url": "https://gitlab.com/clevertree/ff-story/-/commit/831b838"
       },
       {
         "sha": "709c089",
         "message": "narrative: expand ch11 synopsis and finalize beat titles",
         "date": "2026-02-07T22:00:27.000Z",
-        "url": "https://github.com/clevertree/ff-story/commit/709c089"
+        "url": "https://gitlab.com/clevertree/ff-story/-/commit/709c089"
       }
     ],
-    "repoUrl": "https://github.com/clevertree/ff-story/commits/main/"
+    "repoUrl": "https://gitlab.com/clevertree/ff-story/-/commits/main"
   },
   "ff-teaser": {
     "name": "Teaser",
@@ -32,46 +32,46 @@
         "sha": "3022b16",
         "message": "Update teaser concepts and prompts",
         "date": "2026-02-05T14:10:30.000Z",
-        "url": "https://github.com/clevertree/ff-teaser/commit/3022b16"
+        "url": "https://gitlab.com/clevertree/ff-teaser/-/commit/3022b16"
       },
       {
         "sha": "851ea89",
         "message": "Update teaser concepts and prompts with new lore",
         "date": "2026-02-01T18:06:20.000Z",
-        "url": "https://github.com/clevertree/ff-teaser/commit/851ea89"
+        "url": "https://gitlab.com/clevertree/ff-teaser/-/commit/851ea89"
       },
       {
         "sha": "bda9170",
         "message": "chore: global character rename (Lem->Ren, Maya->Kira) in teaser",
         "date": "2026-01-25T19:15:27.000Z",
-        "url": "https://github.com/clevertree/ff-teaser/commit/bda9170"
+        "url": "https://gitlab.com/clevertree/ff-teaser/-/commit/bda9170"
       }
     ],
-    "repoUrl": "https://github.com/clevertree/ff-teaser/commits/main/"
+    "repoUrl": "https://gitlab.com/clevertree/ff-teaser/-/commits/main"
   },
   "forgotten-future-site": {
     "name": "Site",
     "version": "v0.11.120",
     "commits": [
       {
+        "sha": "443d2b0",
+        "message": "Footer: replace GitHub Sponsors with Patreon link",
+        "date": "2026-04-05T17:10:12.000Z",
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/443d2b0"
+      },
+      {
         "sha": "cf6e7a7",
         "message": "Update TTS piper route and git history",
         "date": "2026-02-24T12:57:29.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/cf6e7a7"
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/cf6e7a7"
       },
       {
         "sha": "5b01475",
         "message": "Wire Piper TTS to remote clevertree-tts-server",
         "date": "2026-02-23T18:47:23.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/5b01475"
-      },
-      {
-        "sha": "6e35b02",
-        "message": "feat: screen wake lock API prevents mobile screen off during TTS playback",
-        "date": "2026-02-22T17:36:49.000Z",
-        "url": "https://github.com/clevertree/forgotten-future-site/commit/6e35b02"
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/5b01475"
       }
     ],
-    "repoUrl": "https://github.com/clevertree/forgotten-future-site/commits/master/"
+    "repoUrl": "https://gitlab.com/clevertree/forgotten-future-site/-/commits/master"
   }
 }

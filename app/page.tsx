@@ -68,19 +68,19 @@ export default function Home() {
                     <RepoStatus
                         name="Story"
                         repoKey="ff-story"
-                        repoUrl="https://github.com/clevertree/ff-story/commits/main/"
+                        repoUrl="https://gitlab.com/clevertree/ff-story/-/commits/main"
                         initialData={(gitHistory as any)['ff-story']}
                     />
                     <RepoStatus
                         name="Teaser"
                         repoKey="ff-teaser"
-                        repoUrl="https://github.com/clevertree/ff-teaser/commits/main/"
+                        repoUrl="https://gitlab.com/clevertree/ff-teaser/-/commits/main"
                         initialData={(gitHistory as any)['ff-teaser']}
                     />
                     <RepoStatus
                         name="Site"
                         repoKey="forgotten-future-site"
-                        repoUrl="https://github.com/clevertree/forgotten-future-site/commits/master/"
+                        repoUrl="https://gitlab.com/clevertree/forgotten-future-site/-/commits/master"
                         initialData={(gitHistory as any)['forgotten-future-site']}
                     />
                 </div>

@@ -16,6 +16,12 @@ export type ManuscriptVersion = '13plus' | 'youngadult';
 
 const DEFAULT_API_BASE = 'https://forgottenfuturebook.com';
 const LOCAL_API_BASE = 'http://localhost:3000';
+const DEFAULT_STORY_RAW_BASE = 'https://clevertree.gitlab.io/ff-story';
+
+const MANUSCRIPT_FILES: Record<ManuscriptVersion, string> = {
+    '13plus': 'manuscript/MANUSCRIPT_13_PLUS.md',
+    'youngadult': 'manuscript/MANUSCRIPT_YOUNG_ADULT.md'
+};
 
 function normalizeApiBase(value: string): string {
     const cleaned = value.trim().replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
@@ -46,6 +52,13 @@ try {
 }
 
 const MANUSCRIPT_API = `${apiBase}/api/manuscript/`;
+
+function getStoryRawBaseForManuscript(): string | null {
+    const raw = process.env.NEXT_PUBLIC_STORY_RAW_BASE?.trim();
+    if (raw) return raw.replace(/\/$/, '');
+    if (process.env.NEXT_PUBLIC_IS_STATIC === 'true') return DEFAULT_STORY_RAW_BASE;
+    return null;
+}
 
 export async function parseManuscript(text: string): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     const versionMatch = text.match(/> Draft Version: ([\d.]+)/);
@@ -145,7 +158,10 @@ function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
 
 export async function fetchManuscript(version: ManuscriptVersion = '13plus'): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     try {
-        const url = `${MANUSCRIPT_API}?edition=${encodeURIComponent(version)}`;
+        const rawBase = getStoryRawBaseForManuscript();
+        const url = rawBase
+            ? `${rawBase}/${MANUSCRIPT_FILES[version]}`
+            : `${MANUSCRIPT_API}?edition=${encodeURIComponent(version)}`;
 
         const response = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
         if (!response.ok) {

@@ -14,27 +14,26 @@ interface RepoData {
     repoUrl: string;
 }
 
-const REPOS: Record<string, { name: string; owner: string; repo: string; branch: string; repoUrl: string }> = {
+const GITLAB_API = 'https://gitlab.com/api/v4';
+
+const REPOS: Record<string, { name: string; projectPath: string; branch: string; repoUrl: string }> = {
     'ff-story': {
         name: 'Story',
-        owner: 'clevertree',
-        repo: 'ff-story',
+        projectPath: 'clevertree/ff-story',
         branch: 'main',
-        repoUrl: 'https://github.com/clevertree/ff-story/commits/main/'
+        repoUrl: 'https://gitlab.com/clevertree/ff-story/-/commits/main'
     },
     'ff-teaser': {
         name: 'Teaser',
-        owner: 'clevertree',
-        repo: 'ff-teaser',
+        projectPath: 'clevertree/ff-teaser',
         branch: 'main',
-        repoUrl: 'https://github.com/clevertree/ff-teaser/commits/main/'
+        repoUrl: 'https://gitlab.com/clevertree/ff-teaser/-/commits/main'
     },
     'forgotten-future-site': {
         name: 'Site',
-        owner: 'clevertree',
-        repo: 'forgotten-future-site',
+        projectPath: 'clevertree/forgotten-future-site',
         branch: 'master',
-        repoUrl: 'https://github.com/clevertree/forgotten-future-site/commits/master/'
+        repoUrl: 'https://gitlab.com/clevertree/forgotten-future-site/-/commits/master'
     }
 };
 
@@ -50,58 +49,70 @@ function getCorsHeaders() {
     };
 }
 
-function getGitHubHeaders(): HeadersInit {
-    const headers: HeadersInit = {
-        'Accept': 'application/vnd.github+json',
-        'X-GitHub-Api-Version': '2022-11-28'
-    };
-
-    const token = process.env.GITHUB_APP_TOKEN;
+function gitlabHeaders(): HeadersInit {
+    const headers: HeadersInit = { Accept: 'application/json' };
+    const token = process.env.GITLAB_TOKEN;
     if (token) {
-        headers.Authorization = `Bearer ${token}`;
+        headers['PRIVATE-TOKEN'] = token;
     }
     return headers;
 }
 
-async function fetchGitHubJson(url: string) {
-    const res = await fetch(url, { headers: getGitHubHeaders(), next: { revalidate: 300 } });
+function projectId(projectPath: string): string {
+    return encodeURIComponent(projectPath);
+}
+
+async function fetchGitLabRaw(path: string): Promise<Response> {
+    return fetch(`${GITLAB_API}${path}`, { headers: gitlabHeaders(), next: { revalidate: 300 } });
+}
+
+async function fetchGitLabJson(path: string) {
+    const res = await fetchGitLabRaw(path);
     if (!res.ok) {
-        throw new Error(`GitHub request failed: ${res.status}`);
+        throw new Error(`GitLab request failed: ${res.status}`);
     }
     return res.json();
 }
 
-async function fetchRepoVersion(owner: string, repo: string): Promise<string> {
+async function fetchRepoVersion(projectPath: string, branch: string, tryPackageJson: boolean): Promise<string> {
+    const id = projectId(projectPath);
+    const versionFile = encodeURIComponent('VERSION');
     try {
-        const versionData = await fetchGitHubJson(`https://api.github.com/repos/${owner}/${repo}/contents/VERSION`);
-        if (versionData?.content) {
-            const version = Buffer.from(versionData.content, 'base64').toString('utf-8').trim();
+        const res = await fetchGitLabRaw(`/projects/${id}/repository/files/${versionFile}/raw?ref=${branch}`);
+        if (res.ok) {
+            const version = (await res.text()).trim();
             return `v${version}`;
         }
     } catch {
-        // fallthrough to package.json
+        /* fall through */
     }
 
+    if (!tryPackageJson) return 'v?.?.?';
+
     try {
-        const pkgData = await fetchGitHubJson(`https://api.github.com/repos/${owner}/${repo}/contents/package.json`);
-        if (pkgData?.content) {
-            const pkg = JSON.parse(Buffer.from(pkgData.content, 'base64').toString('utf-8'));
+        const pkgPath = encodeURIComponent('package.json');
+        const res = await fetchGitLabRaw(`/projects/${id}/repository/files/${pkgPath}/raw?ref=${branch}`);
+        if (res.ok) {
+            const pkg = JSON.parse(await res.text());
             if (pkg?.version) return `v${pkg.version}`;
         }
     } catch {
-        // fallthrough
+        /* fall through */
     }
 
     return 'v?.?.?';
 }
 
-async function fetchRepoCommits(owner: string, repo: string): Promise<CommitInfo[]> {
-    const commits = await fetchGitHubJson(`https://api.github.com/repos/${owner}/${repo}/commits?per_page=3`);
+async function fetchRepoCommits(projectPath: string, branch: string): Promise<CommitInfo[]> {
+    const id = projectId(projectPath);
+    const commits = await fetchGitLabJson(
+        `/projects/${id}/repository/commits?ref=${encodeURIComponent(branch)}&per_page=3`
+    );
     return (commits || []).map((c: any) => ({
-        sha: c.sha.substring(0, 7),
-        message: c.commit.message.split('\n')[0],
-        date: c.commit.author.date,
-        url: c.html_url
+        sha: (c.short_id || c.id || '').toString().substring(0, 7),
+        message: (c.title || c.message || '').split('\n')[0],
+        date: c.committed_date || c.created_at,
+        url: c.web_url || `https://gitlab.com/${projectPath}/-/commit/${c.id}`
     }));
 }
 
@@ -111,9 +122,10 @@ async function buildRepoData(key: string): Promise<RepoData> {
         throw new Error(`Unknown repo: ${key}`);
     }
 
+    const tryPackageJson = key === 'forgotten-future-site';
     const [version, commits] = await Promise.all([
-        fetchRepoVersion(meta.owner, meta.repo),
-        fetchRepoCommits(meta.owner, meta.repo)
+        fetchRepoVersion(meta.projectPath, meta.branch, tryPackageJson),
+        fetchRepoCommits(meta.projectPath, meta.branch)
     ]);
 
     return {

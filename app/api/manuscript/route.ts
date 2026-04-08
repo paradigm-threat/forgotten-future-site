@@ -6,7 +6,7 @@ const MANUSCRIPT_FILES: Record<ManuscriptVersion, string> = {
     'youngadult': 'manuscript/MANUSCRIPT_YOUNG_ADULT.md'
 };
 
-const DEFAULT_STORY_REPO_BASE = 'https://raw.githubusercontent.com/clevertree/ff-story/main/';
+const DEFAULT_STORY_REPO_BASE = 'https://clevertree.gitlab.io/ff-story/';
 
 function normalizeRepoBase(value: string): string {
     let url: URL;
@@ -48,6 +48,15 @@ function isGithubUrl(url: string) {
             'github.com',
             'githubusercontent.com'
         ].some(domain => host === domain || host.endsWith(`.${domain}`));
+    } catch {
+        return false;
+    }
+}
+
+function isGitlabPagesUrl(url: string) {
+    try {
+        const host = new URL(url).hostname.toLowerCase();
+        return host === 'gitlab.io' || host.endsWith('.gitlab.io');
     } catch {
         return false;
     }
@@ -100,9 +109,10 @@ export async function GET(request: NextRequest) {
     const manuscriptUrl = `${getStoryRepoBase()}${manuscriptPath}`;
 
     const isGithub = isGithubUrl(manuscriptUrl);
+    const isGitlabPages = isGitlabPagesUrl(manuscriptUrl);
     const isLocalhost = isLocalhostUrl(manuscriptUrl);
 
-    if (!isGithub && !isLocalhost) {
+    if (!isGithub && !isGitlabPages && !isLocalhost) {
         return NextResponse.json({ message: 'Blocked upstream host' }, { status: 403, headers: getCorsHeaders() });
     }
 

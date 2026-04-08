@@ -99,7 +99,7 @@ export function useFileBrowser() {
             } catch (err) {
                 console.error(err);
                 if (!index) {
-                    setError('Failed to load storage index. Is GitHub up?');
+                    setError('Failed to load storage index. Is the story host up?');
                 } else {
                     setError('An unexpected error occurred while browsing.');
                 }

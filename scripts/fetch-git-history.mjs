@@ -7,9 +7,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const repos = [
-  { id: 'ff-story', name: 'Story', path: '../../ff-story', branch: 'main', versionFile: 'VERSION', repoUrl: 'https://github.com/clevertree/ff-story' },
-  { id: 'ff-teaser', name: 'Teaser', path: '../../ff-teaser', branch: 'main', versionFile: 'VERSION', repoUrl: 'https://github.com/clevertree/ff-teaser' },
-  { id: 'forgotten-future-site', name: 'Site', path: '../', branch: 'master', versionFile: 'package.json', repoUrl: 'https://github.com/clevertree/forgotten-future-site' }
+  { id: 'ff-story', name: 'Story', path: '../../ff-story', branch: 'main', versionFile: 'VERSION', repoUrl: 'https://gitlab.com/clevertree/ff-story' },
+  { id: 'ff-teaser', name: 'Teaser', path: '../../ff-teaser', branch: 'main', versionFile: 'VERSION', repoUrl: 'https://gitlab.com/clevertree/ff-teaser' },
+  { id: 'forgotten-future-site', name: 'Site', path: '../', branch: 'master', versionFile: 'package.json', repoUrl: 'https://gitlab.com/clevertree/forgotten-future-site' }
 ];
 
 function getGitHistory() {
@@ -33,7 +33,7 @@ function getGitHistory() {
           sha,
           message,
           date: new Date(parseInt(timestamp) * 1000).toISOString(),
-          url: `${r.repoUrl}/commit/${sha}` 
+          url: `${r.repoUrl}/-/commit/${sha}` 
         };
       });
 
@@ -53,7 +53,7 @@ function getGitHistory() {
         name: r.name,
         version,
         commits,
-        repoUrl: `${r.repoUrl}/commits/${r.branch}/`
+        repoUrl: `${r.repoUrl}/-/commits/${r.branch}`
       };
     } catch (e) {
       console.error(`Error processing repo ${r.name}: ${e.message}`);

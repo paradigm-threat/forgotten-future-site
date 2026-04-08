@@ -12,7 +12,8 @@ import ScrollNavigation from './components/ScrollNavigation';
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 const isStatic = process.env.NEXT_PUBLIC_IS_STATIC === 'true';
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || (isStatic ? 'https://clevertree.github.io' : 'https://forgottenfuturebook.com');
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+    || (isStatic ? 'https://clevertree.gitlab.io/forgotten-future-site' : 'https://forgottenfuturebook.com');
 
 export const metadata: Metadata = {
     title: {
@@ -90,7 +91,7 @@ export default function RootLayout({
                             <p>FORGOTTEN FUTURE: AN AI-DRIVEN NARRATIVE EXPERIMENT</p>
                             <p>&copy;2026 <a href="https://clevertree.net/" className="hover:text-accent transition-colors">CLEVERTREE</a></p>
                             <div className="mt-4 flex justify-center gap-6">
-                                <a href="https://github.com/clevertree" className="hover:text-accent transition-colors">GITHUB</a>
+                                <a href="https://gitlab.com/clevertree" className="hover:text-accent transition-colors">GITLAB</a>
                                 <a href="https://www.patreon.com/c/ahsctimeline" target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:underline font-semibold transition-colors">♥ PATREON</a>
                                 <a href="mailto:ari@asu.edu" className="hover:text-accent transition-colors">CONTACT</a>
                             </div>
