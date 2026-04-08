@@ -51,8 +51,14 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.121",
+    "version": "v0.11.122",
     "commits": [
+      {
+        "sha": "9e4e030",
+        "message": "ci: GitLab Pages static export; point lore stack at GitLab",
+        "date": "2026-04-08T00:28:31.000Z",
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/9e4e030"
+      },
       {
         "sha": "443d2b0",
         "message": "Footer: replace GitHub Sponsors with Patreon link",
@@ -64,12 +70,6 @@
         "message": "Update TTS piper route and git history",
         "date": "2026-02-24T12:57:29.000Z",
         "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/cf6e7a7"
-      },
-      {
-        "sha": "5b01475",
-        "message": "Wire Piper TTS to remote clevertree-tts-server",
-        "date": "2026-02-23T18:47:23.000Z",
-        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/5b01475"
       }
     ],
     "repoUrl": "https://gitlab.com/clevertree/forgotten-future-site/-/commits/master"
