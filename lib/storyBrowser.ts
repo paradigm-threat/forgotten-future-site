@@ -1,5 +1,6 @@
+import { DEFAULT_FF_STORY_PAGES_ORIGIN } from '@/lib/ffPagesUrls';
+
 const DEFAULT_API_BASE = 'https://forgottenfuturebook.com';
-const DEFAULT_STORY_RAW_BASE = 'https://clevertree.gitlab.io/ff-story';
 const DEFAULT_STORY_WEB_BLOB_BASE = 'https://gitlab.com/clevertree/ff-story/-/blob/main';
 
 function normalizeApiBase(value: string): string {
@@ -25,7 +26,7 @@ function normalizeTrailingSlash(value: string, trailing: boolean): string {
 function getStoryRawBase(): string | null {
     const raw = process.env.NEXT_PUBLIC_STORY_RAW_BASE?.trim();
     if (raw) return normalizeTrailingSlash(raw, false);
-    if (process.env.NEXT_PUBLIC_IS_STATIC === 'true') return DEFAULT_STORY_RAW_BASE;
+    if (process.env.NEXT_PUBLIC_IS_STATIC === 'true') return DEFAULT_FF_STORY_PAGES_ORIGIN;
     return null;
 }
 

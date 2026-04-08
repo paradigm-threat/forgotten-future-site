@@ -1,3 +1,5 @@
+import { DEFAULT_FF_STORY_PAGES_ORIGIN } from '@/lib/ffPagesUrls';
+
 export interface Part {
     id: string; // generated from title
     title: string;
@@ -16,7 +18,6 @@ export type ManuscriptVersion = '13plus' | 'youngadult';
 
 const DEFAULT_API_BASE = 'https://forgottenfuturebook.com';
 const LOCAL_API_BASE = 'http://localhost:3000';
-const DEFAULT_STORY_RAW_BASE = 'https://clevertree.gitlab.io/ff-story';
 
 const MANUSCRIPT_FILES: Record<ManuscriptVersion, string> = {
     '13plus': 'manuscript/MANUSCRIPT_13_PLUS.md',
@@ -56,7 +57,7 @@ const MANUSCRIPT_API = `${apiBase}/api/manuscript/`;
 function getStoryRawBaseForManuscript(): string | null {
     const raw = process.env.NEXT_PUBLIC_STORY_RAW_BASE?.trim();
     if (raw) return raw.replace(/\/$/, '');
-    if (process.env.NEXT_PUBLIC_IS_STATIC === 'true') return DEFAULT_STORY_RAW_BASE;
+    if (process.env.NEXT_PUBLIC_IS_STATIC === 'true') return DEFAULT_FF_STORY_PAGES_ORIGIN;
     return null;
 }
 

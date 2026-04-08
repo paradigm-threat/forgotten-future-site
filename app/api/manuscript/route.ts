@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { parseManuscript, ManuscriptVersion } from '@/lib/manuscript';
+import { DEFAULT_FF_STORY_PAGES_ORIGIN } from '@/lib/ffPagesUrls';
 
 const MANUSCRIPT_FILES: Record<ManuscriptVersion, string> = {
     '13plus': 'manuscript/MANUSCRIPT_13_PLUS.md',
     'youngadult': 'manuscript/MANUSCRIPT_YOUNG_ADULT.md'
 };
 
-const DEFAULT_STORY_REPO_BASE = 'https://clevertree.gitlab.io/ff-story/';
+const DEFAULT_STORY_REPO_BASE = `${DEFAULT_FF_STORY_PAGES_ORIGIN}/`;
 
 function normalizeRepoBase(value: string): string {
     let url: URL;

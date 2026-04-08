@@ -1,3 +1,5 @@
+374f841 chore: sync git-history.json
+ac9a7fc chore: refresh git-history.json after ff-story/ff-teaser CI commits
 9e4e030 ci: GitLab Pages static export; point lore stack at GitLab
 443d2b0 Footer: replace GitHub Sponsors with Patreon link
 cf6e7a7 Update TTS piper route and git history

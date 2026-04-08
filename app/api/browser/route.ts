@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { DEFAULT_FF_STORY_PAGES_ORIGIN } from '@/lib/ffPagesUrls';
 
-const DEFAULT_STORY_REPO_BASE = 'https://clevertree.gitlab.io/ff-story/';
+const DEFAULT_STORY_REPO_BASE = `${DEFAULT_FF_STORY_PAGES_ORIGIN}/`;
 const CACHE_TTL_MS = 60 * 1000;
 const cache = new Map<string, { timestamp: number; payload: any }>();
 
