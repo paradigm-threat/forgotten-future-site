@@ -1,8 +1,14 @@
 {
   "ff-story": {
     "name": "Story",
-    "version": "v0.13.141",
+    "version": "v0.13.142",
     "commits": [
+      {
+        "sha": "86fa5c9",
+        "message": "ci: add GitLab Pages job (static tree, like paradigm-threat-files)",
+        "date": "2026-04-08T00:28:14.000Z",
+        "url": "https://gitlab.com/clevertree/ff-story/-/commit/86fa5c9"
+      },
       {
         "sha": "664448a",
         "message": "Update character profiles for Arlo, Kiran, and Azar with Black representation and Great Fry history",
@@ -14,20 +20,20 @@
         "message": "narrative: refine ch11 synopsis with core beats and fulfill titles",
         "date": "2026-02-07T22:02:46.000Z",
         "url": "https://gitlab.com/clevertree/ff-story/-/commit/831b838"
-      },
-      {
-        "sha": "709c089",
-        "message": "narrative: expand ch11 synopsis and finalize beat titles",
-        "date": "2026-02-07T22:00:27.000Z",
-        "url": "https://gitlab.com/clevertree/ff-story/-/commit/709c089"
       }
     ],
     "repoUrl": "https://gitlab.com/clevertree/ff-story/-/commits/main"
   },
   "ff-teaser": {
     "name": "Teaser",
-    "version": "v0.9.17",
+    "version": "v0.9.18",
     "commits": [
+      {
+        "sha": "8e0692a",
+        "message": "ci: add GitLab Pages job (static tree, like paradigm-threat-files)",
+        "date": "2026-04-08T00:28:23.000Z",
+        "url": "https://gitlab.com/clevertree/ff-teaser/-/commit/8e0692a"
+      },
       {
         "sha": "3022b16",
         "message": "Update teaser concepts and prompts",
@@ -39,19 +45,13 @@
         "message": "Update teaser concepts and prompts with new lore",
         "date": "2026-02-01T18:06:20.000Z",
         "url": "https://gitlab.com/clevertree/ff-teaser/-/commit/851ea89"
-      },
-      {
-        "sha": "bda9170",
-        "message": "chore: global character rename (Lem->Ren, Maya->Kira) in teaser",
-        "date": "2026-01-25T19:15:27.000Z",
-        "url": "https://gitlab.com/clevertree/ff-teaser/-/commit/bda9170"
       }
     ],
     "repoUrl": "https://gitlab.com/clevertree/ff-teaser/-/commits/main"
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.120",
+    "version": "v0.11.121",
     "commits": [
       {
         "sha": "443d2b0",
