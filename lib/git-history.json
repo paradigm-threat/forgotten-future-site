@@ -51,25 +51,25 @@
   },
   "forgotten-future-site": {
     "name": "Site",
-    "version": "v0.11.122",
+    "version": "v0.11.123",
     "commits": [
+      {
+        "sha": "374f841",
+        "message": "chore: sync git-history.json",
+        "date": "2026-04-08T00:29:41.000Z",
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/374f841"
+      },
+      {
+        "sha": "ac9a7fc",
+        "message": "chore: refresh git-history.json after ff-story/ff-teaser CI commits",
+        "date": "2026-04-08T00:29:08.000Z",
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/ac9a7fc"
+      },
       {
         "sha": "9e4e030",
         "message": "ci: GitLab Pages static export; point lore stack at GitLab",
         "date": "2026-04-08T00:28:31.000Z",
         "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/9e4e030"
-      },
-      {
-        "sha": "443d2b0",
-        "message": "Footer: replace GitHub Sponsors with Patreon link",
-        "date": "2026-04-05T17:10:12.000Z",
-        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/443d2b0"
-      },
-      {
-        "sha": "cf6e7a7",
-        "message": "Update TTS piper route and git history",
-        "date": "2026-02-24T12:57:29.000Z",
-        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/cf6e7a7"
       }
     ],
     "repoUrl": "https://gitlab.com/clevertree/forgotten-future-site/-/commits/master"
