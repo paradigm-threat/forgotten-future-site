@@ -1,8 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { getApiFetchBase } from '@/lib/apiFetchBase';
-
 interface Commit {
   sha: string;
   message: string;
@@ -35,84 +32,52 @@ function formatCommitUtc(isoDate: string) {
   });
 }
 
+/** Build-time git-history.json only — no /api/versions (zero serverless). */
 export default function RepoStatus({ name, repoKey, repoUrl, initialData }: RepoStatusProps) {
-  const [data, setData] = useState<RepoData | null>(initialData || null);
-  const [loading, setLoading] = useState(!initialData);
-  const [error, setError] = useState<string | null>(null);
+  const data = initialData ? { ...initialData, name, repoUrl } : null;
 
-  useEffect(() => {
-    const isStatic = process.env.NEXT_PUBLIC_IS_STATIC === 'true';
-    if (isStatic && initialData) {
-      setData({ ...initialData, name, repoUrl });
-      setLoading(false);
-      return;
-    }
-
-    async function fetchData() {
-      try {
-        setLoading(true);
-        const apiBase = getApiFetchBase();
-        const endpoint = `${apiBase}/api/versions?repo=${encodeURIComponent(repoKey)}`;
-        const res = await fetch(endpoint);
-        if (!res.ok) throw new Error('Failed to fetch repo status');
-        const payload = await res.json();
-        const repo = payload?.repo;
-        if (!repo) throw new Error('Invalid repo status response');
-
-        setData({
-          ...repo,
-          name,
-          repoUrl
-        });
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [name, repoKey, repoUrl, initialData]);
-
-  if (loading) {
+  if (!data) {
     return (
-      <div className="glass-panel animate-pulse h-48 flex items-center justify-center">
-        <span className="text-muted text-xs uppercase tracking-widest">Scanning {name}...</span>
-      </div>
-    );
-  }
-
-  if (error || !data) {
-    return (
-      <div className="glass-panel border-element-fire/30">
-        <h3 className="text-xs font-bold uppercase tracking-widest mb-4">Repository: {name}</h3>
-        <p className="text-element-fire text-[10px] font-mono">Signal Lost: {error || 'Unknown Error'}</p>
+      <div className="glass-panel p-6 border border-foreground/10 rounded-lg" data-repo={repoKey}>
+        <h3 className="text-lg font-bold text-accent mb-2">{name}</h3>
+        <p className="text-sm text-muted">Run scripts/fetch-git-history.mjs before build.</p>
       </div>
     );
   }
 
   return (
-    <div className="glass-panel group hover:border-accent/30 transition-all">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="text-xs font-bold uppercase tracking-widest">Repository: {data.name}</h3>
-        <span className="text-[10px] bg-cyan-500/10 text-cyan-500 px-2 py-0.5 rounded border border-cyan-500/20">{data.version}</span>
+    <div className="glass-panel p-6 border border-foreground/10 rounded-lg hover:border-accent/30 transition-colors" data-repo={repoKey}>
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-lg font-bold text-accent">{data.name}</h3>
+        <span className="text-xs font-mono bg-accent/10 text-accent px-2 py-1 rounded">{data.version}</span>
       </div>
-      <div className="space-y-3 mb-6">
-        <div className="text-[10px] text-muted font-mono leading-tight">
-          {data.commits.map((commit) => (
-            <div key={commit.sha} className="flex flex-col mb-2 last:mb-0">
-              <div className="flex gap-2 items-baseline">
-                <span className="text-[9px] text-muted/60 whitespace-nowrap">
-                  {formatCommitUtc(commit.date)}
-                </span>
-                <span className="text-secondary break-words">{commit.message}</span>
-              </div>
+      <div className="space-y-3">
+        {data.commits.map((commit) => (
+          <a
+            key={commit.sha}
+            href={commit.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block group"
+          >
+            <div className="flex items-center gap-2 text-xs font-mono text-muted mb-1">
+              <span className="text-accent group-hover:underline">{commit.sha}</span>
+              <span>•</span>
+              <span>{formatCommitUtc(commit.date)} UTC</span>
             </div>
-          ))}
-        </div>
+            <p className="text-sm text-secondary line-clamp-1 group-hover:text-foreground transition-colors">
+              {commit.message}
+            </p>
+          </a>
+        ))}
       </div>
-      <a href={data.repoUrl} target="_blank" rel="noopener noreferrer" className="text-[10px] font-bold text-accent uppercase tracking-widest hover:text-accent-bright inline-flex items-center gap-2">
-        Repository <span className="text-lg">→</span>
+      <a
+        href={data.repoUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-4 inline-block text-xs text-accent hover:underline uppercase tracking-widest"
+      >
+        View Repository →
       </a>
     </div>
   );

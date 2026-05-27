@@ -54,10 +54,10 @@
     "version": "v0.11.125",
     "commits": [
       {
-        "sha": "1f92bc4",
+        "sha": "5e02a7a",
         "message": "fix: same-origin API base, UTC commit times, apex→www redirect",
         "date": "2026-04-08T12:53:44.000Z",
-        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/1f92bc4"
+        "url": "https://gitlab.com/clevertree/forgotten-future-site/-/commit/5e02a7a"
       },
       {
         "sha": "ad796fa",

@@ -1,5 +1,11 @@
 'use client';
 
+import {
+    aggregateClientPiperVoices,
+    fetchPiperTtsBlob,
+    isClientPiperConfigured,
+} from '@/lib/tts/piperClient';
+
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 export interface TTSSegment {
@@ -289,8 +295,8 @@ export function useTTS() {
     useEffect(() => {
         if (typeof window === 'undefined') return;
         let mounted = true;
-        fetch('/api/tts/piper/voices')
-            .then(res => res.ok ? res.json() : null)
+        if (!isClientPiperConfigured()) return;
+        aggregateClientPiperVoices()
             .then(data => {
                 if (!mounted || !data) return;
                 const voices = Array.isArray(data.voices) ? data.voices as PiperVoice[] : [];
@@ -424,13 +430,7 @@ export function useTTS() {
             const controller = new AbortController();
             fetchAbortRef.current = controller;
 
-            fetch('/api/tts/piper', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text, voiceId, rate }),
-                signal: controller.signal,
-            })
-                .then(res => res.ok ? res.blob() : Promise.reject(new Error(`Piper error: ${res.status}`)))
+            fetchPiperTtsBlob({ text, voiceId, rate }, controller.signal)
                 .then(blob => {
                     if (!isPlayingRef.current || !audioRef.current) return;
                     const url = URL.createObjectURL(blob);

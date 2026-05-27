@@ -1,5 +1,4 @@
-import { getApiFetchBase } from '@/lib/apiFetchBase';
-import { DEFAULT_FF_STORY_PAGES_ORIGIN } from '@/lib/ffPagesUrls';
+import { getStoryRawBase } from '@/lib/storyBrowser';
 
 export interface Part {
     id: string; // generated from title
@@ -21,13 +20,6 @@ const MANUSCRIPT_FILES: Record<ManuscriptVersion, string> = {
     '13plus': 'manuscript/MANUSCRIPT_13_PLUS.md',
     'youngadult': 'manuscript/MANUSCRIPT_YOUNG_ADULT.md'
 };
-
-function getStoryRawBaseForManuscript(): string | null {
-    const raw = process.env.NEXT_PUBLIC_STORY_RAW_BASE?.trim();
-    if (raw) return raw.replace(/\/$/, '');
-    if (process.env.NEXT_PUBLIC_IS_STATIC === 'true') return DEFAULT_FF_STORY_PAGES_ORIGIN;
-    return null;
-}
 
 export async function parseManuscript(text: string): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     const versionMatch = text.match(/> Draft Version: ([\d.]+)/);
@@ -52,7 +44,6 @@ export async function parseManuscript(text: string): Promise<{ parts: Part[], ch
     for (const segment of segments) {
         const partMatch = segment.match(/# PART ([IVXLCDM]+):? (.*)/i);
         if (partMatch) {
-            // Match contents between italics markers if they exist, possibly multiline
             const summaryMatch = segment.match(/\*([\s\S]*?)\*/);
             const partSummary = summaryMatch ? summaryMatch[1].trim() : '';
             const partTitle = `Part ${partMatch[1]}: ${partMatch[2].trim()}`;
@@ -78,40 +69,31 @@ export async function parseManuscript(text: string): Promise<{ parts: Part[], ch
         const draftMatch = segment.match(/## Draft\s*\n([\s\S]*?)(?=\n##|$)/i);
         if (draftMatch) {
             content = draftMatch[1].trim();
-        } else {
-            const headerEndIndex = segment.indexOf(headerMatch[0]) + headerMatch[0].length;
-            content = segment.substring(headerEndIndex).trim();
         }
 
         let summary = '';
         const synopsisMatch = segment.match(/## Synopsis\s*\n([\s\S]*?)(?=\n##|$)/i);
         if (synopsisMatch) {
             summary = synopsisMatch[1].trim();
-        } else {
-            const cleanContent = content.replace(/^##.*$/gm, '').trim();
-            const firstPara = cleanContent.split('\n\n')[0];
-            summary = firstPara.length > 200 ? firstPara.substring(0, 200) + '...' : firstPara;
         }
 
         const chapter: Chapter = { id, title, content, summary };
+        chaptersList.push(chapter);
 
-        if (!chaptersList.find(c => c.id === id)) {
-            chaptersList.push(chapter);
-            if (currentPart) {
-                currentPart.chapters.push(chapter);
-            } else {
-                defaultPart.chapters.push(chapter);
-            }
+        if (currentPart) {
+            currentPart.chapters.push(chapter);
+        } else {
+            defaultPart.chapters.push(chapter);
         }
     }
 
-    if (parts.length === 0 && chaptersList.length > 0) {
-        parts.push(defaultPart);
+    if (defaultPart.chapters.length > 0 && !parts.some(p => p.id === 'unassigned')) {
+        parts.unshift(defaultPart);
     }
 
     return {
         parts,
-        chapters: chaptersList.sort((a, b) => a.id - b.id),
+        chapters: chaptersList,
         draftVersion,
         updatedDate
     };
@@ -127,23 +109,12 @@ function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
 
 export async function fetchManuscript(version: ManuscriptVersion = '13plus'): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     try {
-        const rawBase = getStoryRawBaseForManuscript();
-        const manuscriptApi = `${getApiFetchBase()}/api/manuscript/`;
-        const url = rawBase
-            ? `${rawBase}/${MANUSCRIPT_FILES[version]}`
-            : `${manuscriptApi}?edition=${encodeURIComponent(version)}`;
+        const rawBase = getStoryRawBase();
+        const url = `${rawBase}/${MANUSCRIPT_FILES[version]}`;
 
         const response = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
         if (!response.ok) {
             throw new Error(`Failed to load manuscript: ${response.status} ${response.statusText}`);
-        }
-
-        const contentType = response.headers.get('content-type') || '';
-        if (contentType.includes('application/json')) {
-            const payload = await response.json();
-            if (payload?.chapters?.length) {
-                return payload;
-            }
         }
 
         const text = await response.text();

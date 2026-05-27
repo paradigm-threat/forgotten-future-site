@@ -1,9 +1,19 @@
+import { buildOptimizedAssetUrl, inferRepoFromAbsoluteUrl } from '@/lib/relayOptimizedAssetUrl';
+
 export const isDir = (val: any) => val !== null && typeof val === 'object' && '_count' in val;
 export const isImage = (path: string) => /\.(jpg|jpeg|png|gif|svg|webp)$/i.test(path);
 export const isVideo = (path: string) => /\.(mp4|webm|ogg)$/i.test(path);
 
+/**
+ * Relay-optimized image URL for story/teaser assets.
+ * Pass repo-relative path or absolute mirror URL from getStoryAssetUrl().
+ */
 export const getImageUrl = (url: string, width: number = 800) => {
-    return `/api/image?path=${encodeURIComponent(url)}&w=${width}`;
+    if (url.startsWith('http')) {
+        const repo = inferRepoFromAbsoluteUrl(url) ?? 'story';
+        return buildOptimizedAssetUrl(url, width, repo);
+    }
+    return buildOptimizedAssetUrl(url, width, 'story');
 };
 
 export const formatSlug = (slug: string | string[] | undefined): string[] => {
@@ -18,15 +28,11 @@ export const getBrowserLink = (path: string = '') => {
     return `/browser/${path}`;
 };
 
-/**
- * Recursively collects all image paths from a FileTree.
- */
 export function getAllImages(tree: any, basePath: string = '', recursive: boolean = true): string[] {
     let images: string[] = [];
     if (!tree || typeof tree !== 'object') return images;
 
     for (const key in tree) {
-        // Skip metadata keys
         if (key.startsWith('_')) continue;
 
         const item = tree[key];

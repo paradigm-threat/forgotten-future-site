@@ -1,25 +1,13 @@
 'use client';
 
-import { SessionProvider } from "next-auth/react";
-import { ThemeProvider } from "next-themes";
-import React from "react";
+import { ThemeProvider } from 'next-themes';
+import React from 'react';
 
+/** Static site only — no NextAuth SessionProvider (no /api/auth). */
 export function Providers({ children }: { children: React.ReactNode }) {
-    const isStatic = process.env.NEXT_PUBLIC_IS_STATIC === 'true';
-
-    const content = (
+    return (
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
         </ThemeProvider>
-    );
-
-    if (isStatic) {
-        return content;
-    }
-
-    return (
-        <SessionProvider>
-            {content}
-        </SessionProvider>
     );
 }

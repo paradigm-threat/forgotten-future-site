@@ -3,6 +3,7 @@ import '@testing-library/cypress/add-commands';
 
 // Mock API responses globally
 beforeEach(() => {
+  // Comments are GitLab/mailto — no API
   cy.intercept('POST', '/api/comments/submit', {
     statusCode: 200,
     body: {
@@ -14,6 +15,7 @@ beforeEach(() => {
 
 // Custom command to mock comment API
 Cypress.Commands.add('mockCommentApi', () => {
+  // Comments are GitLab/mailto — no API
   cy.intercept('POST', '/api/comments/submit', {
     statusCode: 200,
     body: {

@@ -1,4 +1,4 @@
-1f92bc4 fix: same-origin API base, UTC commit times, apex→www redirect
+5e02a7a fix: same-origin API base, UTC commit times, apex→www redirect
 ad796fa chore: sync git-history.json after pre-commit
 66b3c95 chore: use published GitLab Pages URLs for ff-story and ff-teaser
 374f841 chore: sync git-history.json

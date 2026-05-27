@@ -69,6 +69,8 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Fetch repo status for build
+        run: node scripts/fetch-git-history.mjs
       - name: Remove API routes for static build
         run: rm -rf app/api
       - name: Build with Next.js
@@ -76,6 +78,8 @@ jobs:
         env:
           NEXT_PUBLIC_IS_STATIC: true
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_STORY_RAW_BASE: https://ff-story-6a84a5.gitlab.io
+          NEXT_PUBLIC_TEASER_RAW_BASE: https://ff-teaser-12140e.gitlab.io
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

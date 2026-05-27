@@ -1,17 +1,44 @@
-export default function imageLoader({ src, width, quality }: { src: string, width: number, quality?: number }) {
-    // If it's already a full URL and not to a whitelisted domain, we might just return it
-    // But we want to optimize even external images if they are whitelisted
+import { buildOptimizedAssetUrl, inferRepoFromAbsoluteUrl } from '@/lib/relayOptimizedAssetUrl';
 
-    // For local images, src will be something like /media/teaser/hero_1.png
-    // We want to route this through our custom API
+const prefixPath = (path: string) => {
+    const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    return `${prefix}${path.startsWith('/') ? path : `/${path}`}`;
+};
 
+/**
+ * next/image loader: site-local public assets are static; story/teaser remotes use Relay ?w=.
+ */
+export default function imageLoader({
+    src,
+    width,
+    quality,
+}: {
+    src: string;
+    width: number;
+    quality?: number;
+}) {
     if (src.startsWith('data:')) {
         return src;
     }
 
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
-    const apiPath = `${basePath}/api/image`.replace(/\/+/g, '/');
+    if (src.startsWith('http')) {
+        const repo = inferRepoFromAbsoluteUrl(src);
+        if (repo) {
+            return buildOptimizedAssetUrl(src, width, repo);
+        }
+        return src;
+    }
 
-    // Use the custom API
-    return `${apiPath}?path=${encodeURIComponent(src)}&w=${width}${quality ? `&q=${quality}` : ''}`;
+    const normalized = src.startsWith('/') ? src : `/${src}`;
+    const isSiteLocal =
+        normalized.startsWith('/media/') ||
+        normalized.startsWith('/og-image') ||
+        normalized.startsWith('/favicon') ||
+        normalized.startsWith('/apple-icon');
+
+    if (isSiteLocal) {
+        return prefixPath(normalized);
+    }
+
+    return buildOptimizedAssetUrl(normalized, width, 'story');
 }
