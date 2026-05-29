@@ -8,5 +8,5 @@ export const DEFAULT_FF_STORY_PAGES_ORIGIN = 'https://ff-story-6a84a5.gitlab.io'
 export const DEFAULT_FF_TEASER_PAGES_ORIGIN = 'https://ff-teaser-12140e.gitlab.io'
 
 /** Example Relay mirrors (set in production env). */
-export const EXAMPLE_FF_STORY_RELAY_ORIGIN = 'https://ff-story.atlanta3.relaygateway.net'
-export const EXAMPLE_FF_TEASER_RELAY_ORIGIN = 'https://ff-teaser.atlanta3.relaygateway.net'
+export const EXAMPLE_FF_STORY_RELAY_ORIGIN = 'https://ff-story.atlanta2.relaygateway.net'
+export const EXAMPLE_FF_TEASER_RELAY_ORIGIN = 'https://ff-teaser.atlanta2.relaygateway.net'

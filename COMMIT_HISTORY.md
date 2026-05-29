@@ -1,3 +1,4 @@
+413bf6c feat: static export with Relay mirrors, remove Vercel API routes
 5e02a7a fix: same-origin API base, UTC commit times, apex→www redirect
 ad796fa chore: sync git-history.json after pre-commit
 66b3c95 chore: use published GitLab Pages URLs for ff-story and ff-teaser
