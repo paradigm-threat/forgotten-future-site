@@ -7,6 +7,6 @@
 export const DEFAULT_FF_STORY_PAGES_ORIGIN = 'https://ff-story-6a84a5.gitlab.io'
 export const DEFAULT_FF_TEASER_PAGES_ORIGIN = 'https://ff-teaser-12140e.gitlab.io'
 
-/** Example Relay mirrors (set in production env). */
-export const EXAMPLE_FF_STORY_RELAY_ORIGIN = 'https://ff-story.atlanta2.relaygateway.net'
-export const EXAMPLE_FF_TEASER_RELAY_ORIGIN = 'https://ff-teaser.atlanta2.relaygateway.net'
+/** Current fleet mirrors (ops/fleet.json: iad1 / ord1 / hkg1). ord1 is the live publisher. */
+export const EXAMPLE_FF_STORY_RELAY_ORIGIN = 'https://ff-story.ord1.relaygateway.net'
+export const EXAMPLE_FF_TEASER_RELAY_ORIGIN = 'https://ff-teaser.ord1.relaygateway.net'

@@ -12,7 +12,7 @@ variables:
   # GitLab Pages fallback; override in CI/CD with Relay mirrors when fleet is live.
   FF_STORY_PAGES_URL: "https://ff-story-6a84a5.gitlab.io"
   FF_TEASER_PAGES_URL: "https://ff-teaser-12140e.gitlab.io"
-  # Example Relay: https://ff-story.atlanta2.relaygateway.net
+  # Example Relay: https://ff-story.ord1.relaygateway.net
 
 cache:
   key:

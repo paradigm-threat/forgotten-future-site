@@ -32,4 +32,4 @@ GitLab CI runs `fetch-git-history.mjs` before build and removes `app/api`.
 
 1. Push ff-story / ff-teaser with Relay hooks to fleet.
 2. Set CI/CD variables `FF_STORY_PAGES_URL` / `FF_TEASER_PAGES_URL` to Relay hostnames.
-3. Verify: `curl -sSI 'https://ff-story.<node>.relaygateway.net/<path>.png?w=400'` → `image/webp`.
+3. Verify: `curl -sSI 'https://ff-story.ord1.relaygateway.net/<path>.png?w=400'` → `image/webp`.
