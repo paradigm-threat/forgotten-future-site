@@ -1,4 +1,5 @@
-import { getBrowserEndpoint } from './storyBrowser';
+import { fetchFirstOk } from './fetchFirstOk';
+import { getStoryBaseUrlList } from './urlListEnv';
 
 export interface FileMetadata {
     _title?: string;
@@ -20,21 +21,22 @@ export async function getStoryIndex(): Promise<FileTree> {
     }
 
     const cacheBuster = Math.floor(now / 60000);
-    const indexEndpoint = getBrowserEndpoint();
-    const indexUrl = `${indexEndpoint}${indexEndpoint.includes('?') ? '&' : '?'}v=${cacheBuster}`;
-    const res = await fetch(indexUrl);
-    if (!res.ok) {
+    const indexUrls = getStoryBaseUrlList().map((base) => `${base}/index.json?v=${cacheBuster}`);
+    const fetched = await fetchFirstOk(indexUrls);
+    if (!fetched) {
         throw new Error('Failed to fetch story index');
     }
-    cachedStoryIndex = await res.json();
+    cachedStoryIndex = JSON.parse(fetched.text);
     lastFetchTime = now;
     return cachedStoryIndex!;
 }
 
 export async function getStoryFile(path: string): Promise<string> {
-    const res = await fetch(getBrowserEndpoint(path));
-    if (!res.ok) {
+    const rel = path.replace(/^\/+/, '');
+    const urls = getStoryBaseUrlList().map((base) => `${base}/${rel}`);
+    const fetched = await fetchFirstOk(urls);
+    if (!fetched) {
         throw new Error(`Failed to fetch file: ${path}`);
     }
-    return res.text();
+    return fetched.text;
 }

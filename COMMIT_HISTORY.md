@@ -1,3 +1,4 @@
+1ee9032 chore: use atlanta2 only for Relay story/teaser and Piper mirrors
 413bf6c feat: static export with Relay mirrors, remove Vercel API routes
 5e02a7a fix: same-origin API base, UTC commit times, apex→www redirect
 ad796fa chore: sync git-history.json after pre-commit

@@ -1,4 +1,5 @@
-import { getStoryRawBase } from '@/lib/storyBrowser';
+import { fetchFirstOk } from '@/lib/fetchFirstOk';
+import { getStoryBaseUrlList } from '@/lib/urlListEnv';
 
 export interface Part {
     id: string; // generated from title
@@ -99,26 +100,29 @@ export async function parseManuscript(text: string): Promise<{ parts: Part[], ch
     };
 }
 
-const FETCH_TIMEOUT_MS = 15000;
+const FETCH_TIMEOUT_MS = 5000;
 
-function fetchWithTimeout(url: string, timeoutMs: number): Promise<Response> {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
-    return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timeoutId));
+function localManuscriptUrls(version: ManuscriptVersion): string[] {
+    const prefix = (process.env.NEXT_PUBLIC_BASE_PATH || '').replace(/\/$/, '');
+    const file = MANUSCRIPT_FILES[version];
+    const urls = [`${prefix}/${file}`];
+    if (version === 'youngadult') {
+        urls.push(`${prefix}/manuscript/manuscript_youngadult.md`);
+    } else {
+        urls.push(`${prefix}/manuscript/manuscript_13plus.md`);
+    }
+    return urls;
 }
 
 export async function fetchManuscript(version: ManuscriptVersion = '13plus'): Promise<{ parts: Part[], chapters: Chapter[], draftVersion?: string, updatedDate?: string }> {
     try {
-        const rawBase = getStoryRawBase();
-        const url = `${rawBase}/${MANUSCRIPT_FILES[version]}`;
-
-        const response = await fetchWithTimeout(url, FETCH_TIMEOUT_MS);
-        if (!response.ok) {
-            throw new Error(`Failed to load manuscript: ${response.status} ${response.statusText}`);
+        const remoteUrls = getStoryBaseUrlList().map((base) => `${base}/${MANUSCRIPT_FILES[version]}`);
+        const fetched = await fetchFirstOk([...remoteUrls, ...localManuscriptUrls(version)], FETCH_TIMEOUT_MS);
+        if (!fetched) {
+            throw new Error('Failed to load manuscript from all mirrors');
         }
 
-        const text = await response.text();
-        return parseManuscript(text);
+        return parseManuscript(fetched.text);
     } catch (error) {
         console.error(`[Manuscript] Error:`, error);
         return { parts: [], chapters: [] };

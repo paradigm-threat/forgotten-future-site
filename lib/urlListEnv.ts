@@ -41,8 +41,16 @@ function teaserEnvRaw(): string | undefined {
   )
 }
 
+function withFallbackOrigin(origins: string[], fallback: string): string[] {
+  const normalized = normalizeOrigin(fallback)
+  return origins.includes(normalized) ? origins : [...origins, normalized]
+}
+
 export function getStoryBaseUrlList(): string[] {
-  return parseUrlList(storyEnvRaw(), DEFAULT_FF_STORY_PAGES_ORIGIN)
+  return withFallbackOrigin(
+    parseUrlList(storyEnvRaw(), DEFAULT_FF_STORY_PAGES_ORIGIN),
+    DEFAULT_FF_STORY_PAGES_ORIGIN,
+  )
 }
 
 export function getPrimaryStoryBaseUrl(): string {
@@ -50,7 +58,10 @@ export function getPrimaryStoryBaseUrl(): string {
 }
 
 export function getTeaserBaseUrlList(): string[] {
-  return parseUrlList(teaserEnvRaw(), DEFAULT_FF_TEASER_PAGES_ORIGIN)
+  return withFallbackOrigin(
+    parseUrlList(teaserEnvRaw(), DEFAULT_FF_TEASER_PAGES_ORIGIN),
+    DEFAULT_FF_TEASER_PAGES_ORIGIN,
+  )
 }
 
 export function getPrimaryTeaserBaseUrl(): string {
