@@ -211,7 +211,7 @@ Make a Donation
 
 The Forgotten Future Project needs your contribution. Become an official [sponsor](pages/contribute.html) and help bring this game to life. Also make sure to check out [reward tiers](pages/contribute.html#tiers) available to everyone who contributes!
 
-[Created by CleverTree](https://github.com/clevertree/forgotten-future)
+[Created by Clevertree](https://github.com/clevertree/forgotten-future)
 
 
 ### Make a Donation

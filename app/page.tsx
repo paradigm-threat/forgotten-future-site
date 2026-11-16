@@ -1,14 +1,27 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import HeroSlideshow from './components/HeroSlideshow';
 import PwaRedirect from './components/PwaRedirect';
 import RepoStatus from './components/RepoStatus';
 import gitHistory from '@/lib/git-history.json';
 import { VesselCard } from './components/VesselCard';
+import { pageMetadata } from '@/lib/seo';
 
 const prefixPath = (path: string) => {
     const prefix = process.env.NEXT_PUBLIC_BASE_PATH || '';
     return `${prefix}${path}`;
+};
+
+export const metadata: Metadata = {
+    ...pageMetadata({
+        title: 'Forgotten Future | AI-Driven Sci-Fi Epic',
+        description: 'Explore Forgotten Future, an AI-driven sci-fi narrative experiment. Experience a world shaped by the Great Fry through its novel, imagery, and upcoming game engine.',
+        path: '/',
+    }),
+    title: {
+        absolute: 'Forgotten Future | AI-Driven Sci-Fi Epic',
+    },
 };
 
 export default function Home() {

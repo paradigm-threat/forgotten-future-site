@@ -1,3 +1,4 @@
+a396a78 Point story, teaser, and Piper at the live Relay fleet.
 ca76e43 Fix manuscript outage when Atlanta2 Relay TLS is down.
 1ee9032 chore: use atlanta2 only for Relay story/teaser and Piper mirrors
 413bf6c feat: static export with Relay mirrors, remove Vercel API routes
